@@ -1,31 +1,23 @@
 <?php
 	include ("include/tareas.php");
-    $hostname = 'localhost';
-    $username = 'webbi';
-    $passwd = 'mydatabase';
-    $database = 'feeder';
+   include ("include/sgbd.php");
     
-    $login = $_REQUEST['login'];
-    $password = codificaPasswd($_REQUEST['password']);
-    $email = $_REQUEST['email'];
+    $login = "'".$_REQUEST['login']."'";
+    $password = "'".codificaPasswd($_REQUEST['password'])."'";
+    $email = "'".$_REQUEST['email']."'";
+    $fecha = "'".date("Y-n-j H:i:s")."'";
     
-    try {
-      $dbh = new PDO("mysql:host=$hostname;dbname=$database",$username,$passwd);
-      $sqlinsert = "INSERT INTO users (login, password, email, created_at) VALUES (:l, :p, :e, now())"; 
-      $stmt = $dbh->prepare($sqlinsert);
-      $stmt->bindParam(':l', $login);
-      $stmt->bindParam(':p', $password);
-		$stmt->bindParam(':e', $email);  
-      $stmt->execute(); 
-      // Cerramos la conexion. 
-      $dbh = null;
-      
-      header("Location: misplanetas.php");
-    }	
+    $conn = new Sgbd();
+
+    $res = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
     
-    catch( PDOException $e ) {
-      // tratamiento del error
-      echo "error de conexión: ".$e->GetMessage();
-    }
+    if ($res) {
+    	header("Location: misplanetas.php");
+    } else {
+    	print "Falló la inserción";
+      $vector = error_get_last();
+      foreach($vector as $c=>$v)
+   		echo "El vector con indice $c tiene el valor $v<br/>";
+	 }
 
 ?>
