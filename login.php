@@ -1,4 +1,4 @@
-<? include_once("header.php") ?>
+<? include_once("templates/header.php") ?>
 
 <div id="div_form">
   <form action="checkLogin.php" method="post">
@@ -22,4 +22,4 @@
   </form>
 </div>
 
-<? include_once("footer.php");?>
+<? include_once("templates/footer.php");?>

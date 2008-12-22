@@ -1,4 +1,4 @@
-<? include_once("header.php");?>
+<? include_once("templates/header.php");?>
 
 <form action="ACCION AQUI" method="post">
   <label id="label_planeta" for="planeta">Nombre del planeta</label>
@@ -6,4 +6,4 @@
   <button id="submit" >Enviar</button>
 </form>
 
-<? include_once("footer.php");?>	
+<? include_once("templates/footer.php");?>	
