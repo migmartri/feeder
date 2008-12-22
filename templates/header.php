@@ -12,19 +12,15 @@
         Feeder: Feeds Reader!
       </div>
       <div id="error" class="error">
-        <?
-          if (isset($_SESSION['flash_error'])) {
-            print("<div id='flash' class='error'>");
-            print($_SESSION['flash_error']);
-            print("</div>");
-            $_SESSION['flash_error'] = null;
-          }
-          if (isset($_SESSION['flash_notice'])) {
-            print("<div id='flash' class='notice'>");
-            print($_SESSION['flash_notice']);
-            print("</div>");
-            $_SESSION['flash_notice'] = null;
-          }
+      <?
+      foreach(Array("error", "notice") as $type){
+        if (isset($_SESSION["flash_$type"])) {
+          print("<div id='flash' class='".$type."'>");
+          print($_SESSION["flash_$type"]);
+          print("</div>");
+          $_SESSION["flash_$type"] = null;
+        }
+      }
         ?>		
       </div>
       <div id='content'>
