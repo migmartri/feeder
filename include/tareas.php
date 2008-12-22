@@ -2,7 +2,7 @@
 
 function codificaPasswd($pass) {
 	
-	return sha1($pass);
+  return sha1($pass);
 
 }
 ?>
