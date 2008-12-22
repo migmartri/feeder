@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `feeds`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `feeds` (
-  `id` smallint(6) NOT NULL,
+  `id` smallint(6) NOT NULL auto_increment,
   `url` varchar(255) default NULL,
   `subscriptions_count` int(11) default '0',
   PRIMARY KEY  (`id`)
@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `planets`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `planets` (
-  `id` smallint(6) NOT NULL,
+  `id` smallint(6) NOT NULL auto_increment,
   `name` varchar(255) default NULL,
   `user_id` smallint(6) NOT NULL,
   PRIMARY KEY  (`id`),
@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS `posts`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `posts` (
-  `id` smallint(6) NOT NULL,
+  `id` smallint(6) NOT NULL auto_increment,
   `feed_id` smallint(6) NOT NULL,
   `title` varchar(255) default NULL,
   `content` text,
@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `profiles`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `profiles` (
-  `id` smallint(6) NOT NULL,
+  `id` smallint(6) NOT NULL auto_increment,
   `name` varchar(255) default NULL,
   `surname` varchar(255) default NULL,
   `phone` int(11) default NULL,
@@ -109,7 +109,7 @@ DROP TABLE IF EXISTS `users`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `users` (
-  `id` smallint(6) NOT NULL,
+  `id` smallint(6) NOT NULL auto_increment,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -127,4 +127,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2008-12-19 13:02:02
+-- Dump completed on 2008-12-22 17:51:06
