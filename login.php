@@ -20,5 +20,6 @@
       <button id="submit">¡Entrar!</button>
     </div>
   </form>
+</div>
 
 <? include_once("footer.php");?>
