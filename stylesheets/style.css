@@ -21,3 +21,23 @@ body{
   border-top: 2px solid #2D2D2D;
   text-align: center;
 }
+
+/*Flash Messages*/
+#flash{
+  padding: .8em;
+  margin: 1em;
+  border: 2px solid #ddd;
+  text-align: center;
+}
+
+#flash.notice {
+  background:#E6EFC2;
+  color:#514721;
+  border-color:#FFD324;
+}
+
+#flash.error{
+  background:#FBE3E4;
+  color:#8a1f11;
+  border-color:#FBC2C4;
+}

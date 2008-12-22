@@ -11,9 +11,10 @@
    $result = $conn->selectFromDB("users", array("login","password"), array("login", "'".$login."'"));      
    
    if ($password == $result[0][password]) {
+		$_SESSION['flash_notice'] = "Bienvenido!";
 		header("Location: /myPlanets");
    } else {
-		$_SESSION['error_login'] = "No tiene cuenta!";
-		header("Location: /index");      
+		$_SESSION['flash_error'] = "Nombre de usuario o contraseña incorrectos";
+		header("Location: /login");      
    } 
 ?>

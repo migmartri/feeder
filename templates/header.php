@@ -13,8 +13,17 @@
       </div>
       <div id="error" class="error">
         <?
-          if (strlen($_SESSION['error_login']) !=0) {
-            print($_SESSION['error_login']);
+          if (isset($_SESSION['flash_error'])) {
+            print("<div id='flash' class='error'>");
+            print($_SESSION['flash_error']);
+            print("</div>");
+            $_SESSION['flash_error'] = null;
+          }
+          if (isset($_SESSION['flash_notice'])) {
+            print("<div id='flash' class='notice'>");
+            print($_SESSION['flash_notice']);
+            print("</div>");
+            $_SESSION['flash_notice'] = null;
           }
         ?>		
       </div>
