@@ -1,7 +1,7 @@
 <? session_start(); ?>
 <html>
   <head>
-    <title>Feeder! -> Registro</title>
+    <title>Feeder!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css"  href="estilo.css" />
     <script type="text/javascript" src="functions/validaRegistro.js"></script> <!-- no lo uso aun -->
