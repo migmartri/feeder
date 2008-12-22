@@ -4,7 +4,7 @@
   nickel
 </div>
 <div id="div_planetas">
-  Aun no tienes ningún planeta. <a href="crearplaneta.php">Crear el primero.</a>
+  Aun no tienes ningún planeta. <a href="newPlanet.php">Crear el primero.</a>
 </div>
 
 <? include_once("templates/footer.php"); ?>

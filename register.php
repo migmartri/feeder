@@ -1,7 +1,7 @@
 <? include_once("templates/header.php") ?>
 
 <div id="div_form">
-  <form action="checkRegister.php" method="post">
+  <form action="dataProcess/createUser.php" method="post">
     <div id="div_datos_personales">
       <fieldset>
         <legend>Datos personales</legend>

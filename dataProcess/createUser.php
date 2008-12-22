@@ -1,6 +1,6 @@
 <?php
-	include ("include/tareas.php");
-   include ("include/sgbd.php");
+	include ("../lib/tareas.php");
+   include ("../lib/sgbd.php");
     
     $login = "'".$_REQUEST['login']."'";
     $password = "'".codificaPasswd($_REQUEST['password'])."'";
@@ -12,7 +12,7 @@
     $res = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
     
     if ($res) {
-    	header("Location: misplanetas.php");
+    	header("Location: /myPlanets");
     } else {
     	print "Falló la inserción";
       $vector = error_get_last();

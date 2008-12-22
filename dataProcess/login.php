@@ -1,7 +1,7 @@
 <?php
 	
-	include ("include/tareas.php");
-	include ("include/sgbd.php");
+	include ("../lib/tareas.php");
+	include ("../lib/sgbd.php");
 	session_start();
        
    $login = $_REQUEST['login'];
@@ -11,9 +11,9 @@
    $result = $conn->selectFromDB("users", array("login","password"), array("login", "'".$login."'"));      
    
    if ($password == $result[0][password]) {
-		header("Location: misplanetas.php");
+		header("Location: /myPlanets");
    } else {
 		$_SESSION['error_login'] = "No tiene cuenta!";
-		header("Location: index.php");      
+		header("Location: /index");      
    } 
 ?>
