@@ -11,5 +11,11 @@
       <img src="images/feeder-logo.png" alt="feeder"><br/>
       Feeder: Feeds Reader!
     </div>
-    <div id="error" class="error"></div>
-
+    <div id="error" class="error">
+      <?
+        if (strlen($_SESSION['error_login']) !=0) {
+          print($_SESSION['error_login']);
+        }
+      ?>		
+    </div>
+    <div id='content'>
