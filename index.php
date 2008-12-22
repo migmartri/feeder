@@ -1,4 +1,5 @@
-<? include_once("header.php"); ?>
+<? include_once("header.php"); 
+session_start(); ?>
 <div id="error">
 			<?if (strlen($_SESSION['error_login']) !=0) {
 				print($_SESSION['error_login']);
