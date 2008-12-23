@@ -1,6 +1,6 @@
 <?php
 include_once("lib/sgbd.php");
-include ("lib/tareas.php");
+include ("lib/util.php");
 session_start(); 
   
   $login = $_SESSION['login'];
