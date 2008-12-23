@@ -1,8 +1,8 @@
 <?php
-include_once("include/sgbd.php");
+include_once("lib/sgbd.php");
 session_start(); 
 
-	include ("include/tareas.php");
+	include ("lib/tareas.php");
   
   $login = $_SESSION['login'];
   
@@ -24,7 +24,7 @@ session_start();
   if ($_REQUEST[flickr] != $_SESSION[flickr2]) 
      array_push($res, "flickr", $_REQUEST[flickr]);
   if ($_REQUEST[twitter] != $_SESSION[twitter2]) 
-     array_push($res, "twitter", $_REQUES[twitter]);
+     array_push($res, "twitter", $_REQUEST[twitter]);
   if ($_REQUEST[web] != $_SESSION[web2] )
      array_push($res, "web", $_REQUEST[web]);
      
