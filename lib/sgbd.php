@@ -1,10 +1,12 @@
 <?php
-class Sgbd {
+include_once(dirname(__FILE__) . "/../config/config.inc");
 
-    function connectDB() {
+class Sgbd {
+			
+	  function connectDB() {
     	$hostname = 'localhost';
-    	$username = 'webbi';
-    	$passwd = 'mydatabase';
+    	$username = user_db;
+    	$passwd   = pass_db;
     	$database = 'feeder';
     	
     	try {
