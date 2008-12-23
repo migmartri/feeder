@@ -3,7 +3,7 @@
 <div id="div_login">
   nickel
 </div>
-<div id="div_planetas">
+<div id="div_planets">
   Aun no tienes ningún planeta. <a href="newPlanet.php">Crear el primero.</a>
 </div>
 
