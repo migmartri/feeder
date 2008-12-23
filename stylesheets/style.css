@@ -1,43 +1,98 @@
-body{
+body {
   background-color: #2D2D2D;
-  font-size: 12px;
+	font-family: Tahoma, Verdana, sans-serif;
+  font-size: 14px;
 }
 
-#container{
-  width: 800px;
+.clear {
+	clear:both;
+}
+
+
+#container {
+  background-color: #FFFFFF;
   margin: 5px auto;
   padding: 5px;
-  background-color: #FFFFFF;
-}
-#content{
-  min-height: 400px;
-}
-#header{
-  height: 50px;
-  border-bottom: 2px solid #2D2D2D;
+  width: 800px;
 }
 
-#footer{
+#content {
+  min-height: 400px;
+}
+
+#header {
+  border-bottom: 2px solid #2D2D2D;
+  height: 80px;
+	margin: 0px 15px 0px 15px;
+}
+
+#header span.title {
+	font-size: 2.5em;
+}
+
+#header span.slogan {
+	letter-spacing: 0.3em;
+	margin-left: 3px;
+}
+
+#content {
+	width: 100%;
+}
+
+
+
+/* CONTENT - <HOME> */
+#content #home {
+	float:left;
+}
+
+#content #home #image {
+	float:left;
+	margin: 15px 0px 15px 25px;
+}
+
+#content #home #text {
+	float: left;
+	margin: 100px 0px 0px 35px;
+}
+
+#content #home #text span.big {
+	font-size: 16px;
+}
+
+#content #home #text span.medium {
+	font-size: 15px;
+}
+
+#content #home #text a {
+	font-size: 2em;
+}
+/* CONTENT - </HOME> */
+
+
+
+#footer {
   border-top: 2px solid #2D2D2D;
+	margin: 0px 15px 0px 15px;
   text-align: center;
 }
 
 /*Flash Messages*/
-#flash{
-  padding: .8em;
-  margin: 1em;
+#flash {
   border: 2px solid #ddd;
+  margin: 1em;
   text-align: center;
+  padding: .8em;
 }
 
 #flash.notice {
   background:#E6EFC2;
-  color:#514721;
   border-color:#FFD324;
+  color:#514721;
 }
 
-#flash.error{
+#flash.error {
   background:#FBE3E4;
-  color:#8a1f11;
   border-color:#FBC2C4;
+  color:#8a1f11;
 }

@@ -1,6 +1,6 @@
       </div> <!--End of content div-->
       <div id="footer">
-        <p>Creative Commons | Compartir Igual.</p>
+        <p>GPL license | Si eres legal, comparte.</p>
       </div>
     </div> <!-- End of container -->
   </body>

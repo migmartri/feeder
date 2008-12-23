@@ -1,6 +1,25 @@
 <? $title = "Inicio" ?>
 <? include_once("templates/header.php"); ?>
 
-<p>Bienvenido a Feeder, un lector de noticias social. <a href="register">Registrate</a>, crea tu planeta y comparte noticias con tus amigos.</p>
-
+<div id="home">
+	<div id="image">
+		<img src="images/feed.png">
+	</div>
+	<div id="text">
+		<p>
+			<span class="medium">
+				Bienvenido a Feeder, un lector de noticias social. 
+			</span>
+		</p>
+		<p style="text-align:center">
+			<a href="register">Registrate</a><br/>
+			<span class="big">
+				<u>crea</u> tu planeta
+				<br/>
+				<u>comparte</u> noticias con tus amigos
+			</span>
+		</p>
+	</div>
+</div>
+<div class="clear"></div>
 <? include_once("templates/footer.php"); ?>
