@@ -1,6 +1,6 @@
 <?php
-include_once("lib/sgbd.php");
-include ("lib/tareas.php");
+include_once("../lib/sgbd.php");
+include ("../lib/tareas.php");
 session_start(); 
   
   $login = $_SESSION['login'];
@@ -29,7 +29,7 @@ session_start();
      
   $result = $conn->updateTableFromDB("profiles", $res, array("user_id", "'".$id."'"));
      if ($result) {
-        header("Location: misplanetas.php");
+        header("Location: ../myPlanets.php");
     } else {
         print "Falló la inserción";
     }
