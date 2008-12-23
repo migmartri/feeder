@@ -1,7 +1,10 @@
 <? session_start(); ?>
 <html>
   <head>
-    <title>Feeder!</title>
+		<title>
+			Feeder!
+			<? if(isset($title)){ echo ' - ' . $title; } ?>
+		</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css"  href="stylesheets/style.css" />
     <script type="text/javascript" src="javascripts/validations.js"></script> <!-- no lo uso aun -->
