@@ -51,5 +51,36 @@ class Sgbd {
     	self::closeConnection();
     	return $result;
     }
+    
+    function updateTableFromDB($table, $fields, $condition) {
+        $dbh = self::connectDB();
+        $changes = self::joinChanges($fields);
+        $string_changes = implode (",", $changes);
+        $string_condition = implode("=", $condition);
+        
+        $sqlupdate = "UPDATE $table SET $string_changes WHERE $string_condition"; 
+        $stmt = $dbh->prepare($sqlupdate);
+        $res = $stmt->execute();
+        self::closeConnection();
+        return $res;
+    }
+    
+    function joinChanges($f) { /* Implementación para agrupar condiciones de consulta */
+        $tam = count($f);
+        $res = array();
+        
+        if ($tam != 0) {
+            for ($i = 0; $i< $tam; $i++) {
+                if ($i == $tam-2) {
+                  $aux = $f[$i]." = '".$f[$i+1]."'";
+                } else {
+                  $aux = $f[$i]." = '".$f[$i+1]."'";
+                }
+               array_push($res, $aux);
+               $i++;
+            }
+        }
+        return $res;
+    }
 }
 ?>
