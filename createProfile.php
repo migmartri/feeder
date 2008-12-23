@@ -2,7 +2,7 @@
 session_start();
 include ("templates/header.php");
 
-$_SESSION[login] = "nordri";
+$_SESSION['login'] = "nordri";
 
 ?>
       <form action="controllers/insertProfile.php" method="post">
