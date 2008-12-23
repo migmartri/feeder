@@ -13,7 +13,7 @@ session_start();
   $result = $conn->selectFromDB("profiles", array("name", "surname", "phone", "city", "flickr", "twitter", "web"), array("user_id", "'".$id."'"));
 
   if (count($result) == 0) {
-    print "Sin registros";
+    print "<p>No tienes un perfil. <a href=\"createProfile.php\">Crear</a> uno ahora.";
   } else {
     echo "<div id=\"profile\"><p>";
     echo "<label>Nombre: </label>".$result[0][name]."<br/>";
