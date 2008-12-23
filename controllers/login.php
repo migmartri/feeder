@@ -12,9 +12,9 @@
    
    if ($password == $result[0][password]) {
 		$_SESSION['flash_notice'] = "Bienvenido!";
-		header("Location: /myPlanets");
+		header("Location: ../myPlanets.php");
    } else {
 		$_SESSION['flash_error'] = "Nombre de usuario o contraseña incorrectos";
-		header("Location: /login");      
+		header("Location: ../login.php");      
    } 
 ?>
