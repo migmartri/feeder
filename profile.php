@@ -1,9 +1,9 @@
 <?php
-include_once("header.php");
+include_once("templates/header.php");
 session_start(); 
 
-	include ("include/tareas.php");
-  include ("include/sgbd.php");
+	include ("lib/tareas.php");
+  include ("lib/sgbd.php");
   
   $login = $_SESSION['login'];
   
@@ -34,5 +34,5 @@ session_start();
     $_SESSION[twitter2] = $result[0][twitter];
     $_SESSION[web2] = $result[0][web];
   }
-	include_once("footer.php");
+	include_once("templates/footer.php");
 ?>
