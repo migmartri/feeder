@@ -1,8 +1,7 @@
 <?php
 include_once("lib/sgbd.php");
+include ("lib/tareas.php");
 session_start(); 
-
-	include ("lib/tareas.php");
   
   $login = $_SESSION['login'];
   
