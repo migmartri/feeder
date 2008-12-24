@@ -23,7 +23,7 @@ session_start();
     echo "<label>Flickr: </label>".$result[0][flickr]."<br/>";
     echo "<label>Twitter: </label>".$result[0][twitter]."<br/>";
     echo "<label>Home Page: </label>".$result[0][web]."<br/></p>";
-    echo "<p><a href=\"editprofile.php\">Editar!</a></p>";
+    echo "<p><a href=\"editProfile.php\">Editar!</a></p>";
     echo "</div>";
     
     $_SESSION[name2] = $result[0][name];
