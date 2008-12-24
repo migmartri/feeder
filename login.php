@@ -1,4 +1,6 @@
-<? include_once("templates/header.php") ?>
+<? include_once("templates/header.php"); 
+session_start(); ?>
+
 
 <div id="div_form">
   <form action="controllers/login.php" method="post">
