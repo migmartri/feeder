@@ -29,6 +29,15 @@
 						$_SESSION["flash_$type"] = null;
 					}
 				}
-      ?>		
+      ?>
       </div>
+      <div id="toolbar">
+      <?
+        if ($_COOKIE['login'] != "") {
+          print("<a href=\"controllers/logout.php\">Cerrar sesión.</a>");
+        } else {
+          print("<a href=\"login.php\">Iniciar sesión.</a>");
+        }
+      ?>
+    </div>
       <div id='content'>
