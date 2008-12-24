@@ -12,7 +12,7 @@
    
    if ($password == $result[0][password]) {
 		$_SESSION['flash_notice'] = "Bienvenido!";
-    setcookie("login", $login, time()+36000, "/");
+    setcookie("login", $login, 0, "/");
 		header("Location: ../myPlanets.php");
    } else {
 		$_SESSION['flash_error'] = "Nombre de usuario o contraseña incorrectos";
