@@ -1,5 +1,7 @@
 <? include_once("templates/header.php"); 
-session_start(); ?>
+session_start(); 
+
+?>
 
 
 <div id="div_form">
