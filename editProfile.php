@@ -11,7 +11,7 @@ $twitter = $_SESSION[twitter2];
 $city = $_SESSION[city2];
 $web = $_SESSION[web2];
 ?>
-      <form action="updateProfile.php" method="post">
+      <form action="controllers/updateProfile.php" method="post">
 	  
 
         <div id="div_datos_personales">

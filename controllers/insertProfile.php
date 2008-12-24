@@ -3,7 +3,7 @@
   include ("../lib/sgbd.php");
   session_start();
   
-  $login = "admin"; //$_SESSION['login'];
+  $login = $_SESSION['login'];
   $conn = new Sgbd();
   $validator = new Utilities();
     
