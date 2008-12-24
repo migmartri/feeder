@@ -4,7 +4,7 @@
   session_start();
     
     $validator = new Utilities();
-    $con = new Sgbd();
+    $conn = new Sgbd();
     
     $login = "'".$_REQUEST['login']."'";
     $password = "'".$validator->codificaPasswd($_REQUEST['password'])."'";
@@ -14,15 +14,15 @@
     $errors = array();
     $valid = 1;
     
-    if ($validator->isEmpty($login)) {
+    if (!$validator->isEmpty($login)) {
       $valid = 0;
       array_push($errors, "No puede dejar el login en blanco");
     }
-    if ($validator->isEmpty($password)) {
+    if (!$validator->isEmpty($password)) {
       $valid = 0;
       array_push($errors, "No puede dejar la contraseña en blanco");
     }
-    if ($validator->isEmpty($email)) {
+    if (!$validator->isEmpty($email)) {
       $valid = 0;
       array_push($errors, "No puede dejar el email en blanco");
     }
@@ -41,8 +41,10 @@
         echo "El vector con indice $c tiene el valor $v<br/>";
       }
     } else {
-      $_SESSION['flash_error'] = implode(", ", $errors);
-      header("Location: ../register.php");
+      //$_SESSION['flash_error'] = implode(", ", $errors);
+      //header("Location: ../register.php");
+      print $valid." ".$login." ".$email."<br/>";
+      print count ($login);
     }
 
 ?>
