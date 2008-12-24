@@ -12,7 +12,7 @@
 			</span>
 		</p>
 		<p style="text-align:center">
-			<a href="register.php">Registrate</a><br/>
+			<a href="register.php">Registrate</a> o <a href="login.php">Inicia sesión</a><br/>
 			<span class="big">
 				<u>crea</u> tu planeta
 				<br/>
