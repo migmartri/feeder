@@ -5,7 +5,7 @@ session_start();
 	include ("lib/util.php");
   include ("lib/sgbd.php");
   
-  $login = $_SESSION['login'];
+  $login = $_COOKIE['login'];
   
   $conn = new Sgbd();
   $login_id = $conn->selectFromDB("users", array("id"), array("login", "'".$login."'"));
