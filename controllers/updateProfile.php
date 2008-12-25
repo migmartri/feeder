@@ -3,7 +3,7 @@ include_once("../lib/sgbd.php");
 include ("../lib/util.php");
 session_start(); 
   
-  $login = $_SESSION['login'];
+  $login = $_COOKIE['login'];
   
   $conn = new Sgbd();
   $login_id = $conn->selectFromDB("users", array("id"), array("login", "'".$login."'"));
