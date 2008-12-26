@@ -1,6 +1,11 @@
 <?php
+include_once(dirname(__FILE__) . "/sgbd.php");
 
 class Feed {
+	function isBlogCached($blog_url) {
+		connectDB();
+	}
+
 	function getArticles($blog_url) {
 		$ns = array
 		(
