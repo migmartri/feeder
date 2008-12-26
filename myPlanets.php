@@ -1,10 +1,7 @@
 <?
-$login = $_COOKIE['login'];
-if (count($login) == 0) {
-  $_SESSION['flash_error'] = "Sesión inválida";
-  header("Location: index.php");
-}
 include_once("templates/header.php");
+//Filtro de acceso
+loginRequired();
 ?>
 
 <div id="div_login">

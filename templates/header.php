@@ -1,4 +1,6 @@
-<? session_start(); ?>
+<?session_start();
+	include ("lib/util.php");
+?>
 <html>
   <head>
 		<title>
@@ -18,7 +20,7 @@
 				<span class="title"><a href="/index.php">Feeder</a></span><br/>
 				<span class="slogan">Feeds Reader!</span>
       </div>
-      <div id="validation_errors" class="error" style="display:none;">
+        <div id='errors'>
       <?
 				foreach(Array("error", "notice") as $type){
 					if (isset($_SESSION["flash_$type"])) {
