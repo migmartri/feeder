@@ -1,0 +1,4 @@
+<?php
+  define ( 'user_db', 'YOURUSER' );
+	define ( 'pass_db', 'YOURPASS' );
+?>
