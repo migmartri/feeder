@@ -1,7 +1,7 @@
 <?php
-include_once("../lib/sgbd.php");
-include ("../lib/util.php");
-session_start(); 
+  include ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
+  include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
+  session_start(); 
   
   $login = $_COOKIE['login'];
   

@@ -1,6 +1,6 @@
 <?php
-session_start();
-include ("templates/header.php");
+  session_start();
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 
 /* Actualizamos las variables */
 $name = $_SESSION[name2];
@@ -61,4 +61,4 @@ $web = $_SESSION[web2];
         <div id="div_submit">
           <button id="submit">Actualizar!</button>
         </div>
-  <? include ("templates/footer.php"); ?>
+<? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>

@@ -1,5 +1,6 @@
-<? $title = "Inicio" ?>
-<? include_once("templates/header.php"); ?>
+<? $title = "Inicio";
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+?>
 
 <div id="home">
 	<div id="image">
@@ -22,4 +23,4 @@
 	</div>
 </div>
 <div class="clear"></div>
-<? include_once("templates/footer.php"); ?>
+<? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>

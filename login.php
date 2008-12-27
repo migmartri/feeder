@@ -1,5 +1,5 @@
 <?
-  include_once("templates/header.php"); 
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   session_start(); 
 ?>
 
@@ -25,4 +25,4 @@
   </form>
 </div>
 
-<? include_once("templates/footer.php");?>
+<? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>

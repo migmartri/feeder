@@ -1,5 +1,5 @@
 <?session_start();
-	include ("lib/util.php");
+	include ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
 ?>
 <html>
   <head>
@@ -34,7 +34,7 @@
       </div>
       <div id="toolbar">
       <?
-        if ($_COOKIE['login'] != "") {
+        if (isset($_SESSION['user'])) {
           print("<a href=\"controllers/logout.php\">Cerrar sesión.</a>");
         } else {
           print("<a href=\"login.php\">Iniciar sesión.</a>");

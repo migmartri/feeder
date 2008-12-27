@@ -1,8 +1,6 @@
 <?php
-session_start();
-include ("templates/header.php");
-
-$_SESSION['login'] = "nordri";
+  session_start();
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 
 ?>
       <form action="controllers/insertProfile.php" method="post">
@@ -55,4 +53,5 @@ $_SESSION['login'] = "nordri";
         <div id="div_submit">
           <button id="submit">Crear!</button>
         </div>
-  <? include ("templates/footer.php"); ?>
+
+<? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>

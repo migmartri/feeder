@@ -1,6 +1,6 @@
 <?php
-	include ("../lib/util.php");
-  include ("../lib/sgbd.php");
+	include ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
+  include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
   session_start();
     
     $validator = new Utilities();

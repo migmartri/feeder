@@ -34,5 +34,5 @@ session_start();
     $_SESSION[twitter2] = $result[0][twitter];
     $_SESSION[web2] = $result[0][web];
   }
-	include_once("templates/footer.php");
+  include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php");
 ?>
