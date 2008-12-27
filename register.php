@@ -1,7 +1,6 @@
 <? include_once("templates/header.php") ?>
-
 <div id="div_form">
-  <form action="controllers/createUser.php" method="post">
+  <form action="controllers/createUser.php" method="post" onsubmit="return validatesRegister();" id="form">
     <div id="div_datos_personales">
       <fieldset>
         <legend>Datos personales</legend>

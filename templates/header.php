@@ -8,9 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css"  href="stylesheets/style.css" />
 
-		<!-- no lo uso aun -->
 		<script type="text/javascript" src="javascripts/validations.js"></script> 
-		<!-- /no lo uso aun -->
+		<script type="text/javascript" src="javascripts/validations_lib.js"></script> 
 
   </head>
   <body>
@@ -19,7 +18,7 @@
 				<span class="title">Feeder</span><br/>
 				<span class="slogan">Feeds Reader!</span>
       </div>
-      <div id="error" class="error">
+      <div id="validation_errors" class="error" style="display:none;">
       <?
 				foreach(Array("error", "notice") as $type){
 					if (isset($_SESSION["flash_$type"])) {

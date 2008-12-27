@@ -78,7 +78,7 @@ body {
 }
 
 /*Flash Messages*/
-#flash {
+#flash, #validation_errors {
   border: 2px solid #ddd;
   margin: 1em;
   text-align: center;
@@ -91,8 +91,11 @@ body {
   color:#514721;
 }
 
-#flash.error {
+#flash.error, #validation_errors {
   background:#FBE3E4;
   border-color:#FBC2C4;
   color:#8a1f11;
+}
+#validation_errors{
+  text-align: left;
 }
