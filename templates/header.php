@@ -1,4 +1,6 @@
-<?session_start();?>
+<?session_start();
+	include ("lib/util.php");
+?>
 <html>
   <head>
 		<title>

@@ -22,6 +22,8 @@
 
     if(count($errors) == 0) {
         $res = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
+      //Logueamos al usuario
+      $_SESSION['user'] = $res;
       $_SESSION['flash_notice'] = "Usuario creado!";
       header("Location: ../myPlanets.php");
     }else{
