@@ -1,5 +1,6 @@
 /*Validaciones de los distintos formularios
  * haremos uso de validations.js como apoyo*/
+
 var errors;
 //register.php
 function validatesRegister(){
@@ -14,7 +15,10 @@ function validatesRegister(){
 
 //login.php
 function validatesLogin(){
-
+  errors = [];
+  validatesPresenceOf("login", "El nombre de usuario no se puede dejar vacío");
+  validatesPresenceOf("password", "La contraseña no se puede dejar vacía");
+  return showErrors();
 }
 
 

@@ -1,11 +1,10 @@
-<? include_once("templates/header.php"); 
-session_start(); 
-
+<?
+  include_once("templates/header.php"); 
+  session_start(); 
 ?>
 
-
 <div id="div_form">
-  <form action="controllers/login.php" method="post">
+  <form action="controllers/login.php" method="post" onsubmit="return validatesLogin();">
     <div id="div_datos_personales">
       <fieldset>
         <legend>Datos personales</legend>

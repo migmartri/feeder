@@ -15,7 +15,7 @@
   <body>
     <div id="container">
 			<div id="header">
-				<span class="title">Feeder</span><br/>
+				<span class="title"><a href="/index.php">Feeder</a></span><br/>
 				<span class="slogan">Feeds Reader!</span>
       </div>
       <div id="validation_errors" class="error" style="display:none;">

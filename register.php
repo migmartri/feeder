@@ -17,12 +17,12 @@
 
         <div id="div_repassword">  
           <label id="label_repassword" for="repassword">Re-Password:</label>
-          <input id="repassword" name="repassword" type="password" onChange="checkPassword()"/>
+          <input id="repassword" name="repassword" type="password"/>
         </div>
 
         <div id="div_email">  
           <label id="label_email" for="email">Email:</label>
-          <input id="email" name="email" type="text" onChange="checkEmail(this.form.email.value)"/>
+          <input id="email" name="email" type="text"/>
         </div>
       </fieldset>
     </div>
