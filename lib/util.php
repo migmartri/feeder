@@ -64,11 +64,24 @@ function is_valid_email_address($email){
         $addr_spec = "$local_part\\x40$domain";
         return preg_match("!^$addr_spec$!", $email) ? 1 : 0;
     }
+
 //Filtro de acceso, requiere que el usuario esté logueado
 function loginRequired(){
   if(!isset($_SESSION['user'])) {
     $_SESSION['flash_error'] = "Acceso denegado";
     header("Location: ../index.php");
   }
+}
+
+//Valor devuelto de los formularios
+function formValue($field){
+  $values = $_SESSION['form_values'];
+  if($values != '') {
+    $res = $values[$field];
+    if(isset($res)){
+      return $res;
+    }
+  }
+  return '';
 }
 ?>

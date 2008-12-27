@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . "/../config/config.inc");
+include_once($_SERVER["DOCUMENT_ROOT"]."/config/config.inc");
 
 class Sgbd {
 			

@@ -4,4 +4,8 @@
       </div>
     </div> <!-- End of container -->
   </body>
+<? 
+  //Resetear los valores de formularios
+  $_SESSION['form_values'] = null;
+?>
 </html>

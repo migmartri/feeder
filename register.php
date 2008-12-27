@@ -9,7 +9,7 @@
 
         <div id="div_login">
           <label id="label_login" for="login">Login:</label>
-          <input id="login" name="login" type="text"/>
+          <input id="login" name="login" type="text" value="<?=formValue('login')?>"/>
         </div>
 
         <div id="div_password">  
@@ -24,7 +24,7 @@
 
         <div id="div_email">  
           <label id="label_email" for="email">Email:</label>
-          <input id="email" name="email" type="text"/>
+          <input id="email" name="email" type="text" value="<?=formValue('email')?>"/>
         </div>
       </fieldset>
     </div>
