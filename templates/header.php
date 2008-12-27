@@ -1,4 +1,4 @@
-<? session_start(); ?>
+<?session_start();?>
 <html>
   <head>
 		<title>
@@ -18,11 +18,16 @@
 				<span class="title"><a href="/index.php">Feeder</a></span><br/>
 				<span class="slogan">Feeds Reader!</span>
       </div>
-      <div id="validation_errors" class="error" style="display:none;">
       <?
+        if(isset($_SESSION["flash_error"]) || isset($_SESSION["flash_notice"])){
+          print "<div id='validation_errors' class='error' style=''";
+        }else{
+          print "<div id='validation_errors' class='error' style='display:none;'";
+        }
+
 				foreach(Array("error", "notice") as $type){
 					if (isset($_SESSION["flash_$type"])) {
-						print("<div id='flash' class='".$type."'>");
+						print("<div>");
 						print($_SESSION["flash_$type"]);
 						print("</div>");
 						$_SESSION["flash_$type"] = null;
