@@ -13,24 +13,18 @@
     $errors = array();
     
     validatesPresenceOf($login, "No se puede dejar vacío el login");
-    validatesPresenceOf($password, "No se puede dejar vacío el password");
+    validatesPresenceOf($password, "No se puede dejar vacía la contraseña");
     validatesPresenceOf($email, "No se puede dejar vacío el email");
     validatesUniquenessOf("users", array("login", $login), "El usuario ya existe");
+    validatesUniquenessOf("users", array("email", $email), "El email ya existe, elije otro");
+    validatesConfirmationOff($_REQUEST['password'], $_REQUEST['repassword'], "La contraseña no coincide");
+    validatesEmailFormatOf($email, "Formato de email incorrecto");
 
     if(count($errors) == 0) {
-      $exist = $conn->selectFromDB("users", array("login"), array("login", $login));
-      if (count($exist) == 0) {
         $res = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
-      } else {
-        $_SESSION['flash_error'] = "El nombre de usuario ya está en uso, intente otro.";
-        header("Location: ../login.php");
-      }
-      if ($res) {
-        header("Location: ../myPlanets.php");
-      } else {
-        echo "El vector con indice $c tiene el valor $v<br/>";
-      }
-    } else {
+      $_SESSION['flash_notice'] = "Usuario creado!";
+      header("Location: ../myPlanets.php");
+    }else{
       $_SESSION['flash_error'] = implode("<br/>", $errors);
       header("Location: ../register.php");
     }

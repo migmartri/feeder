@@ -48,12 +48,12 @@ function addError(msg){
 //Mostramos una lista con los errores y cancelamos el envío del formulario
 function showErrors(){
   if(errors.length > 0){
-    var html = '<ul>';
+    var html = "<div id='flash' class='error'><ul>";
     for(var i=0; i< errors.length; i++){
       html += '<li>' + errors[i] + '</li>';
     }
-    document.getElementById('validation_errors').innerHTML= html;
-    document.getElementById('validation_errors').style["display"] = ""
+    html += "</ul></div>"
+    document.getElementById('errors').innerHTML= html;
     return false
   }else{
     return true
