@@ -23,9 +23,9 @@ function validatesPresenceOf($field, $msg){
   }
 }
 //Unica existencia
-function validatesUniquenessOf($table, $values, $msg){
+function validatesUniquenessOf($table, $conditions, $msg){
   if(!isset($msg)){$msg = "ya existe, elije otro";}
-  $exist = $GLOBALS["conn"]->selectFromDB($table, "*", $values);
+  $exist = $GLOBALS["conn"]->selectFromDB($table, array("*"), $conditions);
 
   if(count($exist) > 0) {
     array_push($GLOBALS["errors"], $msg);
