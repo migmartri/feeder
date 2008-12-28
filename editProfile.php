@@ -27,7 +27,7 @@
         <label id="label_city" for="city">Ciudad:</label>
          <input id="city" name="city" type="text" value="<?=$profile['city']?>"/>
       </div>
-      <div id="flickr">  
+      <div id="div_flickr">  
         <label id="label_flickr" for="flickr">Flickr:</label>
         <input id="flickr" name="flickr" type="text" value="<?=$profile['flickr']?>"/>
       </div>

@@ -31,13 +31,32 @@ function validatesEmailFormatOf(field, msg){
 	} 
 }
 
-
-function validatesUrlFormatOf(url, msg) {
-  if(msg == undefined){msg = "Url con formato incorrecto";}
+function validatesUrlFormatOf(field, msg) {
+  if(msg == undefined){msg = field + "con formato incorrecto";}
+	var url = document.getElementById(field).value;
    var regexp = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-   if(regexp.test(url) == false){
+   if(!regexp.test(url) && url.length > 0){
      addError(msg);
    }
+}
+
+//Validar logitud
+function validatesLengthOf(field, length, msg){
+  if(msg == undefined){msg = field + "debe tener tamaño" + length;}
+	var p = document.getElementById(field).value;
+   if(p.length != length){
+     addError(msg);
+   }
+}
+
+//Validar que es un número
+function validatesNumericalityOf(field, msg){
+  if(msg == undefined){msg = field + "debe ser un número"};
+	var p = document.getElementById(field).value;
+  var regexp = /(^([0-9]{1,})|^)$/
+  if(!regexp.test(p)){
+    addError(msg);
+  }
 }
 
 //Añadimos el error al array de errores.

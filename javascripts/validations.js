@@ -23,7 +23,11 @@ function validatesLogin(){
 //editProfile.php
 function validatesProfile(){
   errors = [];
-  //validar que el telefono sea un número
+  validatesLengthOf("phone", 9, "El telefono debe tener 9 dígitos");
+  validatesNumericalityOf("phone", "El telefono debe ser un número"); 
+  validatesUrlFormatOf("twitter");
+  validatesUrlFormatOf("web");
+  validatesUrlFormatOf("flickr");
   //validar que flickr, twitter y la web sean una url válida
   return showErrors();
 }
