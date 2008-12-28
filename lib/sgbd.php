@@ -83,37 +83,69 @@ class Sgbd {
     	self::closeConnection();
     	return $result;
     }
-    
-    function updateTableFromDB($table, $fields, $condition) {
+
+    //updateTableFromDB(tabla, array(:name => "tal"), :array(:id => 2))
+    //updateTableFromDB(tabla, campos_a_actualizar, condiciones)    
+    function updateTableFromDB($table, $fields, $conditions) {
         $dbh = self::connectDB();
-        $changes = self::joinChanges($fields);
-        $string_changes = implode (",", $changes);
-        $string_condition = implode("=", $condition);
+        /*Dos elementos
+         * string_values obtenemos un string de la forma foo=?,bar=?
+         * values: array con los valores a actualizar*/
+        list($string_values, $values) = self::stringParams($fields);
+        $string_conditions = self::stringConditions($conditions);
         
-        $sqlupdate = "UPDATE $table SET $string_changes WHERE $string_condition"; 
-        $stmt = $dbh->prepare($sqlupdate);
-        $res = $stmt->execute();
+        $sql = "UPDATE $table SET $string_values WHERE $string_conditions"; 
+        $stmt = $dbh->prepare($sql);
+        $res = $stmt->execute($values);
         self::closeConnection();
         return $res;
     }
 
-   //Magia negra 
-    function joinChanges($f) { /* Implementación para agrupar condiciones de consulta */
-        $tam = count($f);
-        $res = array();
-        
-        if ($tam != 0) {
-            for ($i = 0; $i< $tam; $i++) {
-                if ($i == $tam-2) {
-                  $aux = $f[$i]." = '".$f[$i+1]."'";
-                } else {
-                  $aux = $f[$i]." = '".$f[$i+1]."'";
-                }
-               array_push($res, $aux);
-               $i++;
-            }
+    function stringParams($params){
+      $string_values = '';
+      $values = array();
+      $index = 1;
+      foreach ($params as $field => $value) {
+        $string_values .= "$field=?";
+        if($index < count($params)){
+          $string_values .= ",";
         }
-        return $res;
+        $index++;
+        array_push($values, $value);
+      }
+      //devolvemos el string de valores y un array con éstos
+      return array($string_values, $values);
     }
+
+    function stringConditions($conditions){
+      $string_conditions = '';
+      $index = 1;
+      foreach ($conditions as $field => $value) {
+        $string_conditions .= "$field=$value";
+        if($index < count($conditions)){
+          $string_conditions .= "AND ";
+        }
+        $index++;
+      }
+      return $string_conditions;
+    }
+   //Magia negra 
+    // function joinChanges($f) { /* Implementación para agrupar condiciones de consulta */
+    //     $tam = count($f);
+    //     $res = array();
+    //     
+    //     if ($tam != 0) {
+    //         for ($i = 0; $i< $tam; $i++) {
+    //             if ($i == $tam-2) {
+    //               $aux = $f[$i]." = '".$f[$i+1]."'";
+    //             } else {
+    //               $aux = $f[$i]." = '".$f[$i+1]."'";
+    //             }
+    //            array_push($res, $aux);
+    //            $i++;
+    //         }
+    //     }
+    //     return $res;
+    // }
 }
 ?>

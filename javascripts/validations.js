@@ -25,7 +25,6 @@ function validatesProfile(){
   errors = [];
   //validar que el telefono sea un número
   //validar que flickr, twitter y la web sean una url válida
-  window.alert("validando...")
   return showErrors();
 }
 
