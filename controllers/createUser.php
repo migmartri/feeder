@@ -4,19 +4,19 @@
   session_start();
     
   $validator = new Utilities();
+  $errors = array();
   $conn = new Sgbd();
   
-  $login = "'".$_REQUEST['login']."'";
-  $password = "'".$validator->codificaPasswd($_REQUEST['password'])."'";
-  $email = "'".$_REQUEST['email']."'";
-  $fecha = "'".date("Y-n-j H:i:s")."'";
-  $errors = array();
+  $login = $_REQUEST['login'];
+  $password = $validator->codificaPasswd($_REQUEST['password']);
+  $email = $_REQUEST['email'];
+  $fecha = date("Y-n-j H:i:s");
   
   validatesPresenceOf($login, "No se puede dejar vacío el login");
-  validatesPresenceOf($password, "No se puede dejar vacía la contraseña");
+  validatesPresenceOf($_REQUEST['password'], "No se puede dejar vacía la contraseña");
   validatesPresenceOf($email, "No se puede dejar vacío el email");
-  validatesUniquenessOf("users", array("login", $login), "El usuario ya existe");
-  validatesUniquenessOf("users", array("email", $email), "El email ya existe, elije otro");
+  validatesUniquenessOf("users", array("login" => $login), "El usuario ya existe");
+  validatesUniquenessOf("users", array("email" => $email), "El email ya existe, elije otro");
   validatesConfirmationOff($_REQUEST['password'], $_REQUEST['repassword'], "La contraseña no coincide");
   validatesEmailFormatOf($email, "Formato de email incorrecto");
 
