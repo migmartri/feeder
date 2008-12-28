@@ -10,12 +10,6 @@ class Utilities {
     return count($field);
   }
   
-  function validatesUrlFormatOf($url, $msg) {
-    if(!isset($msg)){$msg = "La url no tiene un formato correcto";}
-    if(!preg_match('/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' ,$url)){
-      array_push($GLOBALS["errors"], $msg);
-    }
-  }
 }
 //Validaciones
 //Presencia
@@ -43,6 +37,7 @@ function validatesConfirmationOff($field1, $field2, $msg){
   }
 }
 
+//Formato de email
 function validatesEmailFormatOf($email, $msg){
   if(!isset($msg)){$msg = "Formato de email incorrecto";}
 
@@ -51,6 +46,14 @@ function validatesEmailFormatOf($email, $msg){
   }
 }
 
+//Formato de url
+function validatesUrlFormatOf($url, $msg) {
+  if(!isset($msg)){$msg = "La url no tiene un formato correcto";}
+
+  if(!preg_match('/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' ,$url)){
+    array_push($GLOBALS["errors"], $msg);
+  }
+}
 function is_valid_email_address($email){
         $qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
         $dtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
