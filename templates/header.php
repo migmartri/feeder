@@ -1,5 +1,7 @@
-<?session_start();
+<?
+  session_start();
 	include ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
+	include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
 ?>
 <html>
   <head>
@@ -19,6 +21,16 @@
 			<div id="header">
 				<span class="title"><a href="/index.php">Feeder</a></span><br/>
 				<span class="slogan">Feeds Reader!</span>
+        <div id="user-bar">
+          <?
+            if (isset($_SESSION['user'])) {
+              print("<a href=\"editProfile.php\">Mi perfil</a> | ");
+              print("<a href=\"controllers/logout.php\">Cerrar sesión</a>");
+            } else {
+              print("<a href=\"login.php\">Iniciar sesión</a>");
+            }
+          ?>
+        </div>
       </div>
         <div id='errors'>
       <?
@@ -32,13 +44,4 @@
 				}
       ?>
       </div>
-      <div id="toolbar">
-      <?
-        if (isset($_SESSION['user'])) {
-          print("<a href=\"controllers/logout.php\">Cerrar sesión.</a>");
-        } else {
-          print("<a href=\"login.php\">Iniciar sesión.</a>");
-        }
-      ?>
-    </div>
       <div id='content'>

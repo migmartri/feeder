@@ -96,7 +96,8 @@ class Sgbd {
         self::closeConnection();
         return $res;
     }
-    
+
+   //Magia negra 
     function joinChanges($f) { /* Implementación para agrupar condiciones de consulta */
         $tam = count($f);
         $res = array();

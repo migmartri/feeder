@@ -1,6 +1,5 @@
 <?
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
-  session_start(); 
 ?>
 
 <div id="div_form">

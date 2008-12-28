@@ -10,8 +10,11 @@ class Utilities {
     return count($field);
   }
   
-  function isURL($url) {
-    return preg_match('/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' ,$url);
+  function validatesUrlFormatOf($url, $msg) {
+    if(!isset($msg)){$msg = "La url no tiene un formato correcto";}
+    if(!preg_match('/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' ,$url)){
+      array_push($GLOBALS["errors"], $msg);
+    }
   }
 }
 //Validaciones

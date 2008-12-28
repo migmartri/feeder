@@ -68,8 +68,9 @@ body {
 	font-size: 2em;
 }
 /* CONTENT - </HOME> */
-
-
+#user-bar{
+  float: right;
+}
 
 #footer {
   border-top: 2px solid #2D2D2D;

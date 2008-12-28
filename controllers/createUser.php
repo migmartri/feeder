@@ -21,9 +21,13 @@
   validatesEmailFormatOf($email, "Formato de email incorrecto");
 
   if(count($errors) == 0) {
-      $res = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
+    //Creamos el usuario
+    $user_id = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
+    //Creamos su perfil
+    $profile_id = $conn->insert2DB("profiles", array("user_id"), array($user_id));
+
     //Logueamos al usuario guardando en session su id
-    $_SESSION['user'] = $res;
+    $_SESSION['user'] = $user_id;
     $_SESSION['flash_notice'] = "Usuario creado!";
     header("Location: ../myPlanets.php");
   }else{
