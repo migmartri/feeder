@@ -35,10 +35,11 @@ class Sgbd {
         //Ejecutamos con argumentos de entrada los valores a insertar
         if ($stmt->execute($values)) {
           self::closeConnection();
-          return true;
+          //Devolvemos la id del la fila creada
+          return $dbh->lastInsertId();;
         } else {
           self::closeConnection();
-          return false;
+          //Devolvemos null
         }
     	}catch( PDOException $e ) {
         echo "error de conexión: ".$e->GetMessage();
