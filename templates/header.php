@@ -24,6 +24,7 @@
         <div id="user-bar">
           <?
             if (isset($_SESSION['user'])) {
+              print("<a href=\"myPlanets.php\">Mis planetas</a> | ");
               print("<a href=\"editProfile.php\">Mi perfil</a> | ");
               print("<a href=\"controllers/logout.php\">Cerrar sesión</a>");
             } else {

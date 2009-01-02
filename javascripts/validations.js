@@ -31,4 +31,10 @@ function validatesProfile(){
   validatesUrlFormatOf("flickr", "Formato de la url de la cuenta de flickr incorrecto");
   return showErrors();
 }
-
+//newPlanet.php
+function validatesPlanet(){
+  errors = [];
+  validatesPresenceOf("name", "El planeta debe tener un nombre");
+  validatesPresenceOf("description", "Debes poner una descripción");
+  return showErrors();
+}

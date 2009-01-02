@@ -16,6 +16,10 @@ body {
   width: 800px;
 }
 
+#content, #header, #footer{
+	margin: 0px 15px 0px 15px;
+}
+
 #content {
   min-height: 400px;
 }
@@ -23,7 +27,6 @@ body {
 #header {
   border-bottom: 2px solid #2D2D2D;
   height: 80px;
-	margin: 0px 15px 0px 15px;
 }
 
 #header span.title {
@@ -34,12 +37,6 @@ body {
 	letter-spacing: 0.3em;
 	margin-left: 3px;
 }
-
-#content {
-	width: 100%;
-}
-
-
 
 /* CONTENT - <HOME> */
 #content #home {
@@ -74,7 +71,6 @@ body {
 
 #footer {
   border-top: 2px solid #2D2D2D;
-	margin: 0px 15px 0px 15px;
   text-align: center;
 }
 
@@ -96,6 +92,21 @@ body {
   background:#FBE3E4;
   border-color:#FBC2C4;
   color:#8a1f11;
+}
+
+.planet{
+  border: 2px solid #2D2D2D;
+  padding: 10px;
+  margin: 10px;
+}
+.planet .options{
+  float: right;
+}
+.planet .planet_name{
+  border-bottom: 1px solid #2D2D2D;
+}
+.planet .planet_description, .planet_info{
+  width: 600px;
 }
 #validation_errors{
   text-align: left;

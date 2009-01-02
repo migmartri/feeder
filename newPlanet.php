@@ -1,10 +1,20 @@
 <? 
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+  loginRequired();
 ?>
 
-<form action="ACCION AQUI" method="post">
-  <label id="label_planeta" for="planeta">Nombre del planeta</label>
-  <input id="planeta" name="planeta" type="text"/>
+<form action="/controllers/createPlanet.php" method="post" onsubmit="return validatesPlanet()">
+  <fieldset>
+    <legend>Nuevo Planeta</legend>
+    <div id="div_name">
+      <label id="label_name" for="name">Nombre del planeta</label>
+      <input id="name" name="name" type="text" value="<?=formValue('name')?>"/>
+    </div>
+    <div id="div_description">
+      <label id="label_description" for="description">Descripción del planeta</label>
+      <textarea id="description" name="description" rows="3" cols="30"/><?=formValue('description')?></textarea>
+    </div>
+
   <button id="submit" >Enviar</button>
 </form>
 
