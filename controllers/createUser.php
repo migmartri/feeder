@@ -22,9 +22,9 @@
 
   if(count($errors) == 0) {
     //Creamos el usuario
-    $user_id = $conn->insert2DB("users", array("login", "password", "email", "created_at"), array($login, $password, $email, $fecha));
+    $user_id = $conn->insert2DB("users", array("login" => $login, "password" => $password, "email" => $email, "created_at" => $fecha));
     //Creamos su perfil
-    $profile_id = $conn->insert2DB("profiles", array("user_id"), array($user_id));
+    $profile_id = $conn->insert2DB("profiles", array("user_id" => $user_id));
 
     //Logueamos al usuario guardando en session su id
     $_SESSION['user'] = $user_id;

@@ -20,15 +20,15 @@ function validatesLogin(){
   validatesPresenceOf("password", "La contraseña no se puede dejar vacía");
   return showErrors();
 }
+
 //editProfile.php
 function validatesProfile(){
   errors = [];
   validatesLengthOf("phone", 9, "El telefono debe tener 9 dígitos");
   validatesNumericalityOf("phone", "El telefono debe ser un número"); 
-  validatesUrlFormatOf("twitter");
-  validatesUrlFormatOf("web");
-  validatesUrlFormatOf("flickr");
-  //validar que flickr, twitter y la web sean una url válida
+  validatesUrlFormatOf("twitter", "Formato de la url de la cuenta de twitter incorrecto");
+  validatesUrlFormatOf("web", "Formato de la url de la web personal incorrecto");
+  validatesUrlFormatOf("flickr", "Formato de la url de la cuenta de flickr incorrecto");
   return showErrors();
 }
 

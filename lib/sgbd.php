@@ -18,22 +18,23 @@ class Sgbd {
     	}
     }
     
-    function insert2DB($table, $fields, $values) {
+   //insert2DB('users', array(foo => foo_value, var => var_value)) 
+    function insert2DB($table, $fields) {
     	$dbh = self::connectDB();
       //Creamos un array del tipo (?, ?, ?) para evitar sql injection
       $binded_values = array();
-      for($i=0; $i<count($values); $i++){
+      for($i=0; $i<count($fields); $i++){
         array_push($binded_values, "?");
       }
 
       //Creamos una sentencia del tipo insert into foo values (?,?)
-      $sql = "INSERT INTO $table (".implode(',', $fields).") VALUES (".implode(',', $binded_values).")";
+      $sql = "INSERT INTO $table (".implode(',', array_keys($fields)).") VALUES (".implode(',', $binded_values).")";
 
       try{
         //Preparamos
         $stmt = $dbh->prepare($sql);
         //Ejecutamos con argumentos de entrada los valores a insertar
-        if ($stmt->execute($values)) {
+        if ($stmt->execute(array_values($fields))) {
           self::closeConnection();
           //Devolvemos la id del la fila creada
           return $dbh->lastInsertId();;
@@ -129,6 +130,7 @@ class Sgbd {
       }
       return $string_conditions;
     }
+
    //Magia negra 
     // function joinChanges($f) { /* Implementación para agrupar condiciones de consulta */
     //     $tam = count($f);

@@ -44,7 +44,7 @@ function validatesUrlFormatOf(field, msg) {
 function validatesLengthOf(field, length, msg){
   if(msg == undefined){msg = field + "debe tener tamaño" + length;}
 	var p = document.getElementById(field).value;
-   if(p.length != length){
+   if(p.length != length && p.length > 0){
      addError(msg);
    }
 }
