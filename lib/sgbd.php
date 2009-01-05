@@ -67,7 +67,7 @@ class Sgbd {
         foreach ($conditions as $field => $value) {
           $string_conditions .= "$field = ?";
           if($index < count($conditions)){
-            $string_conditions .= "AND ";
+            $string_conditions .= " AND ";
           }
           $index++;
           array_push($condition_values, $value);
@@ -102,6 +102,17 @@ class Sgbd {
         return $res;
     }
 
+    #deleteFromDB("users", array('name' => 'Migue'))
+    function deleteFromDB($table, $conditions){
+      $dbh = self::connectDB();
+      $string_conditions = self::stringConditions($conditions);
+      $sql = "DELETE FROM $table WHERE $string_conditions"; 
+      $stmt = $dbh->prepare($sql);
+      $res = $stmt->execute(array_values($conditions));
+      #Devolvemos si hemos borrado alguna
+      return ($stmt->rowCount()>0);
+      }
+
     function stringParams($params){
       $string_values = '';
       $values = array();
@@ -124,7 +135,7 @@ class Sgbd {
       foreach ($conditions as $field => $value) {
         $string_conditions .= "$field=$value";
         if($index < count($conditions)){
-          $string_conditions .= "AND ";
+          $string_conditions .= " AND ";
         }
         $index++;
       }

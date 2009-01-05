@@ -2,7 +2,7 @@
 
   <div class='options'>
     <a href="#">Editar</a> |
-    <a href="#">Borrar</a>
+    <a href="/controllers/destroyPlanet.php?id=<?=$planet['id']?>" onclick="if (!confirm('¿Estás seguro?')) {return false;}">Borrar</a>
   </div>
 
   <div class='planet_info'>
