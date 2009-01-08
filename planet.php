@@ -1,6 +1,8 @@
 <?php
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
-  loginRequired();
+  //Filtro de acceso
+  $util = new Utilities();
+  $util->loginRequired();
   $conn = new Sgbd();
   $planet = $conn->selectFromDB("planets", array("*"), array("user_id" => $_SESSION["user"], "id" => $_REQUEST['id']));
   

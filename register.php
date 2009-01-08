@@ -1,5 +1,6 @@
 <? 
-  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php");
+  $util = new Utilities();
 ?>
 <div id="div_form">
   <form action="controllers/createUser.php" method="post" onsubmit="return validatesRegister();" id="form">
@@ -9,7 +10,7 @@
 
         <div id="div_login">
           <label id="label_login" for="login">Login:</label>
-          <input id="login" name="login" type="text" value="<?=formValue('login')?>"/>
+          <input id="login" name="login" type="text" value="<?=$util->formValue('login')?>"/>
         </div>
 
         <div id="div_password">  
@@ -24,7 +25,7 @@
 
         <div id="div_email">  
           <label id="label_email" for="email">Email:</label>
-          <input id="email" name="email" type="text" value="<?=formValue('email')?>"/>
+          <input id="email" name="email" type="text" value="<?=$util->formValue('email')?>"/>
         </div>
       </fieldset>
     </div>
