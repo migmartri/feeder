@@ -4,7 +4,8 @@
   session_start();
   $errors = array();
   $conn = new Sgbd();
-  loginRequired();
+  $util = new Utilities();
+  $util->loginRequired();
 
   $name = $_REQUEST['name'];
   $description = $_REQUEST['description'];

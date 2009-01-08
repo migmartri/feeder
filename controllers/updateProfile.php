@@ -3,7 +3,8 @@
   include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
   session_start(); 
 
-  loginRequired();
+  $util = new Utilities();
+  $util->loginRequired();
   $conn = new Sgbd();
   //updateTableFromDB(tabla, valores a actualizar, condiciones)
   $result = $conn->updateTableFromDB("profiles", $_POST, array("user_id" => $_SESSION['user']));
