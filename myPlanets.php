@@ -1,7 +1,8 @@
 <?
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   //Filtro de acceso
-  loginRequired();
+  $util = new Utilities();
+  $util->loginRequired();
   //Cargamos los planetas del usuario
   $conn = new Sgbd();
   $planets = $conn->selectFromDB("planets", array("*"), array("user_id" => $_SESSION["user"]));
