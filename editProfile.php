@@ -1,6 +1,7 @@
 <?php
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
-  loginRequired();
+  $util = new Utilities();
+  $util->loginRequired();
   $conn = new Sgbd();
   $profile = $conn->selectFromDB("profiles", array("*"), array("user_id" => $_SESSION["user"]));
   //FIXME, permitir la peticion a la base de datos de un solo elemento
