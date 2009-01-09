@@ -38,3 +38,13 @@ function validatesPlanet(){
   validatesPresenceOf("description", "Debes poner una descripción");
   return showErrors();
 }
+
+//newSubscription.php
+function validatesSubscription(){
+  errors = [];
+  validatesPresenceOf("name", "El Feed debe tener un nombre");
+  validatesPresenceOf("url", "Debe existir la url");
+  validatesUrlFormatOf("url", "Formato de la url incorrecto");
+  return showErrors();
+
+}

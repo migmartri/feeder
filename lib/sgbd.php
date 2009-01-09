@@ -142,23 +142,5 @@ class Sgbd {
       return $string_conditions;
     }
 
-   //Magia negra 
-    // function joinChanges($f) { /* Implementación para agrupar condiciones de consulta */
-    //     $tam = count($f);
-    //     $res = array();
-    //     
-    //     if ($tam != 0) {
-    //         for ($i = 0; $i< $tam; $i++) {
-    //             if ($i == $tam-2) {
-    //               $aux = $f[$i]." = '".$f[$i+1]."'";
-    //             } else {
-    //               $aux = $f[$i]." = '".$f[$i+1]."'";
-    //             }
-    //            array_push($res, $aux);
-    //            $i++;
-    //         }
-    //     }
-    //     return $res;
-    // }
 }
 ?>

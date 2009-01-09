@@ -1,11 +1,5 @@
-<?php
-include_once(dirname(__FILE__) . "/sgbd.php");
-
+<?
 class Feed {
-	function isBlogCached($blog_url) {
-		connectDB();
-	}
-
 	function getArticles($blog_url) {
 		$ns = array
 		(
@@ -38,14 +32,14 @@ class Feed {
 		foreach ($xml->channel->item as $item)
 		{
 			$article = array();
-			$article['channel'] = $blog;
+			$article['channel'] = $blog_url;
 			$article['title'] = $item->title;
 			$article['link'] = $item->link;
 			$article['comments'] = $item->comments;
 			$article['pubDate'] = $item->pubDate;
 			$article['timestamp'] = strtotime($item->pubDate);
 			$article['description'] = (string) trim($item->description);
-			$article['isPermaLink'] = $item->guid[‘isPermaLink’];
+			$article['isPermaLink'] = $item->guid['isPermaLink'];
 
 			// get data held in namespaces
 			$content = $item->children($ns['content']);
@@ -63,8 +57,14 @@ class Feed {
 			$articles[$article['timestamp']] = $article;
 		}
 		
-		return array($channel, $articles)
+		return array($channel, $articles);
 	}
-}
 
+  //Actualizamos los articulos de un feed concreto
+  function refreshFeed($feed_id){
+    $feeds = $conn->selectFromDB("feeds", array("*"), array("id" => $id));
+    //Obtenemos la url del feed
+    list($channel, $articles) = self::getArticles($url);
+  }
+}
 ?>
