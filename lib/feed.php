@@ -62,9 +62,26 @@ class Feed {
 
   //Actualizamos los articulos de un feed concreto
   function refreshFeed($feed_id){
-    $feeds = $conn->selectFromDB("feeds", array("*"), array("id" => $id));
-    //Obtenemos la url del feed
+    $conn = new Sgbd();
+
+    $feeds = $conn->selectFromDB("feeds", array("*"), array("id" => $feed_id));
+    //Obtenemos la url y la fecha de actualización del feed
+    $feed = $feeds[0]; //FIXME
+    $url = $feed['url'];
+    $updated_at = strtotime($feed['updated_at']);
+
+    //Cargamos los articulos
     list($channel, $articles) = self::getArticles($url);
+
+    //Los recorremos y guardamos en la base de datos solo los que son más recientes
+    //respecto a la fecha de última actualización del Feed
+    foreach($articles as $time => $article){
+      if(!isset($updated_at) || $time >= $updated_at){
+        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "content" => $article['description']));
+      }
+    }
+    //Actualizamos fecha de la última actualización a la fecha/hora actual
+    $conn->updateTableFromDB("feeds", array('updated_at' => gmdate("Y-m-d H:i:s", time())), array("id" => $feed_id));
   }
 }
 ?>

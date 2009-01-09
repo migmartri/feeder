@@ -36,8 +36,8 @@
     }else{
       $feed_id = $conn->insert2DB("feeds", array("name" => $name, "url" => $url));
       //Nos traemos sus feeds y los guardamos
-      // $feed = new Feed();
-      // $feed->refreshFeed($feed_id);
+      $feed = new Feed();
+      $feed->refreshFeed($feed_id);
     }
     //Creamos la suscripción
     $subscription_id = $conn->insert2DB("feeds_planets", array("feed_id" => $feed_id, "planet_id" => $planet_id));
