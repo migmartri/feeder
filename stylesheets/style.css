@@ -40,25 +40,10 @@ legend {
 
 /* Header */
 #header #logo {
-	background:transparent url(/images/logo.png) no-repeat scroll 0 0;
+	background:transparent url(/images/logo2.png) no-repeat scroll 0 0;
 	float:left;
-	height:50px;
-	width:210px;
-}
-
-#container {
-  background-color: #FFFFFF;
-  margin: 5px auto;
-  padding: 5px;
-  width: 800px;
-}
-
-#content, #header, #footer{
-	margin: 0px 15px 0px 15px;
-}
-
-#content {
-  min-height: 400px;
+	height:66px;
+	width:199px;
 }
 
 #header {
@@ -67,13 +52,32 @@ legend {
 }
 
 #header span.title {
-	font-size: 2.5em;
+	font-size: 2.5em;4b7f1d
 }
 
 #header span.slogan {
 	letter-spacing: 0.3em;
 	margin-left: 3px;
 }
+
+/* Wrapper #container */
+#container {
+  background-color: #FFFFFF;
+  margin: 5px auto;
+  padding: 5px;
+  width: 800px;
+}
+
+
+/* Content */
+#content, #header, #footer{
+	margin: 0px 15px 0px 15px;
+}
+
+#content {
+  min-height: 400px;
+}
+
 
 /* CONTENT - <HOME> */
 #content #home {
@@ -110,6 +114,7 @@ legend {
 	margin:0 auto;
 }
 #content .form-register {
+	margin-top: 40px;
 	width: 250px;
 }
 
@@ -120,9 +125,6 @@ legend {
 #content .fields {
 	padding-left: 30px;
 }
-
-
-
 
 
 #user-bar{
