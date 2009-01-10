@@ -62,7 +62,6 @@ class Utilities {
   		$xml = new SimpleXmlElement($rawFeed);
     }catch(Exception $e){
       array_push($GLOBALS["errors"], $msg);
-      die();
     }
   }
 
