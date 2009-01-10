@@ -104,8 +104,16 @@ class Utilities {
   // Comprobamos que es un número de teléfono
   function validatesNumericalityOf($field, $msg) {
     if(!isset($msg)){$msg = "El teléfono no es válido";}
-    if (!(is_numeric($field)) || !(strlen($field) == 9)) 
+    if (!(is_numeric($field)) && (strlen($field) > 0))
       array_push($GLOBALS["errors"], $msg);
    }
+
+  function validatesLengthOf($field, $length, $msg) {
+    if(!isset($msg)){$msg = "Debe ser de longitud $length";}
+    
+    if(strlen($field) != $length && strlen($field) > 0) {
+      array_push($GLOBALS["errors"], $msg);
+   }
+}
 }
 ?>
