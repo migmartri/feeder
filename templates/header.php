@@ -37,16 +37,17 @@
 					<? } ?>
         </div>
       </div>
-        <div id='errors'>
-      <?
-				foreach(Array("error", "notice") as $type){
-					if (isset($_SESSION["flash_$type"])) {
-						print("<div id='flash' class='".$type."'>");
-						print($_SESSION["flash_$type"]);
-						print("</div>");
-						$_SESSION["flash_$type"] = null;
+			<div class="clear"></div>
+      <div id='errors'>
+				<?
+					foreach(Array("error", "notice") as $type){
+						if (isset($_SESSION["flash_$type"])) {
+							print("<div id='flash' class='".$type."'>");
+							print($_SESSION["flash_$type"]);
+							print("</div>");
+							$_SESSION["flash_$type"] = null;
+						}
 					}
-				}
-      ?>
+				?>
       </div>
       <div id='content'>

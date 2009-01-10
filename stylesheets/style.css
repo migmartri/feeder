@@ -46,6 +46,21 @@ legend {
 	width:210px;
 }
 
+#header {
+  border-bottom: 2px solid #2D2D2D;
+  height: 80px;
+}
+
+#header span.title {
+	font-size: 2.5em;4b7f1d
+}
+
+#header span.slogan {
+	letter-spacing: 0.3em;
+	margin-left: 3px;
+}
+
+/* Wrapper #container */
 #container {
   background-color: #FFFFFF;
   margin: 5px auto;
@@ -53,6 +68,8 @@ legend {
   width: 800px;
 }
 
+
+/* Content */
 #content, #header, #footer{
 	margin: 0px 15px 0px 15px;
 }
@@ -61,19 +78,6 @@ legend {
   min-height: 400px;
 }
 
-#header {
-  border-bottom: 2px solid #2D2D2D;
-  height: 80px;
-}
-
-#header span.title {
-	font-size: 2.5em;
-}
-
-#header span.slogan {
-	letter-spacing: 0.3em;
-	margin-left: 3px;
-}
 
 /* CONTENT - <HOME> */
 #content #home {
@@ -120,9 +124,6 @@ legend {
 #content .fields {
 	padding-left: 30px;
 }
-
-
-
 
 
 #user-bar{
