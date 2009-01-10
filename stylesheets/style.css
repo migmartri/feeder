@@ -190,6 +190,24 @@ legend {
 	width: 340px;
 }
 
+#content .planet {
+	border: 2px solid #666;
+	background-color: #eee;
+	float: left;
+	margin: 10px 0px 10px 40px;
+	padding: 15px;
+	width: 280px;
+}
+
+#content .planet .planet_description {
+	min-height: 60px;
+}
+
+#content .planet .planet_options {
+	text-align: right;
+}
+
+
 /* Subscripciones */
 #content .form-subscription {
 	width: 340px;
@@ -221,20 +239,6 @@ legend {
   color:#8a1f11;
 }
 
-.planet{
-  border: 2px solid #2D2D2D;
-  padding: 10px;
-  margin: 10px;
-}
-.planet .options{
-  float: right;
-}
-.planet .planet_name{
-  border-bottom: 1px solid #2D2D2D;
-}
-.planet .planet_description, .planet_info{
-  width: 600px;
-}
 #validation_errors{
   text-align: left;
 }
