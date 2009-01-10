@@ -60,6 +60,15 @@ class Feed {
 		return array($channel, $articles);
 	}
 
+  //Actualizar todos los feeds
+  function refreshAllFeeds(){
+    $conn = new Sgbd();
+    $feeds = $conn->selectFromDB("all", "feeds", array("*"), array());
+    foreach($feeds as $feed){
+      self::refreshFeed($feed['id']);
+    }
+  }
+
   //Actualizamos los articulos de un feed concreto
   function refreshFeed($feed_id){
     $conn = new Sgbd();
@@ -76,7 +85,7 @@ class Feed {
     //respecto a la fecha de última actualización del Feed
     foreach($articles as $time => $article){
       if(!isset($updated_at) || $time >= $updated_at){
-        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "content" => $article['description']));
+        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "content" => $article['description'], 'published_at' => gmdate("Y-m-d H:i:s", $time)));
       }
     }
     //Actualizamos fecha de la última actualización a la fecha/hora actual
