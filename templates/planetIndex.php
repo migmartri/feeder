@@ -11,7 +11,7 @@
     </div>
     <div class='planet_description'>
       <p>
-        <?= $planet['description']?>
+        <?= strip_tags($planet['description']) ?>
       </p>
     </div>
   </div>
