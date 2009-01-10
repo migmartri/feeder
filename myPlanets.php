@@ -5,7 +5,7 @@
   $util->loginRequired();
   //Cargamos los planetas del usuario
   $conn = new Sgbd();
-  $planets = $conn->selectFromDB("planets", array("*"), array("user_id" => $_SESSION["user"]));
+  $planets = $conn->selectFromDB("all", "planets", array("*"), array("user_id" => $_SESSION["user"]));
 ?>
 
 <div id="div_planets">

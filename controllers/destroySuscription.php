@@ -6,11 +6,10 @@
   $util->loginRequired();
   $conn = new Sgbd();
 
-  $feeds = $conn->selectFromDB("feeds", array("*"), array('id' => $_GET['feed_id']));
-  $feed = $feeds[0];
+  $feed = $conn->selectFromDB("first", "feeds", array("*"), array('id' => $_GET['feed_id']));
   //Cargamos el planeta para verificar que tenemos acceso a borrar la suscripción
-  $planets = $conn->selectFromDB("planets", array("*"), array('user_id' => $_SESSION['user'], 'id' => $_GET['planet_id']));
-  if(count($planets)==0){
+  $planet = $conn->selectFromDB("first", "planets", array("*"), array('user_id' => $_SESSION['user'], 'id' => $_GET['planet_id']));
+  if(!$planet){
     $_SESSION['flash_error'] = "Acceso denegado!";
     header("Location: ../myPlanets");
   }

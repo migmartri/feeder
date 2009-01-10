@@ -3,9 +3,7 @@
   $util = new Utilities();
   $util->loginRequired();
   $conn = new Sgbd();
-  $profile = $conn->selectFromDB("profiles", array("*"), array("user_id" => $_SESSION["user"]));
-  //FIXME, permitir la peticion a la base de datos de un solo elemento
-  $profile = $profile[0];
+  $profile = $conn->selectFromDB("first", "profiles", array("*"), array("user_id" => $_SESSION["user"]));
 ?>
 
 <form action="controllers/updateProfile.php" method="post" onsubmit="return validatesProfile();">
