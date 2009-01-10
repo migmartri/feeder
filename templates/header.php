@@ -25,9 +25,12 @@
 					<? if (isset($_SESSION['user'])) { ?>
 						Hola
 						<? $util = new Utilities(); 
-							 $current_user = $util->currentUser(); ?>
+                $current_user = $util->currentUser();
+                $conn = new Sgbd();
+                $planets = $conn->selectFromDB("all", "planets", array("*"), array("user_id" => $_SESSION["user"]));
+?>
 						<a href="editProfile.php"><? print($current_user['login']); ?></a>, 
-						tienes <a href="myPlanets.php">X planetas</a>.
+            tienes <a href="myPlanets.php"><?= count($planets)?> planetas</a>.
 
 						<br/> 
 						<a href="controllers/logout.php">Cerrar sesión</a>
