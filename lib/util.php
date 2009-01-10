@@ -53,6 +53,12 @@ class Utilities {
       array_push($GLOBALS["errors"], $msg);
     }
   }
+
+  //Validamos si el feed es válido
+  function validatesFeed($feed_url){
+  
+  }
+
   function is_valid_email_address($email){
           $qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
           $dtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';

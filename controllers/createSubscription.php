@@ -14,6 +14,7 @@
   $util->validatesPresenceOf($name, "El planeta debe tener un nombre");
   $util->validatesPresenceOf($url, "Debes poner una descripción");
   $util->validatesUrlFormatOf($url, "Formato de url incorrecto");
+  $util->validatesFeed($url, "El feed no es válido");
 
   if(count($errors) == 0) {
     checkAndCreateFeed($name, $url, $planet_id);
