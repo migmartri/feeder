@@ -22,15 +22,19 @@
 				<h1><a href="/" class="button_image" id="logo">Feeder</a></h1>
 	
         <div id="user-bar">
-          <?
-            if (isset($_SESSION['user'])) {
-              print("<a href=\"myPlanets.php\">Mis planetas</a> | ");
-              print("<a href=\"editProfile.php\">Mi perfil</a> | ");
-              print("<a href=\"controllers/logout.php\">Cerrar sesión</a>");
-            } else {
-              print("<a href=\"login.php\">Iniciar sesión</a>");
-            }
-          ?>
+					<? if (isset($_SESSION['user'])) { ?>
+						Hola
+						<? $util = new Utilities(); 
+						   $current_user = $util->currentUser();
+							 print($current_user['login']); ?>
+
+          	<a href="myPlanets.php">Mis planetas</a> |
+            <a href="editProfile.php">Mi perfil</a> |
+						<a href="controllers/logout.php">Cerrar sesión</a>
+
+          <? } else { ?>
+            <a href="login.php">Iniciar sesión</a>
+					<? } ?>
         </div>
       </div>
         <div id='errors'>

@@ -4,6 +4,8 @@ body {
   font-size: 14px;
 }
 
+
+/* Clases generales */
 .clear {
 	clear:both;
 }
@@ -16,10 +18,27 @@ body {
 	text-indent:-1000em;
 }
 
-#header {
-
+fieldset {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	border:1px solid #CCCCCC;
+	margin:15px 3px;
 }
 
+legend {
+  color:#666666;
+  font-size:1.5em;
+}
+
+.input_big {
+	font-family:arial,helvetica,sans-serif;
+	font-size:1.6em;
+	padding:2px;
+	width: 155px;
+}
+
+
+/* Header */
 #header #logo {
 	background:transparent url(/images/logo.png) no-repeat scroll 0 0;
 	float:left;
@@ -83,6 +102,29 @@ body {
 	font-size: 2em;
 }
 /* CONTENT - </HOME> */
+
+
+/* Registro */
+
+#content .form {
+	margin:0 auto;
+}
+#content .form-register {
+	width: 250px;
+}
+
+#content .form-register div {
+	margin-bottom: 10px;
+}
+
+#content .fields {
+	padding-left: 30px;
+}
+
+
+
+
+
 #user-bar{
   float: right;
 }
@@ -101,9 +143,9 @@ body {
 }
 
 #flash.notice {
-  background:#E6EFC2;
-  border-color:#FFD324;
-  color:#514721;
+  background:#dffbc7;
+  border-color:#6ca53a;
+  color:#4b7f1d;
 }
 
 #flash.error, #validation_errors {
