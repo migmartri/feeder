@@ -15,7 +15,7 @@
   }
 
   //Borramos la suscripción
-  $res = $conn->deleteFromDB("feeds_planets", array("feed_id" => $_GET['feed_id'], 'planet_id' => $planets[0]['id']));
+  $res = $conn->deleteFromDB("feeds_planets", array("feed_id" => $_GET['feed_id'], 'planet_id' => $planet['id']));
 
   if ($res){
     //Decrementamos el contador de suscripciones del feed y lo eliminamos en caso de ser necesario

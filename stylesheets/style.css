@@ -218,6 +218,18 @@ legend {
 	width: 340px;
 }
 
+/* Posts */
+#content .post {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+	border: 2px solid #666;
+	background-color: #eee;
+	margin: 10px;
+	padding: 15px;
+	width: 720px;
+}
 
 #footer {
   border-top: 2px solid #2D2D2D;

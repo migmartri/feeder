@@ -56,13 +56,14 @@ class Sgbd {
     	$dbh = self::connectDB();
       //Preparamos los campos a traer en la consulta
       $string_values = implode(",", $values);
-    	if (count($conditions != 0)) {
+      $condition_values = array();
+
+    	if (count($conditions) > 0) {
         /*Creamos dos elementos a partir de las condiciones
          * $string_conditions que es una cadena del tipo foo = ? AND bar = ?
          * $condition_values que es el conjunto de valores a pasar en el execute
          * */
         $string_conditions = '';
-        $condition_values = array();
         $index = 1;
         foreach ($conditions as $field => $value) {
           $string_conditions .= "$field = ?";
