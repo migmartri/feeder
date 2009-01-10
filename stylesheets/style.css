@@ -37,6 +37,22 @@ legend {
 	width: 155px;
 }
 
+a {
+	color:#555;
+}
+
+a:visited {
+	color:#444;
+}
+
+a:hover {
+	color:#000;
+	text-decoration: none;
+}
+
+img {
+	border: 0px;
+}
 
 /* Header */
 #header #logo {
@@ -128,7 +144,11 @@ legend {
 
 
 #user-bar{
-  float: right;
+  border: 1px solid #666;
+	background-color: #ddd;
+	float: right;
+	padding: 10px;
+	text-align:right;
 }
 
 #footer {
