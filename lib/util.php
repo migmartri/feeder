@@ -59,7 +59,9 @@ class Utilities {
     if(!isset($msg)){$msg = "Feed no válido";}
     try{
   		$rawFeed = file_get_contents($feed_url);
-  		$xml = new SimpleXmlElement($rawFeed);
+      $xml = @simplexml_load_string($rawFeed);
+      if (!is_object($xml))
+        throw new Exception('Error en la lectura del XML',1001);
     }catch(Exception $e){
       array_push($GLOBALS["errors"], $msg);
     }
