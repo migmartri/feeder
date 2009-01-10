@@ -40,10 +40,10 @@ legend {
 
 /* Header */
 #header #logo {
-	background:transparent url(/images/logo.png) no-repeat scroll 0 0;
+	background:transparent url(/images/logo2.png) no-repeat scroll 0 0;
 	float:left;
-	height:50px;
-	width:210px;
+	height:66px;
+	width:199px;
 }
 
 #header {
@@ -114,6 +114,7 @@ legend {
 	margin:0 auto;
 }
 #content .form-register {
+	margin-top: 40px;
 	width: 250px;
 }
 
