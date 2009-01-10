@@ -52,7 +52,7 @@ class Sgbd {
     }
 
     //selectFromDB("users", array("login", "email"), array("login" => "n3uro5i5", "email" => "foobar") 
-    function selectFromDB($table, $values, $conditions) {
+    function selectFromDB($mode, $table, $values, $conditions) {
     	$dbh = self::connectDB();
       //Preparamos los campos a traer en la consulta
       $string_values = implode(",", $values);
@@ -76,11 +76,17 @@ class Sgbd {
     	} else {
     		$sql = "SELECT $string_values FROM $table";
     	}
-
+      if($mode == "first"){
+        $sql .= " LIMIT 1";
+      }
     	$stmt = $dbh->prepare($sql);
       //Ejecutamos usando los valores extraidos de las condiciones
     	$stmt->execute($condition_values);
-    	$result = $stmt->fetchAll();
+      if($mode == "first"){
+        $result = $stmt->fetch();
+      }else{
+        $result = $stmt->fetchAll();
+      }
     	self::closeConnection();
     	return $result;
     }

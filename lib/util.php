@@ -21,9 +21,9 @@ class Utilities {
   //Unica existencia
   function validatesUniquenessOf($table, $conditions, $msg){
     if(!isset($msg)){$msg = "ya existe, elije otro";}
-    $exist = $GLOBALS["conn"]->selectFromDB($table, array("*"), $conditions);
+    $exist = $GLOBALS["conn"]->selectFromDB("first", $table, array("*"), $conditions);
   
-    if(count($exist) > 0) {
+    if($exist != false) {
       array_push($GLOBALS["errors"], $msg);
     }
   }
@@ -54,9 +54,16 @@ class Utilities {
     }
   }
 
-  //Validamos si el feed es válido
-  function validatesFeed($feed_url){
-  
+  //Validamos si el feed es válido, válido para nuestra librería
+  function validatesFeed($feed_url, $msg){
+    if(!isset($msg)){$msg = "Feed no válido";}
+    try{
+  		$rawFeed = file_get_contents($feed_url);
+  		$xml = new SimpleXmlElement($rawFeed);
+    }catch(Exception $e){
+      array_push($GLOBALS["errors"], $msg);
+      die();
+    }
   }
 
   function is_valid_email_address($email){
@@ -88,8 +95,8 @@ class Utilities {
   function currentUser(){
     $conn = new Sgbd();
     if(isset($_SESSION['user']) && !isset($_SESSION['current_user'])) {
-      $users = $conn->selectFromDB("users", array("*"), array("id" => $_SESSION['user']));
-      $_SESSION['current_user'] = $users[0]; 
+      $user = $conn->selectFromDB("first", "users", array("*"), array("id" => $_SESSION['user']));
+      $_SESSION['current_user'] = $user; 
     }  
     return $_SESSION['current_user'];
   }
@@ -116,9 +123,9 @@ class Utilities {
   function validatesLengthOf($field, $length, $msg) {
     if(!isset($msg)){$msg = "Debe ser de longitud $length";}
     
-    if(strlen($field) != $length && strlen($field) > 0) {
+    if(strlen($field) != $length && strlen($field) > 0){
       array_push($GLOBALS["errors"], $msg);
-   }
-}
+    }
+  }
 }
 ?>

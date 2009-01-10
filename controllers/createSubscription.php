@@ -14,7 +14,7 @@
   $util->validatesPresenceOf($name, "El planeta debe tener un nombre");
   $util->validatesPresenceOf($url, "Debes poner una descripción");
   $util->validatesUrlFormatOf($url, "Formato de url incorrecto");
-  $util->validatesFeed($url, "El feed no es válido");
+  $util->validatesFeed($url);
 
   if(count($errors) == 0) {
     checkAndCreateFeed($name, $url, $planet_id);
@@ -29,11 +29,11 @@
   //Creamos la suscripción y el feed en caso de ser necesario
   function checkAndCreateFeed($name, $url, $planet_id){
     $conn = new Sgbd();
-    $feeds = $conn->selectFromDB("feeds", array("*"), array("url" => $url));
+    $feed = $conn->selectFromDB("first", "feeds", array("*"), array("url" => $url));
  
     /*Comprobamos si existe el feed en la base de datos, si no es así, lo creamos*/
-    if(count($feeds) > 0) {
-      $feed_id = $feeds[0]['id'];
+    if($feed) {
+      $feed_id = $feed['id'];
     }else{
       $feed_id = $conn->insert2DB("feeds", array("name" => $name, "url" => $url));
       //Nos traemos sus feeds y los guardamos

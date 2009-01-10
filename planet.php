@@ -4,11 +4,9 @@
   $util = new Utilities();
   $util->loginRequired();
   $conn = new Sgbd();
-  $planet = $conn->selectFromDB("planets", array("*"), array("user_id" => $_SESSION["user"], "id" => $_REQUEST['id']));
+  $planet = $conn->selectFromDB("first", "planets", array("*"), array("user_id" => $_SESSION["user"], "id" => $_REQUEST['id']));
   
-  if(count($planet)>0){
-    $planet = $planet[0]; //FIXME, permitir traer primer elemento en selectFromDB
-  }else{
+  if(!$planet){
     $_SESSION['flash_error'] = "No existe el planeta al que quiere acceder o no tiene permisos para verlo.";
     header("Location: ../myPlanets.php");
   }

@@ -64,9 +64,8 @@ class Feed {
   function refreshFeed($feed_id){
     $conn = new Sgbd();
 
-    $feeds = $conn->selectFromDB("feeds", array("*"), array("id" => $feed_id));
+    $feed = $conn->selectFromDB("first", "feeds", array("*"), array("id" => $feed_id));
     //Obtenemos la url y la fecha de actualización del feed
-    $feed = $feeds[0]; //FIXME
     $url = $feed['url'];
     $updated_at = strtotime($feed['updated_at']);
 
