@@ -1,5 +1,6 @@
 <? $title = "Inicio";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+$util = new Utilities();
 ?>
 
 <div id="home">

@@ -77,6 +77,16 @@ class Utilities {
       header("Location: ../index.php");
     }
   }
+
+  //Devuelve el usuario actual
+  function currentUser(){
+    $conn = new Sgbd();
+    if(isset($_SESSION['user']) && !isset($_SESSION['current_user'])) {
+      $users = $conn->selectFromDB("users", array("*"), array("id" => $_SESSION['user']));
+      $_SESSION['current_user'] = $users[0]; 
+    }
+    return $_SESSION['current_user'];
+  }
   
   //Valor devuelto de los formularios
   function formValue($field){
