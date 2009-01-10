@@ -10,6 +10,8 @@
 
   if ($res){
     $_SESSION["flash_notice"] = "Planeta eliminado correctamente";
+    //Borramos las suscripciones relacionadas con ese planeta
+    $conn->deleteFromDB("feeds_planets", array("planet_id" => $_GET['id']));
   } else {
     $_SESSION["flash_error"] = "Error al eliminar el planeta, no existe.";
   }

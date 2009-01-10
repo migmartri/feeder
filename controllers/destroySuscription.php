@@ -20,10 +20,11 @@
 
   if ($res){
     //Decrementamos el contador de suscripciones del feed y lo eliminamos en caso de ser necesario
-    if(count($feed["subscriptions_count"]) > 1){
+    if($feed["subscriptions_count"] > 1){
       $conn->updateTableFromDB("feeds", array('subscriptions_count' => $feed['subscriptions_count'] - 1), array("id" => $feed['id']));
-    }else{ //Borramos el feed
-      $res = $conn->deleteFromDB("feeds", array("id" => $feed['id']));
+    }else{ //Borramos el feed y sus entradas
+      $conn->deleteFromDB("feeds", array("id" => $feed['id']));
+      $conn->deleteFromDB("posts", array("feed_id" => $feed['id']));
     }
 
     $_SESSION["flash_notice"] = "Suscripción eliminada correctamente";

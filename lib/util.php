@@ -49,10 +49,11 @@ class Utilities {
   function validatesUrlFormatOf($url, $msg) {
     if(!isset($msg)){$msg = "La url no tiene un formato correcto";}
   
-    if(!preg_match('/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' ,$url)){
+    if((!preg_match('/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' ,$url)) && (strlen($url) > 0)) {
       array_push($GLOBALS["errors"], $msg);
     }
   }
+  
   function is_valid_email_address($email){
           $qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
           $dtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
@@ -99,5 +100,12 @@ class Utilities {
     }
     return '';
   }
+  
+  // Comprobamos que es un número de teléfono
+  function validatesNumericalityOf($field, $msg) {
+    if(!isset($msg)){$msg = "El teléfono no es válido";}
+    if (!(is_numeric($field)) || !(strlen($field) == 9)) 
+      array_push($GLOBALS["errors"], $msg);
+   }
 }
 ?>

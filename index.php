@@ -1,6 +1,11 @@
-<? $title = "Inicio";
+<?
+  session_start();
+  if(isset($_SESSION['user'])){
+    header("Location: ./myPlanets.php");
+  }
+  $title = "Inicio";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
-$util = new Utilities();
+  $util = new Utilities();
 ?>
 
 <div id="home">
