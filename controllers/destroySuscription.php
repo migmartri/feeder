@@ -6,6 +6,8 @@
   $util->loginRequired();
   $conn = new Sgbd();
 
+  $feeds = $conn->selectFromDB("feeds", array("*"), array('id' => $_GET['feed_id']));
+  $feed = $feeds[0];
   //Cargamos el planeta para verificar que tenemos acceso a borrar la suscripción
   $planets = $conn->selectFromDB("planets", array("*"), array('user_id' => $_SESSION['user'], 'id' => $_GET['planet_id']));
   if(count($planets)==0){
@@ -18,6 +20,11 @@
 
   if ($res){
     //Decrementamos el contador de suscripciones del feed y lo eliminamos en caso de ser necesario
+    if(count($feed["subscriptions_count"]) > 1){
+      $conn->updateTableFromDB("feeds", array('subscriptions_count' => $feed['subscriptions_count'] - 1), array("id" => $feed['id']));
+    }else{ //Borramos el feed
+      $res = $conn->deleteFromDB("feeds", array("id" => $feed['id']));
+    }
 
     $_SESSION["flash_notice"] = "Suscripción eliminada correctamente";
   } else {
