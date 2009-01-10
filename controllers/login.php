@@ -10,7 +10,7 @@
    $result = $conn->selectFromDB("users", array("id", "login","password"), array("login" => $login));      
    
    if ($password == $result[0]["password"]) {
-		$_SESSION['flash_notice'] = "Bienvenido, estos son tus planetas!";
+		$_SESSION['flash_notice'] = "Bienvenido, ¡estos son tus planetas!";
     $_SESSION['user'] = $result[0]["id"];
 		header("Location: ../myPlanets.php");
    } else {

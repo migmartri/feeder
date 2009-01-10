@@ -10,6 +10,10 @@ body {
 	clear:both;
 }
 
+.centered {
+	text-align: center;
+}
+
 .button_image {
 	border:0 none;
 	cursor:pointer;
@@ -64,7 +68,7 @@ img {
 
 #header {
   border-bottom: 2px solid #2D2D2D;
-  height: 80px;
+  height: 70px;
 }
 
 #header span.title {
@@ -91,6 +95,7 @@ img {
 }
 
 #content {
+	margin-top: 10px;
   min-height: 400px;
 }
 
@@ -103,11 +108,13 @@ img {
 #content #home #image {
 	float:left;
 	margin: 15px 0px 15px 25px;
+	width:360px;
 }
 
 #content #home #text {
 	float: left;
 	margin: 100px 0px 0px 35px;
+	width: 350px;
 }
 
 #content #home #text span.big {

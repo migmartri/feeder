@@ -18,7 +18,7 @@
 				Bienvenido a Feeder, un lector de noticias social. 
 			</span>
 		</p>
-		<p style="text-align:center">
+		<p class="centered">
 			<a href="register.php">Registrate</a><br/>
 			<span class="big">
 				<u>crea</u> tu planeta
