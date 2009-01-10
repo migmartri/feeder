@@ -142,5 +142,15 @@ class Sgbd {
       return $string_conditions;
     }
 
+    //Busqueda usando sql puro
+    function findBySql($sql) {
+    	$dbh = self::connectDB();
+    	$stmt = $dbh->prepare($sql);
+    	$stmt->execute();
+    	$result = $stmt->fetchAll();
+    	self::closeConnection();
+    	return $result;
+    }
+
 }
 ?>

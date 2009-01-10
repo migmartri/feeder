@@ -84,7 +84,7 @@ class Utilities {
     if(isset($_SESSION['user']) && !isset($_SESSION['current_user'])) {
       $users = $conn->selectFromDB("users", array("*"), array("id" => $_SESSION['user']));
       $_SESSION['current_user'] = $users[0]; 
-    }
+    }  
     return $_SESSION['current_user'];
   }
   
