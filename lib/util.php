@@ -40,7 +40,7 @@ class Utilities {
   function validatesEmailFormatOf($email, $msg){
     if(!isset($msg)){$msg = "Formato de email incorrecto";}
   
-    if(!is_valid_email_address($email)) {
+    if(!self::is_valid_email_address($email)) {
       array_push($GLOBALS["errors"], $msg);
     }
   }

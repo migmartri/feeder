@@ -3,22 +3,22 @@
   include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
   session_start();
     
-  $validator = new Utilities();
+  $util = new Utilities();
   $errors = array();
   $conn = new Sgbd();
   
   $login = $_REQUEST['login'];
-  $password = $validator->codificaPasswd($_REQUEST['password']);
+  $password = $util->codificaPasswd($_REQUEST['password']);
   $email = $_REQUEST['email'];
   $fecha = date("Y-n-j H:i:s");
   
-  validatesPresenceOf($login, "No se puede dejar vacío el login");
-  validatesPresenceOf($_REQUEST['password'], "No se puede dejar vacía la contraseña");
-  validatesPresenceOf($email, "No se puede dejar vacío el email");
-  validatesUniquenessOf("users", array("login" => $login), "El usuario ya existe");
-  validatesUniquenessOf("users", array("email" => $email), "El email ya existe, elije otro");
-  validatesConfirmationOff($_REQUEST['password'], $_REQUEST['repassword'], "La contraseña no coincide");
-  validatesEmailFormatOf($email, "Formato de email incorrecto");
+  $util->validatesPresenceOf($login, "No se puede dejar vacío el login");
+  $util->validatesPresenceOf($_REQUEST['password'], "No se puede dejar vacía la contraseña");
+  $util->validatesPresenceOf($email, "No se puede dejar vacío el email");
+  $util->validatesUniquenessOf("users", array("login" => $login), "El usuario ya existe");
+  $util->validatesUniquenessOf("users", array("email" => $email), "El email ya existe, elije otro");
+  $util->validatesConfirmationOff($_REQUEST['password'], $_REQUEST['repassword'], "La contraseña no coincide");
+  $util->validatesEmailFormatOf($email, "Formato de email incorrecto");
 
   if(count($errors) == 0) {
     //Creamos el usuario
