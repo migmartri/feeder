@@ -6,12 +6,12 @@ body {
 
 
 /* Clases generales */
-.clear {
-	clear:both;
+.big {
+	font-size: 1.2em;
 }
 
-.centered {
-	text-align: center;
+.biggest {
+	font-size: 2em;
 }
 
 .button_image {
@@ -22,16 +22,12 @@ body {
 	text-indent:-1000em;
 }
 
-fieldset {
-	-moz-border-radius-topleft:5px;
-	-moz-border-radius-topright:5px;
-	border:1px solid #CCCCCC;
-	margin:15px 3px;
+.clear {
+	clear:both;
 }
 
-legend {
-  color:#666666;
-  font-size:1.5em;
+.centered {
+	text-align: center;
 }
 
 .input_big {
@@ -57,6 +53,19 @@ a:hover {
 img {
 	border: 0px;
 }
+fieldset {
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;
+	border:1px solid #CCCCCC;
+	margin:15px 3px;
+}
+
+legend {
+  color:#666666;
+  font-size:1.5em;
+}
+
+
 
 /* Header */
 #header #logo {
@@ -78,6 +87,14 @@ img {
 #header span.slogan {
 	letter-spacing: 0.3em;
 	margin-left: 3px;
+}
+
+#user-bar{
+  border: 1px solid #666;
+	background-color: #ddd;
+	float: right;
+	padding: 10px;
+	text-align:right;
 }
 
 /* Wrapper #container */
@@ -159,12 +176,17 @@ img {
 	margin-right: 60px;
 }
 
-#user-bar{
-  border: 1px solid #666;
-	background-color: #ddd;
-	float: right;
-	padding: 10px;
-	text-align:right;
+
+/* Planetas */
+
+#content #first_planet {
+	text-align: center;
+	padding-top: 100px;
+	width: 100%;
+}
+
+#content .form-planet {
+	width: 340px;
 }
 
 #footer {
