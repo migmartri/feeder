@@ -19,8 +19,8 @@
   <body>
     <div id="container">
 			<div id="header">
-				<span class="title"><a href="/index.php">Feeder</a></span><br/>
-				<span class="slogan">Feeds Reader!</span>
+				<h1><a href="/" class="button_image" id="logo">Feeder</a></h1>
+	
         <div id="user-bar">
           <?
             if (isset($_SESSION['user'])) {

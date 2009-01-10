@@ -8,6 +8,24 @@ body {
 	clear:both;
 }
 
+.button_image {
+	border:0 none;
+	cursor:pointer;
+	margin:0;
+	padding:0;
+	text-indent:-1000em;
+}
+
+#header {
+
+}
+
+#header #logo {
+	background:transparent url(/images/logo.png) no-repeat scroll 0 0;
+	float:left;
+	height:50px;
+	width:210px;
+}
 
 #container {
   background-color: #FFFFFF;
