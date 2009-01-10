@@ -25,12 +25,13 @@
 					<? if (isset($_SESSION['user'])) { ?>
 						Hola
 						<? $util = new Utilities(); 
-						   $current_user = $util->currentUser();
-							 print($current_user['login']); ?>
+							 $current_user = $util->currentUser(); ?>
+						<a href="editProfile.php"><? print($current_user['login']); ?></a>, 
+						tienes <a href="myPlanets.php">X planetas</a>.
 
-          	<a href="myPlanets.php">Mis planetas</a> |
-            <a href="editProfile.php">Mi perfil</a> |
+						<br/> 
 						<a href="controllers/logout.php">Cerrar sesión</a>
+						<a href="controllers/logout.php"><img src="/images/exit.png" /></a>
 
           <? } else { ?>
             <a href="login.php">Iniciar sesión</a>
