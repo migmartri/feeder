@@ -9,9 +9,9 @@
 
   $name = $_REQUEST['name'];
   $description = $_REQUEST['description'];
-  validatesPresenceOf($name, "El planeta debe tener un nombre");
-  validatesPresenceOf($description, "Debes poner una descripción");
-  validatesUniquenessOf("planets", array("name" => $name), "Ya existe un planeta con ese nombre, por favor elige otro");
+  $util->validatesPresenceOf($name, "El planeta debe tener un nombre");
+  $util->validatesPresenceOf($description, "Debes poner una descripción");
+  $util->validatesUniquenessOf("planets", array("name" => $name), "Ya existe un planeta con ese nombre, por favor elige otro");
 
   if(count($errors) == 0) {
     $planet_id = $conn->insert2DB("planets", array("name" => $name, "description" => $description, "user_id" => $_SESSION["user"]));

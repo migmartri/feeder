@@ -18,7 +18,7 @@
 <?
   if(count($subscriptions)==0){
     print("Este planeta todavía no tienen <b>ningúna</b> suscripción");
-  }
+  }else{
 ?>
 <div id="suscriptions">
   <table>
@@ -34,7 +34,7 @@
     ?>
   </table>
 </div>
-
+<?}?>
 
 <p><a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Nueva suscripción </a></p>
 <? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>
