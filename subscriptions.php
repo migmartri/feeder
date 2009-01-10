@@ -15,17 +15,23 @@
   $subscriptions = $conn->findBySql("SELECT * FROM feeds inner join feeds_planets on feeds_planets.feed_id = feeds.id where feeds_planets.planet_id=".$planet['id']);
 ?>
 
-<?
-  if(count($subscriptions)==0){
-    print("Este planeta todavía no tienen <b>ninguna</b> suscripción");
-  }else{
-?>
+<? if(count($subscriptions)==0) { ?>
+	<div id="first_subscription">
+		<span class="big">
+		  Este planeta todavía no tiene <b>ninguna</b> suscripción
+		</span><br/>
+		<span class="biggest">		
+			<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Crea una nueva</a>
+		</span><br/>
+		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>"><img src="/images/add_big.png" /></a>
+	</div>
+<? } else { ?>
 <div id="suscriptions">
   <table>
     <tr>
       <th>Nombre</th>
       <th>Url</th>
-      <th>Opciones </th>
+      <th>Opciones</th>
     </tr>
     <?
       foreach($subscriptions as $subscription){
@@ -34,7 +40,7 @@
     ?>
   </table>
 </div>
+<p><a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Nueva suscripción </a></p>
 <?}?>
 
-<p><a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Nueva suscripción </a></p>
 <? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>

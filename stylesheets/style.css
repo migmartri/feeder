@@ -179,7 +179,8 @@ legend {
 
 /* Planetas */
 
-#content #first_planet {
+#content #first_planet,
+#content #first_subscription {
 	text-align: center;
 	padding-top: 100px;
 	width: 100%;
@@ -188,6 +189,12 @@ legend {
 #content .form-planet {
 	width: 340px;
 }
+
+/* Subscripciones */
+#content .form-subscription {
+	width: 340px;
+}
+
 
 #footer {
   border-top: 2px solid #2D2D2D;

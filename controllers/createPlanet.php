@@ -15,7 +15,7 @@
 
   if(count($errors) == 0) {
     $planet_id = $conn->insert2DB("planets", array("name" => $name, "description" => $description, "user_id" => $_SESSION["user"]));
-    $_SESSION['flash_notice'] = "Planeta creado ahora métele feeds!";
+    $_SESSION['flash_notice'] = "Planeta creado. ¡Momento para los feeds!";
     header("Location: ../subscriptions.php?planet_id=$planet_id");
   }else{
     $_SESSION['form_values'] = $_REQUEST;

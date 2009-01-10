@@ -12,20 +12,31 @@
 ?>
 
 <form action="/controllers/createSubscription.php" method="post" onsubmit="return validatesSubscription()">
-  <fieldset>
-  <legend>Nueva Suscripción para el planeta <?= $planet['name']?></legend>
-    <div id="div_name">
-      <label id="label_name" for="name">Nombre</label>
-      <input id="name" name="name" type="text" size=30 value="<?=$util->formValue('name')?>"/>
-    </div>
-    <div id="div_url">
-      <label id="label_url" for="url">Dirección</label>
-      <input id="url" name="url" size=30 type="text" value="<?=$util->formValue('url')?>"/>
-    </div>
-  <div id="div_planet_id">
-    <input id="planet_id" name="planet_id" size=30 type="hidden" value="<?= $planet_id ?>"/>
-  </div>
-  <button id="submit" >Crear</button>
+	<div id="id_nueva_subscripcion" class="form form-subscription">
+		<fieldset>
+			<legend>Nueva suscripción</legend>
+			<div class="fields">
+				<div id="div_planet">
+					<label id="label_planet" for="planet">Planeta</label><br/>
+					<strong><?= $planet['name'] ?></strong>
+				</div>
+				<div id="div_name">
+					<label id="label_name" for="name">Nombre</label><br/>
+					<input id="name" name="name" type="text" size=30 value="<?=$util->formValue('name')?>"/>
+				</div>
+				<div id="div_url">
+					<label id="label_url" for="url">Dirección</label><br/>
+					<input id="url" name="url" size=30 type="text" value="<?=$util->formValue('url')?>"/>
+				</div>
+				<div id="div_planet_id">
+					<input id="planet_id" name="planet_id" size=30 type="hidden" value="<?= $planet_id ?>"/>
+				</div>
+			</div>
+		</fieldset>
+		<div id="id_submit">
+			<button id="submit" >Crear</button>
+		</div>
+	</div>
 </form>
 <? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>
 
