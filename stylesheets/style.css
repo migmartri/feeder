@@ -37,6 +37,22 @@ legend {
 	width: 155px;
 }
 
+a {
+	color:#555;
+}
+
+a:visited {
+	color:#444;
+}
+
+a:hover {
+	color:#000;
+	text-decoration: none;
+}
+
+img {
+	border: 0px;
+}
 
 /* Header */
 #header #logo {
@@ -113,22 +129,35 @@ legend {
 #content .form {
 	margin:0 auto;
 }
+
+#content .form div {
+	margin-bottom: 10px;
+}
+
 #content .form-register {
 	margin-top: 40px;
 	width: 250px;
 }
 
-#content .form-register div {
-	margin-bottom: 10px;
+#content .form-profile {
+	width: 450px;
 }
 
 #content .fields {
 	padding-left: 30px;
 }
 
+#content .fields .left {
+	float: left;
+	margin-right: 60px;
+}
 
 #user-bar{
-  float: right;
+  border: 1px solid #666;
+	background-color: #ddd;
+	float: right;
+	padding: 10px;
+	text-align:right;
 }
 
 #footer {
