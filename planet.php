@@ -37,7 +37,7 @@
 <div id="planet">
 	<div id="planet_name" class="big">
 		Planeta: <strong><?= $planet['name']?></strong>
-		<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" /></a>
+		<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" alt="rss de este planeta"/></a>
 	</div>
 	<? echo($pagination_links); ?>
 	

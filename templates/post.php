@@ -1,7 +1,7 @@
 <div id="post_<?=$post['id']?>" class="post">
   <div class='post_head'>
     <div class="post_title">
-      <a href="<?=$post['url']?>" target="_blank"><?= $post['title']?></a>
+      <a href="<?=$post['url']?>" target="_blank" title="Ver post en su web original"><?= $post['title']?></a>
     </div>
 		<div class="post_date">
 			En

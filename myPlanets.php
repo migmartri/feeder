@@ -14,14 +14,14 @@
 		<div id="first_planet">
 			<span class="big">Aun no tienes ningún planeta ;-(</span><br/>
 			<span class="biggest">
-				<a href="newPlanet.php">Crea el primero!</a>
+				<a href="newPlanet.php" title="Crea un planeta">Crea el primero!</a>
 			</span><br/>
-			<a href="newPlanet.php"><img src="/images/add_big.png" /></a>
+			<a href="newPlanet.php"><img src="/images/add_big.png" alt="Crea un planeta" /></a>
 		</div>
 	<? } else { ?>
 		<div id="new_planet">
-			<a href="newPlanet.php"><img src="/images/add.png" /></a>
-			<a href="newPlanet.php">Nuevo Planeta</a>
+			<a href="newPlanet.php"><img src="/images/add.png" alt="Crea un planeta" /></a>
+			<a href="newPlanet.php" title="Crea un planeta">Nuevo Planeta</a>
 		</div>
 	<? } ?>
 	<? foreach($planets as $planet){

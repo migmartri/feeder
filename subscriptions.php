@@ -22,20 +22,24 @@
 		  Este planeta todavía no tiene <b>ninguna</b> suscripción
 		</span><br/>
 		<span class="biggest">		
-			<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Crea una nueva</a>
+			<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>" title="Añade una nueva suscripción">Crea una nueva</a>
 		</span><br/>
-		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>"><img src="/images/add_big.png" /></a>
+		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>" title="Añade una nueva suscripción">
+			<img src="/images/add_big.png" alt="Añade una nueva suscripción" />
+		</a>
 	</div>
 <? } else { ?>
 	<div id="new_subscription">
-		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>"><img src="/images/feed_add.png" /></a>
-		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Nueva suscripción </a>
+		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>" title="Añade una nueva suscripción">
+			<img src="/images/feed_add.png" alt="Añade una nueva suscripción"/>
+		</a>
+		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>" title="Añade una nueva suscripción">Nueva suscripción </a>
 	</div>
 	<div id="suscriptions">
 		<table align="center">
 			<tr>
-				<th><img src="/images/feed_little.png" /> Feed</th>
-				<th><img src="/images/feed_delete.png" /> Opciones</th>
+				<th><img src="/images/feed_little.png" alt="Logo feed" /> Feed</th>
+				<th><img src="/images/feed_delete.png" alt="Logo feed delete" /> Opciones</th>
 			</tr>
 			<?
 				foreach($subscriptions as $subscription){
