@@ -1,5 +1,9 @@
 <?
-class Pagination{
+/*
+ * Implementación para mostrar un límite de resultados por página
+ */
+
+class Pagination {
   //Sql
   var $sql;
   //Número de elementos por página
@@ -9,7 +13,12 @@ class Pagination{
   //Página actual
   var $current_page;
 
-  //Constructor
+  /* Constructor
+   * @total_elements Numero total de resultados a mostrar.
+   * @per_page En cada página mostraremos este numero de resultados.
+   * @current_page Página actual del total de páginas de resultados.
+   * @sql Cadena de consulta sql. FIXME
+   */
   function Pagination($total_elements, $per_page, $current_page, $sql){
     $this->per_page = $per_page;
     $this->sql = $sql;
@@ -17,7 +26,8 @@ class Pagination{
     $this->current_page = $current_page;
   }
 
-  //Elementos de la página x
+  /* Número de elementos de la página x
+   */
   function getElements(){
     $conn = new Sgbd();
     $offset = ($this->per_page * $this->current_page) - $this->per_page;
@@ -25,7 +35,9 @@ class Pagination{
     $this->sql.= $page_sql;
     return $conn->findBySql($this->sql);
   }
-
+  
+  /* Construye una cadena de números de página que son enlaces. 
+   */
   function paginationLinks(){
     $res = "<div id='pagination'>";
 		$res .= "  Páginas: ";
@@ -50,7 +62,9 @@ class Pagination{
 		}
   }
 
-  //Esta función calcula los parametros a enviar, conservando los que tenía y recalculando el page  
+  /* Esta función calcula los parametros a enviar, 
+   * conservando los que tenía y recalculando el page.
+   */
   function calculateParams($page_num){
     $res = '?';
     foreach($_GET as $key => $value){
