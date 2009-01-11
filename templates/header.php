@@ -28,10 +28,10 @@
 						<? $util = new Utilities(); 
                 $current_user = $util->currentUser();
                 $conn = new Sgbd();
-                $planets = $conn->selectFromDB("all", "planets", array("*"), array("user_id" => $_SESSION["user"]));
+                $planets = $conn->countFromDB("planets", array("name"), array("user_id" => $_SESSION['user']));
 ?>
 						<a href="editProfile.php"><? print($current_user['login']); ?></a>, 
-						tienes <a href="myPlanets.php"><?= count($planets)?> planeta<? if(count($planets) != 1){ print 's';} ?></a>.
+						tienes <a href="myPlanets.php"><? print "$planets "; ?>planeta<? if ($planets != 1) { print "s";};?></a>.
 
 						<br/> 
 						<a href="controllers/logout.php">Cerrar sesión</a>
