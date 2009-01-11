@@ -40,7 +40,9 @@
     }
     //Creamos la suscripción
     $subscription_id = $conn->insert2DB("feeds_planets", array("feed_id" => $feed_id, "planet_id" => $planet_id));
-    //Actualizamos el númer de suscritos
-    $conn->updateTableFromDB("feeds", array('subscriptions_count' => count($feeds) + 1), array("id" => $feed_id));
+    //Actualizamos el númer de suscritos en la tabla feeds
+    $conn->incrDecrFromDb("+1", "feeds", "subscriptions_count", array("id" => $feed_id));
+    //Actualizamos el número de feeds en el planeta
+    $conn->incrDecrFromDb("+1", "planets", "feeds_count", array("id" => $planet_id));
   }
 ?>
