@@ -127,6 +127,12 @@ td.large {
 	font-size: 0.9em;
 	padding: 3px;
 }
+
+#content #pagination {
+	clear: both;
+	float: right;
+	margin-right: 10px;
+}
 /* CONTENT - <HOME> */
 #content #home {
 	float:left;
@@ -246,6 +252,7 @@ td.large {
 #footer {
   border-top: 2px solid #2D2D2D;
   text-align: center;
+	margin-top: 5px;
 }
 
 /*Flash Messages*/

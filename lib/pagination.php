@@ -28,19 +28,26 @@ class Pagination{
 
   function paginationLinks(){
     $res = "<div id='pagination'>";
+		$res .= "  Páginas: ";
     foreach(range(1, $this->total_pages) as $page_num){
       //Solo mostramos números si hay más de una página
       if($this->total_pages > 1)
       {
         if($this->current_page == $page_num){
-          $res.= "$page_num ";
+          $res.= "  <b>$page_num</b> ";
         }else{
           $params = self::calculateParams($page_num);
-          $res.= "<a href=$params>$page_num</a>  ";
+          $res.= "  <a href=$params>$page_num</a>  ";
         }
       }
     }
-    return $res.= "</div>";
+		$res.= "</div>";
+		$res.= "<div class='clear'></div>";
+		if($this->total_pages > 1) {
+			return $res;
+		} else {
+			return "";
+		}
   }
 
   //Esta función calcula los parametros a enviar, conservando los que tenía y recalculando el page  

@@ -34,14 +34,21 @@
   //Números de página
   $pagination_links = $pagination->paginationLinks();
 ?>
-  <h1>Planeta <?= $planet['name']?></h1>
+<div id="planet">
+	<div id="planet_name">
+		Planeta <?= $planet['name']?>
+	</div>
+  <?
+    echo($pagination_links);
+
+  	foreach($posts as $post){
+    	include($_SERVER["DOCUMENT_ROOT"]."/templates/post.php"); 
+  	}
+
+		echo($pagination_links); 
+	?>
+</div>
+
 <?
-  echo($pagination_links);
-
-  foreach($posts as $post){
-    include($_SERVER["DOCUMENT_ROOT"]."/templates/post.php"); 
-  }
-
-  echo($pagination_links);
   include ($_SERVER['DOCUMENT_ROOT']."/templates/footer.php");
 ?>
