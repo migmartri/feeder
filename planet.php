@@ -33,7 +33,7 @@
   //Números de página
   $pagination_links = $pagination->paginationLinks();
 ?>
-  Mostrando las entradas del planeta <b><?= $planet['name']?></b>
+  <h1>Planeta <?= $planet['name']?></h1>
 <?
   echo($pagination_links);
 

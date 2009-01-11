@@ -1,5 +1,4 @@
 <div id="breadcrumb">
->
 <?
 $conn = new Sgbd();
 $url = $_SERVER['REQUEST_URI'];
