@@ -121,7 +121,11 @@ td.large {
 }
 
 #content #breadcrumb{
+	background-color: #fff8e8;
+
   float:right;
+	font-size: 0.9em;
+	padding: 3px;
 }
 /* CONTENT - <HOME> */
 #content #home {
