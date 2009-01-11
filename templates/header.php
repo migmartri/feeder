@@ -1,8 +1,8 @@
 <?
   session_start();
-	include ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
-	include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
-	include ($_SERVER['DOCUMENT_ROOT']."/lib/feed.php");
+	include_once ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
+	include_once ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
+	include_once ($_SERVER['DOCUMENT_ROOT']."/lib/feed.php");
 ?>
 <html>
   <head>

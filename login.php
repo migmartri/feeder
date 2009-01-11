@@ -3,6 +3,7 @@
   if(isset($_SESSION['user'])){
     header("Location: ./myPlanets.php");
   }
+	$title = "Login";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 ?>
 

@@ -1,8 +1,9 @@
 <?php
+	$title = "Viendo el planeta número " . $_REQUEST['id'];
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 	include ($_SERVER['DOCUMENT_ROOT']."/lib/pagination.php");
 
-  $util = new Utilities();
+	$util = new Utilities();
   $util->loginRequired();
   $conn = new Sgbd();
 
@@ -12,8 +13,9 @@
     $_SESSION['flash_error'] = "No existe el planeta al que quiere acceder o no tiene permisos para verlo.";
     header("Location: ../myPlanets.php");
   }
+	
 
-  //Página actual
+	//Página actual
   if(isset($_GET['page'])){
     $current_page = $_GET['page'];
   }else{

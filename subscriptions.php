@@ -1,4 +1,5 @@
 <?
+	$title = "Suscripciones";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   $util = new Utilities();
   $util->loginRequired();
