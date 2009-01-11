@@ -2,6 +2,7 @@
 <?
 $conn = new Sgbd();
 $url = $_SERVER['REQUEST_URI'];
+$breadcrumb = '';
 
 switch (true){
   case(preg_match("/^\/myPlanets.php?/", $url)):
