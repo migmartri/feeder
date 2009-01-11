@@ -21,10 +21,6 @@
 					<label id="label_planet" for="planet">Planeta</label><br/>
 					<strong><?= $planet['name'] ?></strong>
 				</div>
-				<div id="div_name">
-					<label id="label_name" for="name">Nombre</label><br/>
-					<input id="name" name="name" type="text" size=30 value="<?=$util->formValue('name')?>"/>
-				</div>
 				<div id="div_url">
 					<label id="label_url" for="url">Dirección</label><br/>
 					<input id="url" name="url" size=30 type="text" value="<?=$util->formValue('url')?>"/>

@@ -62,6 +62,8 @@ class Utilities {
       $xml = @simplexml_load_string($rawFeed);
       if (!is_object($xml))
         throw new Exception('Error en la lectura del XML',1001);
+      //Devolvemos el título
+      return $xml->channel->title;
     }catch(Exception $e){
       array_push($GLOBALS["errors"], $msg);
     }

@@ -7,14 +7,12 @@
   $util = new Utilities();
   $util->loginRequired();
 
-  $name = $_POST['name'];
   $url = $_POST['url'];
   $planet_id = $_POST['planet_id'];
 
-  $util->validatesPresenceOf($name, "El planeta debe tener un nombre");
   $util->validatesPresenceOf($url, "Debes poner una descripción");
   $util->validatesUrlFormatOf($url, "Formato de url incorrecto");
-  $util->validatesFeed($url, "Feed inválido");
+  $name = $util->validatesFeed($url, "Feed inválido");
 
   if(count($errors) == 0) {
     checkAndCreateFeed($name, $url, $planet_id);
