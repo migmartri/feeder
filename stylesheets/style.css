@@ -131,7 +131,8 @@ td.large {
 #content #pagination {
 	clear: both;
 	float: right;
-	margin-right: 10px;
+	margin-top: 10px;
+	margin-right: 70px;
 }
 /* CONTENT - <HOME> */
 #content #home {
