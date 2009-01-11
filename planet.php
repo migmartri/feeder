@@ -31,7 +31,7 @@
   //Números de página
   $pagination_links = $pagination->paginationLinks();
 ?>
-  Mostrando las entradas del planeta <?= $planet['name']?>
+  Mostrando las entradas del planeta <b><?= $planet['name']?></b>
 <?
   echo($pagination_links);
 
@@ -40,4 +40,5 @@
   }
 
   echo($pagination_links);
+  include ($_SERVER['DOCUMENT_ROOT']."/templates/footer.php");
 ?>
