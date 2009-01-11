@@ -43,4 +43,3 @@ switch (true){
 print $breadcrumb;
 ?>
 </div>
-<div class="clear"></div>
