@@ -9,6 +9,7 @@ class Pagination{
   //Página actual
   var $current_page;
 
+  //Constructor
   function Pagination($total_elements, $per_page, $current_page, $sql){
     $this->per_page = $per_page;
     $this->sql = $sql;

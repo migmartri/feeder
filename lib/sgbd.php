@@ -158,6 +158,7 @@ class Sgbd {
     	self::closeConnection();
     	return $result;
     }
+
     function countFromDB($table, $field, $conditions) {
       $dbh = self::connectDB();
       $string_conditions = self::stringConditions($conditions);
