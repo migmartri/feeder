@@ -1,0 +1,32 @@
+body {
+  background-color: #F5F6CE;
+	font-family: Tahoma, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+/* Enlaces */
+a {
+	color:#555;
+}
+a:visited {
+	color:#444;
+}
+a:hover {
+	color:#000;
+	text-decoration: none;
+}
+
+/* Imagenes */
+#shoot {
+  margin: 10px 10px 10px 10px;
+}
+/* Texto */
+#description {
+  background-color: #FFFFFF;
+  margin: 5px auto;
+  padding: 5px;
+  width: 850px;
+}
+p {
+  text-align:justify;
+}

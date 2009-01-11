@@ -1,0 +1,90 @@
+<html>
+
+<head>
+	<title>Feeder - Descripción de la Aplicación</title>
+	<link rel="stylesheet" type="text/css"  href="style.css" />
+</head>
+
+<body>
+	<div id="description">
+	  <h1>Feeder! Feeds Reader</h1>
+	  <h2>General</h2>
+	  <p>
+	    Bienvenido a Feeder, un lector de noticias social, sencillo y rápido
+	    que te ayudará a mantenerte informado allí donde te encuentres.
+	  </p>
+	  <p>
+	    Tras haberte registrado, lo primero que te pediremos es que crees tu
+	    <b>planeta</b>, un <b>planeta</b> sirve para organizar tus <i>feeds</i>
+	    de forma cómoda, así puede tener un planeta de <u>tecnología</u>, <u>recetas
+	    de cocina</u> o lo que se te ocurra.
+	  </p>
+	  <div id="shoot"><img src="images/crearPlaneta.png" alt="crear planeta"/></div>
+	  <p>
+	    Los datos necesarios para crear el planeta son un <b>nombre</b> y una breve
+	    <b>descripción</b> del mismo. Así por ejemplo, puedes tener un planeta llamado
+	    <i>Linux</i> con una descripción <i>Noticias sobre linux</i>. Esto se completa
+	    en la siguiente pantalla.
+	  </p>
+	  <div id="shoot"><img src="images/creandoPlaneta.png" alt="creando un planeta"/></div>
+	  <p>
+	    ¡Ya tienes un planeta creado! Es momento de llenarlo de habitantes. Para ello, creamos una
+	    nueva suscripción en la pantalla que acaba de aparecer. Una <b>suscripción</b> se genera
+	    a partir de un <b>canal</b>, y es la dirección a un archivo <i>xml</i> que contiene toda
+	    la informcación de las noticias como el título del artículo, el contenido propio, la fecha
+	    de creación, etc.
+	  </p>
+	  <div id="shoot"><img src="images/crearSuscripcion.png" alt="creando una suscripcion"/></div>
+	  <p>
+	    Un buen canal de noticias es <a href="http://barrapunto.com" target="_blank">Barrapunto</a>.
+	    Vamos a suscribirnos a las noticias de esta página.
+	  </p>
+	  <div id="shoot"><img src="images/suscripcion.png" alt="suscripcion a barrapunto"/></div>
+	  <p>
+	    Ya tenemos pobladores en nuesto planeta como muestra la siguiente imagen.
+	  </p>
+	  <div id="shoot"><img src="images/viendoPost.png" alt="viendo los posts"/></div>
+	  <p>
+	    Podemos crear tantos <b>planetas</b> como queramos y dentro de cada uno, todas las
+	    <b>suscripciones</b> que nos interesen para estar siempre informados.
+	  </p>
+	  <h2>¿Y ahora qué?</h2>
+	  <p>
+	    Ahora es momento de administrar tus <b>suscripciones</b> y tus <b>planetas</b>.
+	    Para ello desde tu página principal tienes dos enlaces <i>suscripciones</i> y <i>
+	    eliminar</i>. El enlace a <i>eliminar</i> <u>borrará el planeta</u> de la base de datos. El
+	    enlace <i>suscripciones</i> mostrará una lista de los canales contenidos en el 
+	    <b>planeta</b> con las opciones de <u>eliminarlo</u> o suscribirte a las actualizaciones
+	    del <b>planeta</b>.
+	  </p>
+	  <h2>Más Cosas</h2>
+	  <p>
+	    <b>Feeder!</b> también cuenta con capacidad para almacenar tu perfil. A este menú puedes
+	    acceder desde la barra de navegación situada en la esquina superior derecha de la aplicación.
+	    Dispone del sistema <b>breadcrumb</b> para saber en todo momento el camino que has recorrido
+	    dentro de la aplicación. <b>Feeder!</b> dispone de generación de rss para cada planeta.
+    </p>
+    <p>
+      El sistema de actualización de <b>Feeder!</b> se realiza mediante una tarea de <b>cron</b>, el
+      demonio de tareas periódicas de Linux, que mediante un script de <b>bash</b> actualiza todos los
+      feeds de la base de datos. Para que no sea una carga excesiva de trabajo, en nuestra base de datos
+      sólo existe un canal y todos los <b>planetas</b> lo comparten.
+    </p>
+    <p>
+      <b>Feeder!</b> es Software Libre, el código fuente lo podeis encontrar en el sitio web 
+      <a href="http://github.com">GitHub</a>, se publica bajo licencia GPL.
+    </p>
+    <h2>¿Quienes somos?</h2>
+    <p>
+      <b>Feeder!</b> es el trabajo de curso de la asignatura de Ampliación de Bases de Datos de
+      la Universidad de Sevilla. Curso 2008/2009. Realizado por:
+      <ol type="disc">
+        <li>Juan Gallego Galisteo</li>
+        <li>Miguel Angel Martinez Treviño</li>
+        <li>Federico Diaz Valpuesta</li>
+        <li>Kenza Laraki</li>
+      </ol>
+    </p>
+	</div>
+</body>
+</html>
