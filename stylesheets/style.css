@@ -53,6 +53,11 @@ a:hover {
 img {
 	border: 0px;
 }
+
+input[type="text"] {
+	width: 150px;
+}
+
 fieldset {
 	-moz-border-radius-topleft:5px;
 	-moz-border-radius-topright:5px;
