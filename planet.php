@@ -1,5 +1,6 @@
 <?php
 	$title = "Viendo el planeta número " . $_REQUEST['id'];
+  $header_custom_content = "<link rel='alternate' type='application/rss+xml' title='Rss del planeta' href='rssPlanet.php?id=".$_GET['id']."' />";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 	include ($_SERVER['DOCUMENT_ROOT']."/lib/pagination.php");
 
