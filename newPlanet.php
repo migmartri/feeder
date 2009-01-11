@@ -5,7 +5,7 @@
   $util = new Utilities();
   $util->loginRequired();
 ?>
-
+<div class="clear"></div>
 <form action="/controllers/createPlanet.php" method="post" onsubmit="return validatesPlanet()">
 	<div id="div_nuevo_planeta" class="form form-planet">
 		<fieldset>

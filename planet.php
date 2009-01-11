@@ -34,8 +34,8 @@
   $pagination_links = $pagination->paginationLinks();
 ?>
 <div id="planet">
-	<div id="planet_name">
-		Planeta <?= $planet['name']?>
+	<div id="planet_name" class="big">
+		Planeta: <strong><?= $planet['name']?></strong>
 	</div>
   <?
     echo($pagination_links);

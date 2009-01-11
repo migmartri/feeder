@@ -11,7 +11,7 @@
   
   $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $planet_id));
 ?>
-
+<div class="clear"></div>
 <form action="/controllers/createSubscription.php" method="post" onsubmit="return validatesSubscription()">
 	<div id="id_nueva_suscripcion" class="form form-suscription">
 		<fieldset>
