@@ -1,8 +1,14 @@
 <?php
+/*
+ * Implementación de tareas de Base de Datos
+ */
 include_once($_SERVER["DOCUMENT_ROOT"]."/config/config.inc");
 
 class Sgbd {
-			
+  
+  
+    /* Conectar a la base de datos
+     */
 	  function connectDB() {
     	$hostname = 'localhost';
     	$username = user_db;
@@ -18,7 +24,11 @@ class Sgbd {
     	}
     }
     
-   //insert2DB('users', array(foo => foo_value, var => var_value)) 
+    /* Insertar en base de datos.
+     * @table Tabla objetivo.
+     * @fields valores a insertar. Array hash.
+     * insert2DB('users', array(foo => foo_value, var => var_value))
+     */
     function insert2DB($table, $fields) {
     	$dbh = self::connectDB();
       //Creamos un array del tipo (?, ?, ?) para evitar sql injection
@@ -47,11 +57,18 @@ class Sgbd {
     	}
     }
     
+    /* Cerrar la conexión
+     */
     function closeConnection() {
     	$dbh = null;
     }
 
-    //selectFromDB("users", array("login", "email"), array("login" => "n3uro5i5", "email" => "foobar") 
+    /* Extraer datos de la base de datos.
+     * @table Tabla.
+     * @values Campos. Array hash.
+     * @conditions Condiciones where. Array hash.
+     * selectFromDB("users", array("login", "email"), array("login" => "n3uro5i5", "email" => "foobar") 
+     */
     function selectFromDB($mode, $table, $values, $conditions) {
     	$dbh = self::connectDB();
       //Preparamos los campos a traer en la consulta
@@ -59,10 +76,10 @@ class Sgbd {
       $condition_values = array();
 
     	if (count($conditions) > 0) {
-        /*Creamos dos elementos a partir de las condiciones
+        /* Creamos dos elementos a partir de las condiciones
          * $string_conditions que es una cadena del tipo foo = ? AND bar = ?
          * $condition_values que es el conjunto de valores a pasar en el execute
-         * */
+         */
         $string_conditions = '';
         $index = 1;
         foreach ($conditions as $field => $value) {
@@ -92,8 +109,13 @@ class Sgbd {
     	return $result;
     }
 
-    //updateTableFromDB(tabla, array(:name => "tal"), :array(:id => 2))
-    //updateTableFromDB(tabla, campos_a_actualizar, condiciones)    
+    /* Actualizar datos de la base de datos
+     * @table Tabla.
+     * @fields Campos de la tabla. Array hash.
+     * @conditions Condiciones para where. Array hash.
+     * updateTableFromDB(tabla, array(:name => "tal"), :array(:id => 2))
+     * updateTableFromDB(tabla, campos_a_actualizar, condiciones)    
+     */
     function updateTableFromDB($table, $fields, $conditions) {
         $dbh = self::connectDB();
         /*Dos elementos
@@ -109,7 +131,11 @@ class Sgbd {
         return $res;
     }
 
-    #deleteFromDB("users", array('name' => 'Migue'))
+    /* Eliminar elementos de la base de datos.
+     * @table Tabla.
+     * @conditions Condiciones para where. Array hash.
+     * deleteFromDB("users", array('name' => 'Migue'))
+     */
     function deleteFromDB($table, $conditions){
       $dbh = self::connectDB();
       $string_conditions = self::stringConditions($conditions);
@@ -118,8 +144,12 @@ class Sgbd {
       $res = $stmt->execute(array_values($conditions));
       #Devolvemos si hemos borrado alguna
       return ($stmt->rowCount()>0);
-      }
-
+    }
+    
+    /* Esta función toma un array hash y lo convierte en una cadena
+     * donde el valor para cada clave es ?
+     * @params Array hash.
+     */
     function stringParams($params){
       $string_values = '';
       $values = array();
@@ -135,7 +165,11 @@ class Sgbd {
       //devolvemos el string de valores y un array con éstos
       return array($string_values, $values);
     }
-
+    
+    /* Esta función toma un array hash de condiciones y la ordena de 
+     * forma que cada par queda unido por un AND
+     * @conditions Array hash.
+     */
     function stringConditions($conditions){
       $string_conditions = '';
       $index = 1;
@@ -149,7 +183,9 @@ class Sgbd {
       return $string_conditions;
     }
 
-    //Busqueda usando sql puro
+    /* Esta función hace consultas utilizando sql puro, sin parametrizar.
+     * @sql Cadena sql bien formada.
+     */
     function findBySql($sql) {
     	$dbh = self::connectDB();
     	$stmt = $dbh->prepare($sql);
@@ -158,7 +194,13 @@ class Sgbd {
     	self::closeConnection();
     	return $result;
     }
-
+    
+    /* Esta función implementa la sentencia 
+     * SELECT COUNT(...) FROM ... WHERE
+     * @table Tabla.
+     * @field Campo a contar.
+     * @conditions Condiciones para where.
+     */
     function countFromDB($table, $field, $conditions) {
       $dbh = self::connectDB();
       $string_conditions = self::stringConditions($conditions);
@@ -171,6 +213,5 @@ class Sgbd {
       #Devolvemos el numero de coincidencias.
       return $result[0];
     }
-
 }
 ?>
