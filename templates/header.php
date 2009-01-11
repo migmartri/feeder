@@ -15,7 +15,11 @@
 
 		<script type="text/javascript" src="javascripts/validations.js"></script> 
 		<script type="text/javascript" src="javascripts/validations_lib.js"></script> 
-
+    
+     <? 
+      //Contenido extra para el header
+      if(isset($header_custom_content)){ print($header_custom_content);} 
+      ?>
   </head>
   <body>
     <div id="container">
