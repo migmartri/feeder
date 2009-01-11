@@ -36,7 +36,7 @@
                 $planets = $conn->countFromDB("planets", array("name"), array("user_id" => $_SESSION['user']));
 						?>
 						<a href="editProfile.php" title="Edición de perfil" ><?= $current_user['login'] ?></a>, 
-						tienes <a href="myPlanets.php" title="Mis planetas" ><?= $planets ?>planeta<? if ($planets != 1) { print "s";};?></a>.
+						tienes <a href="myPlanets.php" title="Mis planetas" ><?= $planets ?> planeta<? if ($planets != 1) { print "s";};?></a>.
 
 						<br/> 
 						<a href="controllers/logout.php" title="Deslogeate del sistema" >Cerrar sesión</a>
