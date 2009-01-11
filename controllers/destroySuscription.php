@@ -21,11 +21,13 @@
   if ($res){
     //Decrementamos el contador de suscripciones del feed y lo eliminamos en caso de ser necesario
     if($feed["subscriptions_count"] > 1){
-      $conn->updateTableFromDB("feeds", array('subscriptions_count' => $feed['subscriptions_count'] - 1), array("id" => $feed['id']));
+      $conn->incrDecrFromDb("-1", "feeds", "subscriptions_count", array("id" => $feed_id));
     }else{ //Borramos el feed y sus entradas
       $conn->deleteFromDB("feeds", array("id" => $feed['id']));
       $conn->deleteFromDB("posts", array("feed_id" => $feed['id']));
     }
+    //Decrementar el número de feeds del planeta
+    $conn->incrDecrFromDb("-1", "planets", "feeds_count", array("id" => $planet['id']));
 
     $_SESSION["flash_notice"] = "Suscripción eliminada correctamente";
   } else {
