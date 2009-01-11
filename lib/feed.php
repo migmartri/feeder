@@ -28,8 +28,15 @@ class Feed {
 		$channel['language']    = $xml->language;
 
 		// step 3: extract the articles
+    
+    //FiX Barrapunto
+    if(isset($xml->channel->item)){
+      $items = $xml->channel->item;
+    }else{
+      $items = $xml->item;
+    }
 
-		foreach ($xml->channel->item as $item)
+  	foreach ($items as $item)
 		{
 			$article = array();
 			$article['channel'] = $blog_url;
@@ -47,12 +54,19 @@ class Feed {
 			$wfw     = $item->children($ns['wfw']);
 
 			$article['creator'] = (string) $dc->creator;
-			foreach ($dc->subject as $subject)
-							$article['subject'][] = (string)$subject;
+			foreach ($dc->subject as $subject){
+        $article['subject'][] = (string)$subject;
+      }
+
+      //FIX Date barrapunto
+      if(!isset($item->pubDate)){
+        $article['pubDate'] = $dc->date;
+        $article['timestamp'] = strtotime($dc->date);
+      }
 
 			$article['content'] = (string)trim($content->encoded);
 			$article['commentRss'] = $wfw->commentRss;
-
+        
 			// add this article to the list
 			$articles[$article['timestamp']] = $article;
 		}
@@ -85,7 +99,7 @@ class Feed {
     //respecto a la fecha de última actualización del Feed
     foreach($articles as $time => $article){
       if(!isset($updated_at) || $time >= $updated_at){
-        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "content" => $article['description'], 'published_at' => gmdate("Y-m-d H:i:s", $time), "url" => $article['link']));
+        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "description" => $article['description'], "content" => $article['content'], 'published_at' => gmdate("Y-m-d H:i:s", $time), "url" => $article['link']));
       }
     }
     //Actualizamos fecha de la última actualización a la fecha/hora actual

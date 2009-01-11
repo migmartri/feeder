@@ -26,7 +26,7 @@
     $description=substr($post['content'],0,300)."...";
     echo "<item>" ;
     echo "<title><![CDATA[".$post['title']."]]></title>" ;
-    /* echo "<pubDate>".$post["created_at"]."</pubDate>"; */
+    echo "<pubDate>".$post["published_at"]."</pubDate>";
     echo "<link>".$post['url']."</link>";
     echo "<description><![CDATA[".$description."]]></description>";
     echo "<content:encoded><![CDATA[".$post['content']."]]></content:encoded>";

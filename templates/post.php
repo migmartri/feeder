@@ -12,6 +12,12 @@
   </div>
 	<div class="clear"></div>
   <div class="post_content">
-    <?= $post['content']?>
+    <? if($post["content"] != '')
+    {
+      print($post['content']);
+    }else{
+      print($post['description']);
+    }
+    ?>
   </div>
 </div>
