@@ -6,18 +6,18 @@ $breadcrumb = '';
 
 switch (true){
   case(preg_match("/^\/myPlanets.php?/", $url)):
-    $breadcrumb = "Mis planetas";
+    $breadcrumb .= "Mis planetas";
     break;
 
   case(preg_match("/^\/planet.php?/", $url)):
     $planet = $conn->selectFromDB("first", "planets", array("name"), array("id" => $_GET['id']));
-    $breadcrumb = "<a href='myPlanets.php'>Mis planetas</a> > Planeta ".$planet['name'];
+    $breadcrumb .= "<a href='myPlanets.php'>Mis planetas</a> » ".$planet['name'];
     break;
 
   case(preg_match("/^\/subscriptions.php?/", $url)):
     $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $_GET['planet_id']));
-    $breadcrumb = "<a href='myPlanets.php'>Mis planetas</a> > ";
-    $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."'>Planeta ".$planet['name']."</a> > ";
+    $breadcrumb .= "<a href='myPlanets.php'>Mis planetas</a> » ";
+    $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."'> ".$planet['name']."</a> » ";
     $breadcrumb .= "Suscripciones";
     break;
 
@@ -29,14 +29,14 @@ switch (true){
       $planet_id = $_SESSION['form_values']['planet_id'];
     }
     $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $planet_id));
-    $breadcrumb = "<a href='myPlanets.php'>Mis planetas</a> > ";
-    $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."'>Planeta ".$planet['name']."</a> > ";
-    $breadcrumb .= "<a href='/subscriptions.php?planet_id=".$planet['id']."> Suscripciones </a> > ";
+    $breadcrumb .= "<a href='myPlanets.php'>Mis planetas</a> » ";
+    $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."'> ".$planet['name']."</a> » ";
+    $breadcrumb .= "<a href='/subscriptions.php?planet_id=".$planet['id']."> Suscripciones </a> » ";
     $breadcrumb .= "Nueva suscripción";
     break;
 
   case(preg_match("/^\/newPlanet.php?/", $url)):
-    $breadcrumb = "<a href='myPlanets.php'>Mis planetas</a> > ";
+    $breadcrumb .= "<a href='myPlanets.php'>Mis planetas</a> » ";
     $breadcrumb .= "Nuevo planeta";
     break;
 }
