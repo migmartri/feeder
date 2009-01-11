@@ -158,6 +158,18 @@ class Sgbd {
     	self::closeConnection();
     	return $result;
     }
+    function countFromDB($table, $field, $conditions) {
+      $dbh = self::connectDB();
+      $string_conditions = self::stringConditions($conditions);
+      $string_column = implode(",", $field);
+      $sql = "SELECT COUNT($string_column) FROM $table WHERE $string_conditions"; 
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      $result =  $stmt->fetch();
+      self::closeConnection();
+      #Devolvemos el numero de coincidencias.
+      return $result[0];
+    }
 
 }
 ?>
