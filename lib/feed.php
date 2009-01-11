@@ -17,7 +17,6 @@ class Feed {
 		$xml = new SimpleXmlElement($rawFeed);
 
 		// step 2: extract the channel metadata
-
 		$channel = array();
 		$channel['title']       = $xml->channel->title;
 		$channel['link']        = $xml->channel->link;
@@ -28,6 +27,7 @@ class Feed {
 		$channel['language']    = $xml->language;
 
 		// step 3: extract the articles
+<<<<<<< HEAD:lib/feed.php
     
     //FiX Barrapunto
     if(isset($xml->channel->item)){
@@ -37,6 +37,9 @@ class Feed {
     }
 
   	foreach ($items as $item)
+=======
+		foreach ($xml->channel->item as $item)
+>>>>>>> ea136dbf7a8b6c43b32bfe59c9ce4f64bea74a01:lib/feed.php
 		{
 			$article = array();
 			$article['channel'] = $blog_url;

@@ -1,24 +1,44 @@
 <?php
-
+/*
+ *  Clase Utilities
+ *  Implementación de las utilidades básicas y repetitivas
+ *  de la aplicación.
+ *  
+ */
 class Utilities {
   
+  /* Devolverá la contraseña codificada 
+   * @pass Contraseña 
+   */
   function codificaPasswd($pass) {
     return sha1($pass);
   }
   
+  /* Verificar si un campo es vacio
+   * @field Campo a verificar
+   * deprecated?
+   */ 
   function isEmpty($field) {
     return count($field);
   }
   
-  //Validaciones
-  //Presencia
+  /* Validaciones */
+  /* Campo obligatorio
+   * @field Campo a verificar que tiene contenido
+   * @msg Mensaje de error a devolver
+   */ 
   function validatesPresenceOf($field, $msg){
     if(!isset($msg)){$msg = "No se puede dejar vacío";}
     if(strlen($field) == 0){
       array_push($GLOBALS["errors"], $msg);
     }
   }
-  //Unica existencia
+  /* Unica existencia
+   * No puede dejamos introducir valores repetidos en tablas como "users"
+   * @table Tabla de la BD a verificar que no existe
+   * @conditions Condiciones de consulta sql
+   * @msg mensaje de error
+   */
   function validatesUniquenessOf($table, $conditions, $msg){
     if(!isset($msg)){$msg = "ya existe, elije otro";}
     $exist = $GLOBALS["conn"]->selectFromDB("first", $table, array("*"), $conditions);
@@ -27,7 +47,12 @@ class Utilities {
       array_push($GLOBALS["errors"], $msg);
     }
   }
-  //Confirmación
+  /* Confirmación
+   * Verificar contraseñas iguales en login
+   * @field1 Contraseña 1
+   * @field2 Contraseña 2
+   * @msg Mensaje de error
+   */
   function validatesConfirmationOff($field1, $field2, $msg){
     if(!isset($msg)){$msg = "$field1 no coincide con $field2";}
   
@@ -36,7 +61,12 @@ class Utilities {
     }
   }
   
-  //Formato de email
+  /* Formato de email
+   * Verificamos mediante expresión regular que el email introducido
+   * tiene un formato correcto.
+   * @email Cadena de email
+   * @msg Mensaje de error
+   */
   function validatesEmailFormatOf($email, $msg){
     if(!isset($msg)){$msg = "Formato de email incorrecto";}
   
@@ -45,7 +75,12 @@ class Utilities {
     }
   }
   
-  //Formato de url
+  /*Formato de url
+   * Verificamos mediante expresión regular que la url introducida
+   * tiene un formato correcto. 
+   * @url Cadena de url
+   * @msg Mensaje de error
+   */
   function validatesUrlFormatOf($url, $msg) {
     if(!isset($msg)){$msg = "La url no tiene un formato correcto";}
   
@@ -54,7 +89,10 @@ class Utilities {
     }
   }
 
-  //Validamos si el feed es válido, válido para nuestra librería
+  /* Validamos si el feed es válido, válido para nuestra librería.
+   * @feed_url Dirección del xml.
+   * @msg Mensaje de error.
+   */
   function validatesFeed($feed_url, $msg){
     if(!isset($msg)){$msg = "Feed no válido";}
     try{
@@ -68,7 +106,11 @@ class Utilities {
       array_push($GLOBALS["errors"], $msg);
     }
   }
-
+  
+  /* Expresión regular para verificar el email
+   * Función de apoyo.
+   * @email Cadena que contiene el email.
+   */ 
   function is_valid_email_address($email){
           $qtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
           $dtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
@@ -86,7 +128,8 @@ class Utilities {
           return preg_match("!^$addr_spec$!", $email) ? 1 : 0;
       }
   
-  //Filtro de acceso, requiere que el usuario esté logueado
+  /* Filtro de acceso, requiere que el usuario esté logueado.
+   */
   function loginRequired(){
     if(!isset($_SESSION['user'])) {
       $_SESSION['flash_error'] = "Acceso denegado";
@@ -94,7 +137,8 @@ class Utilities {
     }
   }
 
-  //Devuelve el usuario actual
+  /* Devuelve el usuario actual.
+   */
   function currentUser(){
     $conn = new Sgbd();
     if(isset($_SESSION['user']) && !isset($_SESSION['current_user'])) {
@@ -104,7 +148,9 @@ class Utilities {
     return $_SESSION['current_user'];
   }
   
-  //Valor devuelto de los formularios
+  /* Valor devuelto de los formularios.
+   * En caso de error se vuelve a completar los formularios.
+   */
   function formValue($field){
     $values = $_SESSION['form_values'];
     if($values != '') {
@@ -116,13 +162,21 @@ class Utilities {
     return '';
   }
   
-  // Comprobamos que es un número de teléfono
+  /* Comprobamos que es un número de teléfono.
+   * Comprobamos que es numérico y mayor que cero.
+   * @field campo a comprobar.
+   */
   function validatesNumericalityOf($field, $msg) {
     if(!isset($msg)){$msg = "El teléfono no es válido";}
     if (!(is_numeric($field)) && (strlen($field) > 0))
       array_push($GLOBALS["errors"], $msg);
    }
-
+  
+  /* Comprobamos la longitud
+   * @field Campo a medir.
+   * @length Tamaño requerido.
+   * @msg Mensaje de error.
+   */
   function validatesLengthOf($field, $length, $msg) {
     if(!isset($msg)){$msg = "Debe ser de longitud $length";}
     
@@ -130,9 +184,10 @@ class Utilities {
       array_push($GLOBALS["errors"], $msg);
     }
   }
-	// Original PHP code by Chirp Internet: www.chirp.com.au
-  // Please acknowledge use of this code by including this header.
-
+  
+	/* Original PHP code by Chirp Internet: www.chirp.com.au
+   * Please acknowledge use of this code by including this header.
+   */
   function truncate($string, $limit, $break=" ", $pad="...")
   {
     // return with no change if string is shorter than $limit
