@@ -15,7 +15,6 @@
     header("Location: ../myPlanets.php");
   }
 	
-
 	//Página actual
   if(isset($_GET['page'])){
     $current_page = $_GET['page'];
@@ -29,15 +28,21 @@
   //Paginamos
   $pagination = new Pagination($num_posts[0]["num"], 10, $current_page, "SELECT * FROM posts WHERE feed_id IN (SELECT feed_id FROM feeds_planets WHERE planet_id =".$planet['id'].") ORDER BY published_at DESC");
 
+	$count_feeds = $conn->countFromDB("feeds_planets", array("planet_id"), array("planet_id" => $planet['id']));
   //Elementos de esta página
   $posts = $pagination->getElements();
   //Números de página
   $pagination_links = $pagination->paginationLinks();
 ?>
 <div id="planet">
-	<div id="planet_name" class="big">
-		Planeta: <strong><?= $planet['name']?></strong>
-		<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" alt="rss de este planeta"/></a>
+	<div id="planet_data">
+		<div id="planet_name" class="big">
+			Planeta: <strong><?= $planet['name']?></strong>
+			<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" alt="rss de este planeta"/></a>
+		</div>
+		<div id="planet_info">
+			Tiene <?= $count_feeds ?> suscripcion<? if($count_feeds != 1){ print "es";}?>. <a href="/newSubscription" title="Añade una nueva suscripcion">¿Añadir otra?</a>
+		</div>
 	</div>
 	<? echo($pagination_links); ?>
 	
