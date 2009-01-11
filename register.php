@@ -1,8 +1,9 @@
-<? 
+<?
   session_start();
   if(isset($_SESSION['user'])){
     header("Location: ./myPlanets.php");
-  }
+	}
+	$title = "Registro";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php");
   $util = new Utilities();
 ?>

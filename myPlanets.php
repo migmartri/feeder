@@ -1,4 +1,5 @@
 <?
+	$title = "Mis planetas";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   //Filtro de acceso
   $util = new Utilities();
