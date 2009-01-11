@@ -1,5 +1,5 @@
 <?
-  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
 	$title = "Mis planetas";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   //Filtro de acceso

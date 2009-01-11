@@ -1,5 +1,5 @@
 <?
-  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
 	$title = "Suscripciones";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   $util = new Utilities();

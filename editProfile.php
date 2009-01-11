@@ -1,6 +1,6 @@
 <?php
 
-  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
 	$title = "Edición de perfil";
 	include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 
