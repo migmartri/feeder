@@ -1,7 +1,9 @@
 <?php
+
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
 	$title = "Edición de perfil";
-	
 	include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+
   $util = new Utilities();
   $util->loginRequired();
   $conn = new Sgbd();

@@ -1,8 +1,11 @@
 <? 
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
 	$title = "Nueva suscripción";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php");
+  
   $conn = new Sgbd();
   $util = new Utilities();
+  
   //cargamos planet id, puede venir de dos fuentes
   if(isset($_GET['planet_id']))
     $planet_id = $_GET['planet_id'];
