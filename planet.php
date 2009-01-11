@@ -35,18 +35,19 @@
   $pagination_links = $pagination->paginationLinks();
 ?>
 <div id="planet">
-	<div id="planet_name">
-		Planeta <?= $planet['name']?>
+	<div id="planet_name" class="big">
+		Planeta: <strong><?= $planet['name']?></strong>
 	</div>
-  <?
-    echo($pagination_links);
+	<? echo($pagination_links); ?>
+	
+	<div id="planet_posts">	
+		<? foreach($posts as $post){
+  	  	 include($_SERVER["DOCUMENT_ROOT"]."/templates/post.php"); 
+  		 } 
+		?>
+	</div>
 
-  	foreach($posts as $post){
-    	include($_SERVER["DOCUMENT_ROOT"]."/templates/post.php"); 
-  	}
-
-		echo($pagination_links); 
-	?>
+	<? echo($pagination_links); ?>
 </div>
 
 <?
