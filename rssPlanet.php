@@ -25,9 +25,9 @@ echo
 ';
 foreach($posts as $post) {
   echo "<item>" ;
-  echo "<title>".$post['title']."</title>" ;
-  echo "<link>TODO</link>";
-  echo "<description>".$post['content']."</description>";
+  echo "<title><![CDATA[".$post['title']."]]></title>" ;
+  echo "<link>".$post['url']."</link>";
+  echo "<description><![CDATA[".$post['content']."]]></description>";
   echo "</item>";
 }
 echo "</channel>";

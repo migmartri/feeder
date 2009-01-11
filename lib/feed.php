@@ -85,7 +85,7 @@ class Feed {
     //respecto a la fecha de última actualización del Feed
     foreach($articles as $time => $article){
       if(!isset($updated_at) || $time >= $updated_at){
-        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "content" => $article['description'], 'published_at' => gmdate("Y-m-d H:i:s", $time)));
+        $conn->insert2DB("posts", array("feed_id" => $feed_id, "title" => $article['title'], "content" => $article['description'], 'published_at' => gmdate("Y-m-d H:i:s", $time), "url" => $article['link']));
       }
     }
     //Actualizamos fecha de la última actualización a la fecha/hora actual
