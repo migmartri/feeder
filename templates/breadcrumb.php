@@ -20,6 +20,25 @@ switch (true){
     $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."'>Planeta ".$planet['name']."</a> > ";
     $breadcrumb .= "Suscripciones";
     break;
+
+  case(preg_match("/^\/newSubscription.php?/", $url)):
+    //FIXME ESTO nos pasa por no devolver el parametro por la url en el caso de error de validación.
+    if(isset($_GET['planet_id'])){
+      $planet_id = $_GET['planet_id'];
+    }else{
+      $planet_id = $_SESSION['form_values']['planet_id'];
+    }
+    $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $planet_id));
+    $breadcrumb = "<a href='myPlanets.php'>Mis planetas</a> > ";
+    $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."'>Planeta ".$planet['name']."</a> > ";
+    $breadcrumb .= "<a href='/subscriptions.php?planet_id=".$planet['id']."> Suscripciones </a> > ";
+    $breadcrumb .= "Nueva suscripción";
+    break;
+
+  case(preg_match("/^\/newPlanet.php?/", $url)):
+    $breadcrumb = "<a href='myPlanets.php'>Mis planetas</a> > ";
+    $breadcrumb .= "Nuevo planeta";
+    break;
 }
 print $breadcrumb;
 ?>
