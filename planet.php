@@ -1,20 +1,20 @@
 <?php
-	$title = "Viendo el planeta número " . $_REQUEST['id'];
-  $header_custom_content = "<link rel='alternate' type='application/rss+xml' title='Rss del planeta' href='rssPlanet.php?id=".$_GET['id']."' />";
-  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
-	include ($_SERVER['DOCUMENT_ROOT']."/lib/pagination.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
 
-	$util = new Utilities();
-  $util->loginRequired();
   $conn = new Sgbd();
-
   $planet = $conn->selectFromDB("first", "planets", array("*"), array("user_id" => $_SESSION["user"], "id" => $_REQUEST['id']));
   
-  if(!$planet){ //FIXME, puede que no funcione con otras versiones de PHP
+  if(!$planet){ 
     $_SESSION['flash_error'] = "No existe el planeta al que quiere acceder o no tiene permisos para verlo.";
     header("Location: ../myPlanets.php");
   }
-	
+
+	$title = "Viendo el planeta ".$planet['name'];
+  $header_custom_content = "<link rel='alternate' type='application/rss+xml' title='Rss del planeta' href='rssPlanet.php?id=".$_GET['id']."' />";
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+
+	$util = new Utilities();
+  $util->loginRequired();
 
 	//Página actual
   if(isset($_GET['page'])){
@@ -22,7 +22,7 @@
   }else{
     $current_page = 1; 
   }
-  
+
   //Num total de elementos
   $num_posts = $conn->findBySql("SELECT count(*) as num FROM posts WHERE feed_id IN (SELECT feed_id FROM feeds_planets WHERE planet_id =".$planet['id'].")");
 
@@ -37,7 +37,7 @@
 <div id="planet">
 	<div id="planet_name" class="big">
 		Planeta: <strong><?= $planet['name']?></strong>
-		<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" /></a>
+		<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" alt="rss de este planeta"/></a>
 	</div>
 	<? echo($pagination_links); ?>
 	

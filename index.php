@@ -1,5 +1,5 @@
 <?
-  session_start();
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
   if(isset($_SESSION['user'])){
     header("Location: ./myPlanets.php");
   }
@@ -10,7 +10,7 @@
 
 <div id="home">
 	<div id="image">
-		<img src="images/feed.png">
+		<img src="images/feed.png" alt="Feed Logo">
 	</div>
 	<div id="text">
 		<p>
@@ -19,7 +19,7 @@
 			</span>
 		</p>
 		<p class="centered">
-			<a href="register.php">Registrate</a><br/>
+			<a href="register.php" title="Formualario de registro!">Registrate</a><br/>
 			<span class="big">
 				<u>crea</u> tu planeta
 				<br/>

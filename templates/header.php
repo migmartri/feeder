@@ -1,10 +1,3 @@
-<?
-  session_start();
-	include_once ($_SERVER['DOCUMENT_ROOT']."/lib/util.php");
-	include_once ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
-	include_once ($_SERVER['DOCUMENT_ROOT']."/lib/feed.php");
-	setlocale(LC_TIME,"es_ES");
-?>
 <html>
   <head>
 		<title>
@@ -34,16 +27,16 @@
                 $current_user = $util->currentUser();
                 $conn = new Sgbd();
                 $planets = $conn->countFromDB("planets", array("name"), array("user_id" => $_SESSION['user']));
-?>
-						<a href="editProfile.php"><? print($current_user['login']); ?></a>, 
-						tienes <a href="myPlanets.php"><? print "$planets "; ?>planeta<? if ($planets != 1) { print "s";};?></a>.
+						?>
+						<a href="editProfile.php" title="Edición de perfil" ><?= $current_user['login'] ?></a>, 
+						tienes <a href="myPlanets.php" title="Mis planetas" ><?= $planets ?> planeta<? if ($planets != 1) { print "s";};?></a>.
 
 						<br/> 
-						<a href="controllers/logout.php">Cerrar sesión</a>
-						<a href="controllers/logout.php"><img src="/images/exit.png" /></a>
+						<a href="controllers/logout.php" title="Deslogeate del sistema" >Cerrar sesión</a>
+						<a href="controllers/logout.php" title="Deslogeate del sistema"><img src="/images/exit.png" alt="Deslogueate del sistema" /></a>
 
           <? } else { ?>
-            <a href="login.php">Iniciar sesión</a>
+            <a href="login.php" title="Inicia sesión en el sistema">Iniciar sesión</a>
 					<? } ?>
         </div>
       </div>

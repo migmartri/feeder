@@ -145,6 +145,7 @@ class Sgbd {
       #Devolvemos si hemos borrado alguna
       return ($stmt->rowCount()>0);
     }
+
     
     /* Esta función toma un array hash y lo convierte en una cadena
      * donde el valor para cada clave es ?
@@ -212,6 +213,16 @@ class Sgbd {
       self::closeConnection();
       #Devolvemos el numero de coincidencias.
       return $result[0];
+    }
+
+    //Incrementar/decrementar campo
+    function incrDecrFromDb($op, $table, $field, $conditions){
+      $dbh = self::connectDB();
+      $string_conditions = self::stringConditions($conditions);
+      $sql = "UPDATE $table SET $field=$field $op WHERE $string_conditions"; 
+      $stmt = $dbh->prepare($sql);
+      $res = $stmt->execute(array_values($conditions));
+      return $res;
     }
 }
 ?>

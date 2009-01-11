@@ -1,5 +1,5 @@
 <?
-  session_start();
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
   if(isset($_SESSION['user'])){
     header("Location: ./myPlanets.php");
 	}
