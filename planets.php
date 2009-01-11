@@ -1,5 +1,6 @@
 <?php
-  include ($_SERVER['DOCUMENT_ROOT']."/templates/header.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/header.php");
   
   $conn = new Sgbd();
   $planets = $conn->findBySql("select p.name, u.login, p.created_at from users u, planets p where u.id = p.user_id order by p.created_at");

@@ -10,12 +10,12 @@ switch (true){
     break;
 
   case(preg_match("/^\/planet.php?/", $url)):
-    $planet = $conn->selectFromDB("first", "planets", array("name"), array("id" => $_GET['id']));
+    if(!isset($planet))$planet = $conn->selectFromDB("first", "planets", array("name"), array("id" => $_GET['id']));
     $breadcrumb .= "<a href='myPlanets.php' title='Accede a tus planetas'>Mis planetas</a> » ".$planet['name'];
     break;
 
   case(preg_match("/^\/subscriptions.php?/", $url)):
-    $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $_GET['planet_id']));
+    if(!isset($planet))$planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $_GET['planet_id']));
     $breadcrumb .= "<a href='myPlanets.php' title='Accede a tus planetas'>Mis planetas</a> » ";
     $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."' title='". $planet['name'] ."'> ".$planet['name']."</a> » ";
     $breadcrumb .= "Suscripciones";
