@@ -26,21 +26,23 @@
 		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>"><img src="/images/add_big.png" /></a>
 	</div>
 <? } else { ?>
-<div id="suscriptions">
-  <table>
-    <tr>
-      <th>Nombre</th>
-      <th>Url</th>
-      <th>Opciones</th>
-    </tr>
-    <?
-      foreach($subscriptions as $subscription){
-        include($_SERVER["DOCUMENT_ROOT"]."/templates/subscriptionIndex.php"); 
-      }
-    ?>
-  </table>
-</div>
-<p><a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Nueva suscripción </a></p>
+	<div id="new_subscription">
+		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>"><img src="/images/feed_add.png" /></a>
+		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>">Nueva suscripción </a>
+	</div>
+	<div id="suscriptions">
+		<table align="center">
+			<tr>
+				<th><img src="/images/feed_little.png" /> Feed</th>
+				<th><img src="/images/feed_delete.png" /> Opciones</th>
+			</tr>
+			<?
+				foreach($subscriptions as $subscription){
+					include($_SERVER["DOCUMENT_ROOT"]."/templates/subscriptionIndex.php"); 
+				}
+			?>
+		</table>
+	</div>
 <?}?>
 
 <? include_once ($_SERVER["DOCUMENT_ROOT"]."/templates/footer.php"); ?>

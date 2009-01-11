@@ -12,7 +12,7 @@
 ?>
 
 <form action="/controllers/createSubscription.php" method="post" onsubmit="return validatesSubscription()">
-	<div id="id_nueva_subscripcion" class="form form-subscription">
+	<div id="id_nueva_suscripcion" class="form form-suscription">
 		<fieldset>
 			<legend>Nueva suscripción</legend>
 			<div class="fields">
