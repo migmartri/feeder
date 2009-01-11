@@ -1,5 +1,5 @@
 <?php
-  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/inports.php");
+  include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/header.php");
   
   $conn = new Sgbd();
