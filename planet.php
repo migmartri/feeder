@@ -1,13 +1,14 @@
 <?php
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 	include ($_SERVER['DOCUMENT_ROOT']."/lib/pagination.php");
-  //Filtro de acceso
+
   $util = new Utilities();
   $util->loginRequired();
   $conn = new Sgbd();
+
   $planet = $conn->selectFromDB("first", "planets", array("*"), array("user_id" => $_SESSION["user"], "id" => $_REQUEST['id']));
   
-  if(!$planet){
+  if(!$planet){ //FIXME, puede que no funcione con otras versiones de PHP
     $_SESSION['flash_error'] = "No existe el planeta al que quiere acceder o no tiene permisos para verlo.";
     header("Location: ../myPlanets.php");
   }

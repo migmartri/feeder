@@ -35,7 +35,7 @@ class Pagination{
           $res.= "$page_num ";
         }else{
           $params = self::calculateParams($page_num);
-          $res.= "<a href=$params'>$page_num</a>  ";
+          $res.= "<a href=$params>$page_num</a>  ";
         }
       }
     }
