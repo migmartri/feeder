@@ -181,7 +181,7 @@ td.large {
 }
 
 #content .form-profile {
-	width: 450px;
+	width: 435px;
 }
 
 #content .fields {
@@ -190,7 +190,11 @@ td.large {
 
 #content .fields .left {
 	float: left;
-	margin-right: 40px;
+	margin-right: 20px;
+}
+
+#content .fields .right {
+	float: left;
 }
 
 
