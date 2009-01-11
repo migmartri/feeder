@@ -267,3 +267,7 @@ td.large {
 #validation_errors{
   text-align: left;
 }
+
+.clear{
+  clear:both;
+}
