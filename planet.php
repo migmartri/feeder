@@ -41,7 +41,7 @@
 			<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" alt="rss de este planeta"/></a>
 		</div>
 		<div id="planet_info">
-			Tiene <?= $planet['feeds_count'] ?> suscripcion<? if($count_feeds != 1){ print "es";}?>. <a href="/newSubscription" title="Añade una nueva suscripcion">¿Añadir otra?</a>
+      Tiene <?= $planet['feeds_count'] ?> suscripcion<? if($planet['feeds_count'] != 1){ print "es";}?>. <a href="/newSubscription.php?planet_id=<?=$planet['id']?>" title="Añade una nueva suscripcion">¿Añadir otra?</a>
 		</div>
 	</div>
 	<? echo($pagination_links); ?>
