@@ -65,6 +65,10 @@ legend {
   font-size:1.5em;
 }
 
+td.large {
+	text-align: center;
+	width: 200px;
+}
 
 
 /* Header */
@@ -81,7 +85,7 @@ legend {
 }
 
 #header span.title {
-	font-size: 2.5em;4b7f1d
+	font-size: 2.5em;
 }
 
 #header span.slogan {
@@ -214,8 +218,12 @@ legend {
 
 
 /* Subscripciones */
-#content .form-subscription {
+#content .form-suscription {
 	width: 340px;
+}
+
+#content #suscriptions {
+	padding-top: 20px;
 }
 
 /* Posts */
