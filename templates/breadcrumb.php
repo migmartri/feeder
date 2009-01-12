@@ -1,4 +1,3 @@
-<div id="breadcrumb">
 <?
 $conn = new Sgbd();
 $url = $_SERVER['REQUEST_URI'];
@@ -40,6 +39,12 @@ switch (true){
     $breadcrumb .= "Nuevo planeta";
     break;
 }
-print $breadcrumb;
+
+if($breadcrumb != ""){
+  print('<div id="breadcrumb">');
+  print $breadcrumb;
+  print('</div>');
+}
+
 ?>
-</div>
+

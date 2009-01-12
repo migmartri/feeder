@@ -49,7 +49,7 @@ class Pagination {
           $res.= "  <b>$page_num</b> ";
         }else{
           $params = self::calculateParams($page_num);
-          $res.= "<a href=".$_SERVER['QUERY_STRING']."$params>$page_num</a>  ";
+          $res.= "  <a href=$params>$page_num</a>  ";
         }
       }
     }
