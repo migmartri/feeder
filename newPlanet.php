@@ -23,7 +23,7 @@
 			</div>
 		</fieldset>
 		<div id="div_submit">
-			<button id="submit" >Enviar</button>
+      <input type="submit" value="Enviar" />
 		</div>
 	</div>
 </form>

@@ -8,7 +8,7 @@
 ?>
 
 <div id="div_form" class='form form-register'>
-  <form action="controllers/login.php" method="post" onSubmit="true || return validatesLogin();">
+  <form action="controllers/login.php" method="post" onSubmit="return validatesLogin();">
     <div id="div_datos_personales">
       <fieldset>
         <legend>Inicio de sesión</legend>
@@ -26,7 +26,7 @@
       </fieldset>
     </div>
     <div id="div_submit">
-      <button id="submit">¡Entrar!</button>
+      <input type="submit" value="¡Entrar!" />
     </div>
   </form>
 </div>

@@ -36,7 +36,7 @@
       </fieldset>
     </div>
     <div id="div_submit">
-      <button id="submit">¡Regístrate!</button>
+      <input type="submit" value="¡Regístrate!" />
     </div>
   </form>
 </div>

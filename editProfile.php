@@ -50,7 +50,7 @@
 			</div>
     </fieldset>
 	  <div id="div_submit">
- 		  <button id="submit">Guardar</button>
+      <input type="submit" value="Guardar" />
  		</div>
   </div>
 </form>
