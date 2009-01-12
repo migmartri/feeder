@@ -8,7 +8,7 @@
 ?>
 
 <div id="div_form" class='form form-register'>
-  <form action="controllers/login.php" method="post" onsubmit="true || return validatesLogin();">
+  <form action="controllers/login.php" method="post" onSubmit="true || return validatesLogin();">
     <div id="div_datos_personales">
       <fieldset>
         <legend>Inicio de sesión</legend>

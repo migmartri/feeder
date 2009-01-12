@@ -1,19 +1,18 @@
 <html>
   <head>
-		<title>
-			Feeder!
-			<? if(isset($title)){ echo ' - ' . $title; } ?>
-		</title>
+    <title>
+      Feeder!
+      <? if(isset($title)){ echo ' - ' . $title; } ?>
+    </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css"  href="stylesheets/style.css" />
-
-		<script type="text/javascript" src="javascripts/validations.js"></script> 
-		<script type="text/javascript" src="javascripts/validations_lib.js"></script> 
+    <script type="text/javascript" src="javascripts/validations.js"></script> 
+    <script type="text/javascript" src="javascripts/validations_lib.js"></script> 
     
-     <? 
-      //Contenido extra para el header
-      if(isset($header_custom_content)){ print($header_custom_content);} 
-      ?>
+    <? 
+    //Contenido extra para el header
+    if(isset($header_custom_content)){ print($header_custom_content);} 
+    ?>
   </head>
   <body>
     <div id="container">
