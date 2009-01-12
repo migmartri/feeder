@@ -10,7 +10,7 @@
 
 <div id="home">
 	<div id="image">
-		<img src="images/feed.png" alt="Feed Logo">
+		<img src="images/feed.png" alt="Feed Logo"/>
 	</div>
 	<div id="text">
 		<p>
@@ -21,9 +21,9 @@
 		<p class="centered">
 			<a href="register.php" title="Formulario de registro!">Registrate</a><br/>
 			<span class="big">
-				<u>crea</u> tu planeta
+				<span class='underline'>crea</span> tu planeta
 				<br/>
-				<u>comparte</u> noticias con tus amigos
+				<span class="underline">comparte</span> noticias con tus amigos
 			</span>
 		</p>
 	</div>

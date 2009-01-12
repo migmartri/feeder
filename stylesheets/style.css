@@ -37,6 +37,15 @@ body {
 	width: 155px;
 }
 
+.underline{
+  text-decoration: underline;
+}
+
+.table_center{
+  margin-left:auto;
+  margin-right:auto;
+}
+
 a {
 	color:#555;
 }

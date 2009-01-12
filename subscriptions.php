@@ -37,7 +37,7 @@
 		<a href="/newSubscription.php?planet_id=<?=$_GET['planet_id']?>" title="Añade una nueva suscripción">Nueva suscripción </a>
 	</div>
 	<div id="suscriptions">
-		<table align="center">
+		<table class="table_center">
 			<tr>
 				<th><img src="/images/feed_little.png" alt="Logo feed" /> Feed</th>
 				<th><img src="/images/feed_delete.png" alt="Logo feed delete" /> Opciones</th>
