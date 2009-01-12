@@ -13,6 +13,11 @@
       //Contenido extra para el header
       if(isset($header_custom_content)){ print($header_custom_content);} 
     ?>
+
+    <!--[if IE]>
+    <link rel="stylesheet" href="stylesheets/ie6.css" type="text/css" media="screen, projection">
+    <![endif]-->
+
   </head>
   <body>
     <div id="container">
