@@ -345,6 +345,12 @@ tr.even {background-color:#ddd; height:65px;}
   border-top: 2px solid #2D2D2D;
   text-align: center;
 	margin-top: 5px;
+	padding: 10px;
+}
+
+#footer p {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 /*Flash Messages*/
