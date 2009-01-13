@@ -1,7 +1,7 @@
 <div id="post_<?=$post['id']?>" class="post">
   <div class='post_head'>
     <div class="post_title">
-			<a href="<?=$post['url']?>" target="_blank" title="<?= $post['title'] ?>"><?= $util->truncate($post['title'], 50); ?></a>
+			<a href="<?=$post['url']?>" title="<?= $post['title'] ?>"><?= $util->truncate($post['title'], 50); ?></a>
     </div>
 		<div class="post_date">
 			En

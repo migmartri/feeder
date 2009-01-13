@@ -39,7 +39,7 @@ class Pagination {
   /* Construye una cadena de números de página que son enlaces. 
    */
   function paginationLinks(){
-    $res = "<div id='pagination'>";
+    $res = "<div class='pagination'>";
 		$res .= "  Páginas: ";
     foreach(range(1, $this->total_pages) as $page_num){
       //Solo mostramos números si hay más de una página
@@ -49,7 +49,7 @@ class Pagination {
           $res.= "  <b>$page_num</b> ";
         }else{
           $params = self::calculateParams($page_num);
-          $res.= "  <a href=$params>$page_num</a>  ";
+          $res.= "  <a href=\"$params\">$page_num</a>  ";
         }
       }
     }
@@ -66,10 +66,10 @@ class Pagination {
    * conservando los que tenía y recalculando el page.
    */
   function calculateParams($page_num){
-    $res = '?';
+    $res = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . '?';
     foreach($_GET as $key => $value){
       if($key != "page"){
-        $res.= "$key=$value&";
+        $res.= "$key=$value&amp;";
       }
     }
     return $res .= "page=".$page_num;

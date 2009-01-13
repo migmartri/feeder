@@ -195,7 +195,7 @@ tr.even {background-color:#ddd; height:65px;}
 	padding: 3px;
 }
 
-#content #pagination {
+#content .pagination {
 	clear: both;
 	float: right;
 	margin-top: 10px;
