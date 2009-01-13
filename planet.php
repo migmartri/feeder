@@ -16,11 +16,7 @@
 	$util = new Utilities();
 
 	//Página actual
-  if(isset($_GET['page'])){
-    $current_page = $_GET['page'];
-  }else{
-    $current_page = 1; 
-  }
+  $current_page = isset($_GET['page']) ? $_GET['page'] : 1; 
 
   //Num total de elementos
   $num_posts = $conn->findBySql("SELECT count(*) as num FROM posts WHERE feed_id IN (SELECT feed_id FROM feeds_planets WHERE planet_id =".$planet['id'].")");

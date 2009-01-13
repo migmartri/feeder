@@ -6,11 +6,8 @@
   $total = $conn->findBySql("SELECT count(*) as num FROM planets");
   #Paginación
 	//Página actual
-  if(isset($_GET['page'])){
-    $current_page = $_GET['page'];
-  }else{
-    $current_page = 1; 
-  }
+  $current_page = isset($_GET['page']) ? $_GET['page'] : 1; 
+
   $pagination = new Pagination($total[0]['num'], 5, $current_page, "select p.name, p.description, u.login, p.feeds_count, p.id from users u, planets p where u.id = p.user_id order by p.created_at desc");
   //Elementos de esta página
   $planets = $pagination->getElements();
@@ -31,7 +28,7 @@
     <th>Nº de feeds</th>
   </tr>
 	<?foreach($planets as $planet) { ?>
-		<? $even_odd = ( 'odd' != $even_odd ) ? 'odd' : 'even'; ?>
+		<? $even_odd = ( isset($even_odd) && 'odd' != $even_odd ) ? 'odd' : 'even'; ?>
     <tr class="<?= $even_odd ?>">
 			<td class='medium'><a href='/planet.php?id=<?= $planet[4] ?>' title='Acceder al planeta'><?= $planet[0] ?></a></td>
 			<td class='description'><?= $util->truncate($planet[1], 50) ?></td>
