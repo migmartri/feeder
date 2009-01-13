@@ -1,6 +1,7 @@
 <?
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
-	$title = "Mis planetas";
+  $util = new Utilities();
+  $title = "Mis planetas";
   $util->loginRequired();
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   //Filtro de acceso
