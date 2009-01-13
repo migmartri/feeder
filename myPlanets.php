@@ -1,11 +1,10 @@
 <?
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
-  $title = "Mis planetas";
-  //Filtro de acceso
-  $util = new Utilities();
+	$title = "Mis planetas";
   $util->loginRequired();
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
-
+  //Filtro de acceso
+  $util = new Utilities();
   //Cargamos los planetas del usuario
   $conn = new Sgbd();
   $planets = $conn->selectFromDB("all", "planets", array("*"), array("user_id" => $_SESSION["user"]));

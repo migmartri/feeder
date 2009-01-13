@@ -11,7 +11,7 @@
     </div>
   </div>
 	<div class="clear"></div>
-  <div class="post_content">
+  <div class="post_content" id="post_content_<?= $post['id'] ?>">
     <? if($post["content"] != '')
     {
       print($post['content']);

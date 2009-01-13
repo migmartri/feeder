@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css"  href="stylesheets/style.css" />
     <script type="text/javascript" src="javascripts/validations.js"></script> 
     <script type="text/javascript" src="javascripts/validations_lib.js"></script> 
+    <script type="text/javascript" src="javascripts/common.js"></script> 
+    <script type="text/javascript" src="javascripts/prototype-1.6.0.3.js"></script> 
     <? 
       //Contenido extra para el header
       if(isset($header_custom_content)){ print($header_custom_content);} 
