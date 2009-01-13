@@ -35,13 +35,14 @@ if($util->loggedIn()){
   foreach($favourites as $favourite){
     array_push($favourites_array, $favourite['post_id']);
   }
-  print("<div id='favourite_".$post['id']."'>");
+  print("<div id='favourite_".$post['id']."' class='favourite'>");
   //Comprobams si ese favorito existe ya
   if(array_search($post['id'], $favourites_array) == null){
-    print("<a href='#' onclick='setFavourite(".$post['id']."); return false;' title='Añadir a favoritos este post'> + Favoritos </a>");
+		print("<img src='/images/star_grey.png' alt='No favorito' /> ");
+    print("<a href='#' onclick='setFavourite(".$post['id']."); return false;' title='Añadir a favoritos este post'>Favoritos </a>");
   }else{
-    print("Ya es tu favorito ");
-    print("(<a href='#' onclick='destroyFavourite(".$post['id']."); return false;' title='Quitar de favoritos'>Quitar</a>)");
+		print("<img src='/images/star.png' alt='favorito' /> ");
+    print("<a href='#' onclick='destroyFavourite(".$post['id']."); return false;' title='Quitar de favoritos'>Favoritos </a>");
   }
   print("</div>");
 }
