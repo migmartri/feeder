@@ -10,7 +10,6 @@
   $conn = new Sgbd();
   $planets = $conn->selectFromDB("all", "planets", array("*"), array("user_id" => $_SESSION["user"]));
 ?>
-
 <div id="div_planets">
 	<? if(count($planets) == 0){ ?>
 		<div id="first_planet">
@@ -26,6 +25,8 @@
 			<a href="newPlanet.php" title="Crea un planeta">Nuevo Planeta</a>
 		</div>
 	<? } ?>
+
+<div class="clear"></div>
     <?
   //Cargamos el planeta de favoritos en el caso de tener alguno
     $favourites_count = $conn->countFromDB("favourites", array("*"), array("user_id" => $_SESSION['user']));
