@@ -150,9 +150,11 @@ tr.even {background-color:#ddd; height:65px;}
 	background-color: #eee;
 	border: 2px solid #666;
 	color:#333;
+	float: left;
 	margin-top: -5px;
 	margin-bottom: 3px;
 	padding: 10px;
+	width:306px;
 }
 
 #last_planets #more {
@@ -162,7 +164,8 @@ tr.even {background-color:#ddd; height:65px;}
 }
 
  #last_planets #last_planets_planets .planet_item{
-  width: 160px;
+	float: left;
+  width: 150px;
   text-align: center;
 }
 
