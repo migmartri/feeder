@@ -1,10 +1,8 @@
 <?
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
   //Cargamos el planeta, forzando que debe ser del usuario actual y verificamos que tenemos acceso
-
   $util = new Utilities();
   $util->loginRequired();
-  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php");
   $conn = new Sgbd();
   $planet = $conn->selectFromDB("first", "planets", array("*"), array('user_id' => $_SESSION['user'], 'id' => $_GET['planet_id']));
   if(!$planet){
@@ -16,7 +14,6 @@
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   $util = new Utilities();
   $util->loginRequired();
-
 
   //Suscripciones
   $subscriptions = $conn->findBySql("SELECT * FROM feeds inner join feeds_planets on feeds_planets.feed_id = feeds.id where feeds_planets.planet_id=".$planet['id']);
