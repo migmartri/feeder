@@ -27,7 +27,25 @@
 
         print('<div class="post_more" id="post_more_'.$post['id'].'"><a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
       }
-      
-    ?>
+
+
+//FIXME, preparamos el array de ids para buscar luego, no me gusta
+$favourites_array = array();
+foreach($favourites as $favourite){
+  array_push($favourites_array, $favourite['post_id']);
+}
+
+if($util->loggedIn()){
+  print("<div id='favourite_".$post['id']."'>");
+  //Comprobams si ese favorito existe ya
+  if(!array_search($post['id'], $favourites_array)){
+    print("<a href='#' onclick='setFavourite(".$post['id']."); return false;' title='Añadir a favoritos este post'> + Favoritos </a>");
+  }else{
+    print("Ya es tu favorito ");
+    print("(<a href='#' onclick='destroyFavourite(".$post['id']."); return false;' title='Quitar de favoritos'>Quitar</a>)");
+  }
+  print("</div>");
+}
+?>
   </div>
 </div>
