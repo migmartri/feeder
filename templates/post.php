@@ -29,12 +29,12 @@
       }
 
 
-//FIXME, preparamos el array de ids para buscar luego, no me gusta
-$favourites_array = array();
-foreach($favourites as $favourite){
-  array_push($favourites_array, $favourite['post_id']);
-}
 if($util->loggedIn()){
+  //FIXME, preparamos el array de ids para buscar luego, no me gusta
+  $favourites_array = array();
+  foreach($favourites as $favourite){
+    array_push($favourites_array, $favourite['post_id']);
+  }
   print("<div id='favourite_".$post['id']."'>");
   //Comprobams si ese favorito existe ya
   if(array_search($post['id'], $favourites_array) == null){
