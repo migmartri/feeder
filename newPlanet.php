@@ -14,16 +14,16 @@
 			<div class="fields">
 				<div id="div_name">
 					<label id="label_name" for="name">Nombre del planeta</label><br/>
-					<input id="name" name="name" type="text" value="<?=$util->formValue('name')?>"/>
+					<input id="name" name="name" type="text" value="<?=$util->formValue('name')?>" tabindex="1" />
 				</div>
 				<div id="div_description">
 					<label id="label_description" for="description">Descripción del planeta</label><br/>
-					<textarea id="description" name="description" rows="3" cols="30"/><?=$util->formValue('description')?></textarea>
+					<textarea id="description" name="description" rows="3" cols="30" tabindex="2" /><?=$util->formValue('description')?></textarea>
 				</div>
 			</div>
 		</fieldset>
 		<div id="div_submit">
-      <input type="submit" value="Enviar" />
+      <input type="submit" value="Enviar" tabindex="3" />
 		</div>
 	</div>
 </form>

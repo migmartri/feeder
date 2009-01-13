@@ -27,7 +27,7 @@
 				</div>
 				<div id="div_url">
 					<label id="label_url" for="url">Dirección</label><br/>
-					<input id="url" name="url" size=30 type="text" value="<?=$util->formValue('url')?>"/>
+					<input id="url" name="url" size=30 type="text" value="<?=$util->formValue('url')?>" tabindex="1" />
 				</div>
 				<div id="div_planet_id">
 					<input id="planet_id" name="planet_id" size=30 type="hidden" value="<?= $planet_id ?>"/>
@@ -35,7 +35,7 @@
 			</div>
 		</fieldset>
 		<div id="id_submit">
-      <input type="submit" value="Crear" />
+      <input type="submit" value="Crear" tabindex="2" />
 		</div>
 	</div>
 </form>
