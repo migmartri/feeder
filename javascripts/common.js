@@ -1,4 +1,5 @@
-//Petición ajax que se encarga de 
+//Petición ajax que se encarga de traer el contenido completo de una entrada de un feed.
+//ésta sustituirá la descripción existente.
 function getPostContent(post_id){
   new Ajax.Request('/controllers/postContent.php', 
       { method: 'post',
