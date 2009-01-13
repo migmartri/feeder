@@ -1,10 +1,11 @@
 <? 
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
 	$title = "Nueva suscripción";
+  $util = new Utilities();
+  $util->loginRequired();
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php");
   
   $conn = new Sgbd();
-  $util = new Utilities();
   
   //cargamos planet id, puede venir de dos fuentes
   if(isset($_GET['planet_id']))

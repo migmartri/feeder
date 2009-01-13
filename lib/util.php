@@ -147,7 +147,11 @@ class Utilities {
     }  
     return $_SESSION['current_user'];
   }
-  
+
+  //Devuelve si está logueada o no
+  function loggedIn(){
+    return isset($_SESSION['user']);
+  } 
   /* Valor devuelto de los formularios.
    * En caso de error se vuelve a completar los formularios.
    */

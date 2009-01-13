@@ -1,7 +1,12 @@
 <?
 $conn = new Sgbd();
+$util = new Utilities();
 $url = $_SERVER['REQUEST_URI'];
 $breadcrumb = '';
+
+if(!$util->loggedIn()){
+  return;
+}
 
 switch (true){
   case(preg_match("/^\/myPlanets.php?/", $url)):
