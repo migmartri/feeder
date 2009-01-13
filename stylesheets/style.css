@@ -84,10 +84,23 @@ legend {
   font-size:1.5em;
 }
 
-td.large {
-	text-align: center;
-	width: 200px;
+td.medium {
+	text-align:center;
+	width: 150px;
 }
+td.description {
+	text-align: center;
+	padding: 5px;
+	width: 230px;
+}
+
+tr.bordered th {
+		border-bottom: 2px solid #666;
+}
+
+tr.odd {background-color:#eee; height:65px;}
+tr.even {background-color:#ddd; height:65px;}
+
 
 
 /* Header */
@@ -355,6 +368,3 @@ td.large {
   text-align: left;
 }
 
-.clear{
-  clear:both;
-}

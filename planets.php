@@ -19,25 +19,26 @@
 
 ?>
 <div id="planet_name" class="big">
-  Todos los planetas
+	<img src="/images/planet.png" alt="Todos los planetas" />
+	Todos los planetas
 </div>
 
 <table class="table_center">
-  <tr>
+  <tr class="bordered">
     <th>Nombre del Planeta</th>
     <th>Descripción</th>
     <th>Creador</th>
     <th>Nº de feeds</th>
   </tr>
-  <?foreach($planets as $planet) {
-    print "<tr>";
-      print "<td class='large'><a href='/planet.php?id=".$planet[4]."' title='Acceder al planeta'>".$planet[0]."</a></td>";
-      print "<td class='large'>".$planet[1]."</td>";
-      print "<td class='large'>".$planet[2]."</td>";
-      print "<td class='centered'>".$planet[3]."</td>";
-    print "</tr>";
-        }
-      ?>
+	<?foreach($planets as $planet) { ?>
+		<? $even_odd = ( 'odd' != $even_odd ) ? 'odd' : 'even'; ?>
+    <tr class="<?= $even_odd ?>">
+			<td class='medium'><a href='/planet.php?id=<?= $planet[4] ?>' title='Acceder al planeta'><?= $planet[0] ?></a></td>
+			<td class='description'><?= $util->truncate($planet[1], 50) ?></td>
+			<td class='medium'><?= $planet[2] ?></td>
+			<td class='centered'><?= $planet[3] ?></td>
+    </tr>
+	<? } ?>
   </tr>
 </table>
 <?
