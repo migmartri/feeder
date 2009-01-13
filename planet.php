@@ -2,10 +2,10 @@
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
 
   $conn = new Sgbd();
-  $planet = $conn->selectFromDB("first", "planets", array("*"), array("user_id" => $_SESSION["user"], "id" => $_REQUEST['id']));
+  $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $_REQUEST['id']));
   
   if(!$planet){ 
-    $_SESSION['flash_error'] = "No existe el planeta al que quiere acceder o no tiene permisos para verlo.";
+    $_SESSION['flash_error'] = "No existe el planeta al que quiere acceder";
     header("Location: ../myPlanets.php");
   }
 
@@ -14,7 +14,6 @@
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 
 	$util = new Utilities();
-  $util->loginRequired();
 
 	//Página actual
   if(isset($_GET['page'])){
@@ -40,9 +39,16 @@
 			Planeta: <strong><?= $planet['name']?></strong>
 			<a href="/rssPlanet.php?id=<?= $_GET['id'] ?>"><img src="/images/rss.png" alt="rss de este planeta"/></a>
 		</div>
-		<div id="planet_info">
-      Tiene <?= $planet['feeds_count'] ?> suscripcion<? if($planet['feeds_count'] != 1){ print "es";}?>. <a href="/newSubscription.php?planet_id=<?=$planet['id']?>" title="Añade una nueva suscripcion">¿Añadir otra?</a>
-		</div>
+
+<? if($util->loggedIn()){
+   print('<div id="planet_info">');
+   print("Tiene ".$planet['feeds_count']." suscripcion");
+   if($planet['feeds_count'] != 1){ print "es";}
+   print('. <a href="/newSubscription.php?planet_id='.$planet['id'].'" title="Añade una nueva suscripcion">¿Añadir otra?</a>');
+  print("</div>");
+
+}
+?>
 	</div>
 	<? echo($pagination_links); ?>
 	

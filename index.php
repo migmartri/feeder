@@ -25,8 +25,8 @@
 				<br/>
 				<span class="underline">comparte</span> noticias con tus amigos
 			</span>
-    <?include_once ($_SERVER['DOCUMENT_ROOT']."/templates/lastPlanets.php");?>
 		</p>
+    <?include_once ($_SERVER['DOCUMENT_ROOT']."/templates/lastPlanets.php");?>
 	</div>
 </div>
 <div class="clear"></div>

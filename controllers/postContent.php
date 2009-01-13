@@ -5,8 +5,6 @@
   include ($_SERVER['DOCUMENT_ROOT']."/lib/sgbd.php");
   session_start();
   $conn = new Sgbd();
-  $util = new Utilities();
-  $util->loginRequired();
 
   $post = $conn->selectFromDB("first", "posts", array("content"), array("id" => $_POST['id']));
   
