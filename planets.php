@@ -1,5 +1,6 @@
 <?
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
+  $title = "Todos los planetas";
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/header.php");
 
   $conn = new Sgbd();
