@@ -120,8 +120,12 @@ td.large {
 }
 
 #last_planets{
-  margin-top: 20px;
-  width: 100%;
+	border: 2px solid #666;
+	background-color: #eee;
+	color:#333;
+  margin-top: 40px;
+	padding: 10px;
+  width: 330px;
 }
 
 #last_planets_header{
@@ -131,9 +135,11 @@ td.large {
 #last_planets_planets{
   margin: 5px 0;
 }
-#last_planets #more a{
-  float:right;
-  font-size: 12px;
+
+#last_planets #more {
+	font-size: 0.9em;
+	text-align:right;
+	width:100%;
 }
 
  #last_planets #last_planets_planets .planet_item{
@@ -141,6 +147,7 @@ td.large {
   width: 160px;
   text-align: center;
 }
+
 /* Wrapper #container */
 #container {
   background-color: #FFFFFF;
@@ -186,7 +193,7 @@ td.large {
 
 #content #home #text {
 	float: left;
-	margin: 100px 0px 0px 35px;
+	margin: 50px 0px 0px 35px;
 	width: 350px;
 }
 
