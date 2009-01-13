@@ -5,7 +5,7 @@
 <div class="clear"></div>
 <div id="last_planets">
   <div id="last_planets_header">
-    Últimos planetas creados:
+    Últimos planetas
   </div>
   <div id="last_planets_planets">
     <? foreach($planets as $planet){

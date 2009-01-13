@@ -19,7 +19,7 @@
 			</span>
 		</p>
 		<p class="centered">
-			<span class="big"><a href="register.php" title="Formulario de registro!">Registrate</a></span><br/>
+			<span class="big"><a href="register.php" title="Formulario de registro!">Regístrate</a></span><br/>
 			<span class="big">
 				<span class='underline'>crea</span> tu planeta
 				<br/>
