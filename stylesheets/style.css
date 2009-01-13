@@ -37,10 +37,6 @@ body {
 	width: 155px;
 }
 
-.post_more{
-  float:right;
-}
-
 .underline{
   text-decoration: underline;
 }
@@ -323,6 +319,11 @@ tr.even {background-color:#ddd; height:65px;}
 
 #content #planet #planet_posts .favourite {
 	margin-top: 10px;
+}
+
+#content #planet #planet_posts .post_more {
+	margin-top: 10px;
+	float:right;
 }
 
 /* Subscripciones */

@@ -17,15 +17,15 @@
       if($post["content"] != '' && $post['description'] != '')
       {
         print($post['description']);
-        print('<div class="post_more" id="post_more_'.$post['id'].'"><a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
+        print('<div class="post_more" id="post_more_'.$post['id'].'"><img src="/images/open.png" alt="Ver completo" /> <a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
       //Solo descripción
       }else if($post['description']){
         print($post['description']);
       //Contenido y no descripción, simulamos una descripción
       }else if($post["content"] != '' && $post["description"] == ''){
         print($util->truncate($post['content'], 300, " ", " [...]"));
-
-        print('<div class="post_more" id="post_more_'.$post['id'].'"><a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
+				
+        print('<div class="post_more" id="post_more_'.$post['id'].'"><img src="/images/open.png" alt="Ver completo" /> <a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
       }
 
 
