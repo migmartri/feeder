@@ -39,7 +39,6 @@
 			<td class='centered'><?= $planet[3] ?></td>
     </tr>
 	<? } ?>
-  </tr>
 </table>
 <?
   echo($pagination_links);
