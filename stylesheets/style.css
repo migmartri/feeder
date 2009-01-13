@@ -59,8 +59,8 @@ input[type="text"] {
 }
 
 fieldset {
-	-moz-border-radius-topleft:5px;
-	-moz-border-radius-topright:5px;
+	/* -moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px; */
 	border:1px solid #CCCCCC;
 	margin:15px 3px;
 }
@@ -217,10 +217,10 @@ td.large {
 }
 
 #content .planet {
-	-moz-border-radius-topleft:5px;
+	/*-moz-border-radius-topleft:5px;
 	-moz-border-radius-topright:5px;
 	-moz-border-radius-bottomleft:5px;
-	-moz-border-radius-bottomright:5px;
+	-moz-border-radius-bottomright:5px;*/
 	border: 2px solid #666;
 	background-color: #eee;
 	float: left;
@@ -257,6 +257,11 @@ td.large {
 	padding: 20px;
 }
 
+#content #planet #planet_posts .post_content img {
+	display:block;
+	text-align:center!important;
+}
+
 
 /* Subscripciones */
 #content .form-suscription {
@@ -269,8 +274,8 @@ td.large {
 
 /* Posts */
 #content .post {
-	-moz-border-radius-topleft:5px;
-	-moz-border-radius-topright:5px;
+	/*-moz-border-radius-topleft:5px;
+	-moz-border-radius-topright:5px;*/
 	border: 2px solid #666;
 	background-color: #eee;
 	margin: 10px;
@@ -278,6 +283,7 @@ td.large {
 	padding: 15px;
 	width: 600px;
 }
+
 
 #footer {
   border-top: 2px solid #2D2D2D;
