@@ -7,12 +7,11 @@
   $util = new Utilities();
   $util->loginRequired();
 
-  $favourite_id = $conn->insert2DB("favourites", array("post_id" => $_POST['post_id'], "user_id" => $_SESSION['user']));
+  $res = $conn->deleteFromDB("favourites", array("user_id" => $_SESSION['user'], "post_id" => $_POST['post_id']));
 
-  if($favourite_id != null){
-    //Todo ha ido ok
+  if($res){
     header("HTTP/1.1 200");
   }else{
-    header("HTTP/1.1 401");
+    header("HTTP/1.1 404");
   }
 ?>

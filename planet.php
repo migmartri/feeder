@@ -9,12 +9,13 @@
     header("Location: ../myPlanets.php");
   }
 
-	$title = "Viendo el planeta ".$planet['name'];
+  $title = "Viendo el planeta ".$planet['name'];
+  //Contenido especifico de esta vista
   $header_custom_content = "<link rel='alternate' type='application/rss+xml' title='Rss del planeta' href='rssPlanet.php?id=".$_GET['id']."' />";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 
+  
 	$util = new Utilities();
-
 	//Página actual
   $current_page = isset($_GET['page']) ? $_GET['page'] : 1; 
 
@@ -28,6 +29,11 @@
   $posts = $pagination->getElements();
   //Números de página
   $pagination_links = $pagination->paginationLinks();
+
+  //Cargamos los favoritos del usuario para luego comparar cada uno
+  if($util->loggedIn()){
+    $favourites = $conn->selectFromDB("all", "favourites", array("post_id"), array("user_id" => $_SESSION['user']));
+  }
 ?>
 <div id="planet">
 	<div id="planet_data">
