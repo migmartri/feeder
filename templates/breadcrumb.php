@@ -43,6 +43,10 @@ switch (true){
     $breadcrumb .= "<a href='myPlanets.php' title='Accede a tus planetas'>Mis planetas</a> » ";
     $breadcrumb .= "Nuevo planeta";
     break;
+
+  case(preg_match("/^\/favourites.php?/", $url)):
+    $breadcrumb .= "<a href='myPlanets.php' title='Accede a tus planetas'>Mis planetas</a> » Favoritos";
+    break;
 }
 
 if($breadcrumb != ""){

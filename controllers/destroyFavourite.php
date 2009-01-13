@@ -8,7 +8,7 @@
   $util->loginRequired();
 
   $res = $conn->deleteFromDB("favourites", array("user_id" => $_SESSION['user'], "post_id" => $_POST['post_id']));
-
+  
   if($res){
     header("HTTP/1.1 200");
   }else{

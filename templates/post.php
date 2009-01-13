@@ -34,11 +34,10 @@ $favourites_array = array();
 foreach($favourites as $favourite){
   array_push($favourites_array, $favourite['post_id']);
 }
-
 if($util->loggedIn()){
   print("<div id='favourite_".$post['id']."'>");
   //Comprobams si ese favorito existe ya
-  if(!array_search($post['id'], $favourites_array)){
+  if(array_search($post['id'], $favourites_array) == null){
     print("<a href='#' onclick='setFavourite(".$post['id']."); return false;' title='Añadir a favoritos este post'> + Favoritos </a>");
   }else{
     print("Ya es tu favorito ");

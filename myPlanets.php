@@ -26,7 +26,13 @@
 			<a href="newPlanet.php" title="Crea un planeta">Nuevo Planeta</a>
 		</div>
 	<? } ?>
-	<? foreach($planets as $planet){
+    <?
+  //Cargamos el planeta de favoritos en el caso de tener alguno
+    $favourites_count = $conn->countFromDB("favourites", array("*"), array("user_id" => $_SESSION['user']));
+    if($favourites_count > 0){
+      include_once($_SERVER["DOCUMENT_ROOT"]."/templates/favouritePlanet.php");
+    }
+     foreach($planets as $planet){
 			include($_SERVER["DOCUMENT_ROOT"]."/templates/planetIndex.php"); 
 		 }		
 	?>	
