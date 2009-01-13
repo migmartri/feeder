@@ -1,0 +1,3 @@
+User-agent: *    # aplicable a todos
+Disallow: /      # impide la indexacion de todas las paginas
+

@@ -1,4 +1,3 @@
-<div id="breadcrumb">
 <?
 $conn = new Sgbd();
 $url = $_SERVER['REQUEST_URI'];
@@ -31,7 +30,7 @@ switch (true){
     $planet = $conn->selectFromDB("first", "planets", array("*"), array("id" => $planet_id));
     $breadcrumb .= "<a href='myPlanets.php' title='Accede a tus planetas'>Mis planetas</a> » ";
     $breadcrumb .= "<a href='/planet.php?id=".$planet['id']."' title='". $planet['name'] ."'> ".$planet['name']."</a> » ";
-    $breadcrumb .= "<a href='/subscriptions.php?planet_id=".$planet['id']." title='Accede a las suscripciones'> Suscripciones </a> » ";
+    $breadcrumb .= "<a href='/subscriptions.php?planet_id=".$planet['id']."' title='Accede a las suscripciones'> Suscripciones </a> » ";
     $breadcrumb .= "Nueva suscripción";
     break;
 
@@ -40,6 +39,12 @@ switch (true){
     $breadcrumb .= "Nuevo planeta";
     break;
 }
-print $breadcrumb;
+
+if($breadcrumb != ""){
+  print('<div id="breadcrumb">');
+  print $breadcrumb;
+  print('</div>');
+}
+
 ?>
-</div>
+

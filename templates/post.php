@@ -11,13 +11,23 @@
     </div>
   </div>
 	<div class="clear"></div>
-  <div class="post_content">
-    <? if($post["content"] != '')
-    {
-      print($post['content']);
-    }else{
-      print($post['description']);
-    }
+  <div class="post_content" id="post_content_<?= $post['id'] ?>">
+      <?
+      //Si tenemos contenido y descripción
+      if($post["content"] != '' && $post['description'] != '')
+      {
+        print($post['description']);
+        print('<div class="post_more" id="post_more_'.$post['id'].'"><a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
+      //Solo descripción
+      }else if($post['description']){
+        print($post['description']);
+      //Contenido y no descripción, simulamos una descripción
+      }else if($post["content"] != '' && $post["description"] == ''){
+        print($util->truncate($post['content'], 300, " ", " [...]"));
+
+        print('<div class="post_more" id="post_more_'.$post['id'].'"><a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
+      }
+      
     ?>
   </div>
 </div>

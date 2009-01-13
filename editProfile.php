@@ -1,8 +1,11 @@
 <?php
 
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
-	$title = "Edición de perfil";
-	include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
+  $title = "Edición de perfil";
+  // Filtro de acceso
+  $util = new Utilities();
+  $util->loginRequired();
+  include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
 
   $util = new Utilities();
   $util->loginRequired();
@@ -50,7 +53,7 @@
 			</div>
     </fieldset>
 	  <div id="div_submit">
- 		  <button id="submit">Guardar</button>
+      <input type="submit" value="Guardar" />
  		</div>
   </div>
 </form>
