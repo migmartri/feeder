@@ -31,7 +31,7 @@
 
 if($util->loggedIn()){
   //FIXME, preparamos el array de ids para buscar luego, no me gusta
-  $favourites_array = array();
+  $favourites_array = array(0);
   foreach($favourites as $favourite){
     array_push($favourites_array, $favourite['post_id']);
   }
