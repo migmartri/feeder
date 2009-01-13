@@ -46,7 +46,7 @@
 	<?= "Tiene ".$planet['feeds_count']." suscripcion" ?><? if($planet['feeds_count'] != 1){ print "es";} ?>
 <? if($util->loggedIn()){ 
    print('. <a href="/newSubscription.php?planet_id='.$planet['id'].'" title="Añade una nueva suscripcion">¿Añadir otra?</a>');
-}
+}d
 ?>
 </div>
 	</div>

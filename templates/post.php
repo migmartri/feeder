@@ -27,7 +27,8 @@
 				
         print('<div class="post_more" id="post_more_'.$post['id'].'"><img src="/images/open.png" alt="Ver completo" /> <a href="#" onclick="getPostContent('.$post['id'].');return false" title="Ver el contenido completo del feed">Ver completo </a></div>');
       }
-
+?>
+<?
 
 if($util->loggedIn()){
   //FIXME, preparamos el array de ids para buscar luego, no me gusta
@@ -47,5 +48,6 @@ if($util->loggedIn()){
   print("</div>");
 }
 ?>
+<div class="clear"></div>
   </div>
 </div>
