@@ -19,12 +19,13 @@
 			</span>
 		</p>
 		<p class="centered">
-			<a href="register.php" title="Formulario de registro!">Registrate</a><br/>
+			<span class="big"><a href="register.php" title="Formulario de registro!">Registrate</a></span><br/>
 			<span class="big">
 				<span class='underline'>crea</span> tu planeta
 				<br/>
 				<span class="underline">comparte</span> noticias con tus amigos
 			</span>
+    <?include_once ($_SERVER['DOCUMENT_ROOT']."/templates/lastPlanets.php");?>
 		</p>
 	</div>
 </div>
