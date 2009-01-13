@@ -19,8 +19,8 @@ function setFavourite(post_id){
       { method: 'post',
         parameters: {post_id : post_id},
         onSuccess: function(request){
-          var html = "Ya es tu favorito";
-          html += "(<a href='#' onclick='destroyFavourite(" + post_id + "); return false;' title='Quitar de favoritos'>Quitar</a>)";
+          var html = "<img src='/images/star.png' alt='favorito' /> ";
+          html += "<a href='#' onclick='destroyFavourite(" + post_id + "); return false;' title='Quitar de favoritos'>Favoritos </a>";
           $("favourite_"+post_id).innerHTML = html;
         },
         onFailure: function(){
@@ -35,7 +35,7 @@ function destroyFavourite(post_id){
       { method: 'post',
         parameters: {post_id : post_id},
         onSuccess: function(request){
-          $("favourite_"+post_id).innerHTML = "<a href='#' onclick='setFavourite(" + post_id + "); return false;' title='Añadir a favoritos este post'> + Favoritos </a>";     
+          $("favourite_"+post_id).innerHTML = "<img src='/images/star_grey.png' alt='No favorito' /> <a href='#' onclick='setFavourite(" + post_id + "); return false;' title='Añadir a favoritos este post'> Favoritos </a>";     
         },
         onFailure: function(){
           $("favourite_"+post_id).innerHTML = "Error al eliminar el favorito";     
