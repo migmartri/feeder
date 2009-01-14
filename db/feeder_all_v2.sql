@@ -12,7 +12,7 @@ USE `feeder`;
 DROP TABLE IF EXISTS `feeder`.`users` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`users` (
-  `id` SMALLINT(6) NOT NULL ,
+  `id` SMALLINT(6) NOT NULL auto_incremet,
   `login` VARCHAR(255) NOT NULL ,
   `password` VARCHAR(255) NOT NULL ,
   `email` VARCHAR(255) NOT NULL ,
@@ -188,3 +188,4 @@ CREATE INDEX `fk_profiles_users` ON `feeder`.`profiles` (`users_id` ASC) ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
