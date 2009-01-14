@@ -80,7 +80,7 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`planets` (
   `created_at` TIMESTAMP NOT NULL ,
   `feeds_count` INT(11) NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `user_id`
+  CONSTRAINT `planets_user_id`
     FOREIGN KEY (`user_id` )
     REFERENCES `feeder`.`users` (`id` )
     ON DELETE NO ACTION
@@ -101,12 +101,12 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`feeds_planets` (
   `planet_id` SMALLINT(6) NOT NULL ,
   `feed_id` SMALLINT(6) NOT NULL ,
   PRIMARY KEY (`planet_id`, `feed_id`) ,
-  CONSTRAINT `planet_id`
+  CONSTRAINT `feeds_planets_planet_id`
     FOREIGN KEY (`planet_id` )
     REFERENCES `feeder`.`planets` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `feed_id`
+  CONSTRAINT `feeds_planets_feed_id`
     FOREIGN KEY (`feed_id` )
     REFERENCES `feeder`.`feeds` (`id` )
     ON DELETE NO ACTION
@@ -136,7 +136,7 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`profiles` (
   `web` VARCHAR(255) NULL ,
   `user_id` SMALLINT(6) NOT NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `users_id`
+  CONSTRAINT `profiles_user_id`
     FOREIGN KEY (`user_id` )
     REFERENCES `feeder`.`users` (`id` )
     ON DELETE NO ACTION
