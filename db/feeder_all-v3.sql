@@ -65,33 +65,6 @@ COLLATE = utf8_spanish_ci;
 CREATE INDEX `feed_i` ON `feeder`.`posts` (`feed_id` ASC) ;
 
 
--- -----------------------------------------------------
--- Table `feeder`.`favourites`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`favourites` ;
-
-CREATE  TABLE IF NOT EXISTS `feeder`.`favourites` (
-  `post_id` INT(11) NOT NULL ,
-  `created_at` TIMESTAMP NOT NULL ,
-  `user_id` SMALLINT(6) NOT NULL ,
-  PRIMARY KEY (`post_id`, `user_id`) ,
-  CONSTRAINT `post_id`
-    FOREIGN KEY (`post_id` )
-    REFERENCES `feeder`.`posts` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id` )
-    REFERENCES `feeder`.`users` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE RESTRICT)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_spanish_ci;
-
-CREATE INDEX `post_id` ON `feeder`.`favourites` (`post_id` ASC) ;
-
-CREATE INDEX `user_id` ON `feeder`.`favourites` (`user_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -102,7 +75,7 @@ DROP TABLE IF EXISTS `feeder`.`planets` ;
 CREATE  TABLE IF NOT EXISTS `feeder`.`planets` (
   `id` SMALLINT(6) NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(255) NOT NULL ,
-  `user_id` INT(6) NOT NULL ,
+  `user_id` SMALLINT(6) NOT NULL ,
   `description` TEXT NOT NULL ,
   `created_at` TIMESTAMP NOT NULL ,
   `feeds_count` INT(11) NOT NULL DEFAULT 0 ,
@@ -175,6 +148,33 @@ COLLATE = utf8_spanish_ci;
 CREATE INDEX `users_id` ON `feeder`.`profiles` (`user_id` ASC) ;
 
 
+-- -----------------------------------------------------
+-- Table `feeder`.`favourites`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `feeder`.`favourites` ;
+
+CREATE  TABLE IF NOT EXISTS `feeder`.`favourites` (
+  `post_id` SMALLINT(6) NOT NULL ,
+  `created_at` TIMESTAMP NOT NULL ,
+  `user_id` SMALLINT(6) NOT NULL ,
+  PRIMARY KEY (`post_id`, `user_id`) ,
+  CONSTRAINT `favourites_post_id`
+    FOREIGN KEY (`post_id` )
+    REFERENCES `feeder`.`posts` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `favourites_user_id`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `feeder`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE RESTRICT)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish_ci;
+
+CREATE INDEX `post_id` ON `feeder`.`favourites` (`post_id` ASC) ;
+
+CREATE INDEX `user_id` ON `feeder`.`favourites` (`user_id` ASC) ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
