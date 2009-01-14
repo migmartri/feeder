@@ -2,15 +2,16 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `feeder` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+CREATE DATABASE IF NOT EXISTS `feeder` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+--CREATE DATABASE `feeder`; 
 USE `feeder`;
 
 -- -----------------------------------------------------
 -- Table `feeder`.`Users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Users` ;
+DROP TABLE IF EXISTS `feeder`.`users` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Users` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`users` (
   `id` SMALLINT(6) NOT NULL ,
   `login` VARCHAR(255) NOT NULL ,
   `password` VARCHAR(255) NOT NULL ,
@@ -25,106 +26,106 @@ COLLATE = utf8_spanish_ci;
 -- -----------------------------------------------------
 -- Table `feeder`.`Favourites`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Favourites` ;
+DROP TABLE IF EXISTS `feeder`.`favourites` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Favourites` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`favourites` (
   `id` INT(11) NOT NULL ,
   `post_id` INT(11) NOT NULL ,
   `created_at` TIMESTAMP NULL ,
   `user_id` SMALLINT(6) NULL ,
-  `Users_id` SMALLINT(6) NULL ,
+  `users_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`id`, `post_id`) ,
-  CONSTRAINT `fk_Favourites_Users`
-    FOREIGN KEY (`Users_id` )
-    REFERENCES `feeder`.`Users` (`id` )
+  CONSTRAINT `fk_favourites_users`
+    FOREIGN KEY (`users_id` )
+    REFERENCES `feeder`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_Favourites_Users` ON `feeder`.`Favourites` (`Users_id` ASC) ;
+CREATE INDEX `fk_favourites_users` ON `feeder`.`favourites` (`users_id` ASC) ;
 
 
 -- -----------------------------------------------------
 -- Table `feeder`.`Planets`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Planets` ;
+DROP TABLE IF EXISTS `feeder`.`planets` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Planets` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`planets` (
   `id` SMALLINT(6) NOT NULL ,
   `name` VARCHAR(255) NULL ,
   `user_id` INT(6) NULL ,
   `description` TEXT NULL ,
   `created_at` TIMESTAMP NULL ,
   `feeds_count` INT(11) NULL ,
-  `Users_id` SMALLINT(6) NULL ,
+  `users_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_Planets_Users`
-    FOREIGN KEY (`Users_id` )
-    REFERENCES `feeder`.`Users` (`id` )
+  CONSTRAINT `fk_planets_users`
+    FOREIGN KEY (`users_id` )
+    REFERENCES `feeder`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_Planets_Users` ON `feeder`.`Planets` (`Users_id` ASC) ;
+CREATE INDEX `fk_planets_users` ON `feeder`.`planets` (`users_id` ASC) ;
 
 
 -- -----------------------------------------------------
 -- Table `feeder`.`Feeds_Planets`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Feeds_Planets` ;
+DROP TABLE IF EXISTS `feeder`.`feeds_planets` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Feeds_Planets` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`feeds_planets` (
   `planet_id` SMALLINT(6) NOT NULL ,
   `feeds_id` SMALLINT(6) NOT NULL ,
-  `Planets_id` SMALLINT(6) NULL ,
+  `planets_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`planet_id`) ,
-  CONSTRAINT `fk_Feeds_Planets_Planets`
-    FOREIGN KEY (`Planets_id` )
-    REFERENCES `feeder`.`Planets` (`id` )
+  CONSTRAINT `fk_feeds_planets_planets`
+    FOREIGN KEY (`planets_id` )
+    REFERENCES `feeder`.`planets` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_Feeds_Planets_Planets` ON `feeder`.`Feeds_Planets` (`Planets_id` ASC) ;
+CREATE INDEX `fk_feeds_planets_planets` ON `feeder`.`feeds_planets` (`planets_id` ASC) ;
 
 
 -- -----------------------------------------------------
 -- Table `feeder`.`Feeds`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Feeds` ;
+DROP TABLE IF EXISTS `feeder`.`feeds` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Feeds` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`feeds` (
   `id` SMALLINT(11) NOT NULL ,
   `url` VARCHAR(255) NULL ,
   `subcriptions_count` INT(11) NULL ,
   `name` VARCHAR(255) NULL ,
   `updated_at` TIMESTAMP NULL ,
-  `Feeds_Planets_planet_id` SMALLINT(6) NULL ,
+  `feeds_planets_planet_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_Feeds_Feeds_Planets`
-    FOREIGN KEY (`Feeds_Planets_planet_id` )
-    REFERENCES `feeder`.`Feeds_Planets` (`planet_id` )
+  CONSTRAINT `fk_feeds_feeds_planets`
+    FOREIGN KEY (`feeds_planets_planet_id` )
+    REFERENCES `feeder`.`feeds_planets` (`planet_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_Feeds_Feeds_Planets` ON `feeder`.`Feeds` (`Feeds_Planets_planet_id` ASC) ;
+CREATE INDEX `fk_feeds_feeds_planets` ON `feeder`.`feeds` (`feeds_planets_planet_id` ASC) ;
 
 
 -- -----------------------------------------------------
 -- Table `feeder`.`Post`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Post` ;
+DROP TABLE IF EXISTS `feeder`.`post` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Post` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`post` (
   `id` SMALLINT(6) NOT NULL ,
   `feed_id` SMALLINT(6) NULL ,
   `title` VARCHAR(255) NULL ,
@@ -132,35 +133,35 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`Post` (
   `published_at` DATETIME NULL ,
   `url` VARCHAR(255) NULL ,
   `description` TEXT NULL ,
-  `Feeds_id` SMALLINT(11) NULL ,
-  `Favourites_id` INT(11) NULL ,
-  `Favourites_post_id` INT(11) NULL ,
+  `feeds_id` SMALLINT(11) NULL ,
+  `favourites_id` INT(11) NULL ,
+  `favourites_post_id` INT(11) NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_Post_Feeds`
-    FOREIGN KEY (`Feeds_id` )
-    REFERENCES `feeder`.`Feeds` (`id` )
+  CONSTRAINT `fk_post_feeds`
+    FOREIGN KEY (`feeds_id` )
+    REFERENCES `feeder`.`feeds` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Post_Favourites`
-    FOREIGN KEY (`Favourites_id` , `Favourites_post_id` )
-    REFERENCES `feeder`.`Favourites` (`id` , `post_id` )
+  CONSTRAINT `fk_post_favourites`
+    FOREIGN KEY (`favourites_id` , `favourites_post_id` )
+    REFERENCES `feeder`.`favourites` (`id` , `post_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_Post_Feeds` ON `feeder`.`Post` (`Feeds_id` ASC) ;
+CREATE INDEX `fk_post_feeds` ON `feeder`.`post` (`feeds_id` ASC) ;
 
-CREATE INDEX `fk_Post_Favourites` ON `feeder`.`Post` (`Favourites_id` ASC, `Favourites_post_id` ASC) ;
+CREATE INDEX `fk_post_favourites` ON `feeder`.`post` (`favourites_id` ASC, `favourites_post_id` ASC) ;
 
 
 -- -----------------------------------------------------
 -- Table `feeder`.`Profiles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`Profiles` ;
+DROP TABLE IF EXISTS `feeder`.`profiles` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`Profiles` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`profiles` (
   `id` SMALLINT(6) NOT NULL ,
   `name` VARCHAR(255) NULL ,
   `surname` VARCHAR(255) NULL ,
@@ -170,18 +171,18 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`Profiles` (
   `twitter` VARCHAR(255) NULL ,
   `web` VARCHAR(255) NULL ,
   `user_id` SMALLINT(6) NULL ,
-  `Users_id` SMALLINT(6) NULL ,
+  `users_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_Profiles_Users`
-    FOREIGN KEY (`Users_id` )
-    REFERENCES `feeder`.`Users` (`id` )
+  CONSTRAINT `fk_profiles_users`
+    FOREIGN KEY (`users_id` )
+    REFERENCES `feeder`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_Profiles_Users` ON `feeder`.`Profiles` (`Users_id` ASC) ;
+CREATE INDEX `fk_profiles_users` ON `feeder`.`profiles` (`users_id` ASC) ;
 
 
 
