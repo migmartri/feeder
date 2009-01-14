@@ -1,6 +1,7 @@
 <?php
   include_once ($_SERVER['DOCUMENT_ROOT']."/templates/imports.php");
-
+  $util = new Utilities();
+  $util->loginRequired();
   $title = "Viendo el planeta favoritos";
   include_once($_SERVER["DOCUMENT_ROOT"]."/templates/header.php"); 
   
