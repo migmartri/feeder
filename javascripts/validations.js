@@ -10,6 +10,7 @@ function validatesRegister(){
   validatesPresenceOf("email", "La email no se puede dejar vacío");
   validatesEmailFormatOf("email");
   validatesConfirmationOf("password", "repassword");
+  validatesLengthOf("password", "8", "La contraseña debe tener mínimo 8 caracteres");
   return showErrors();
 }
 
