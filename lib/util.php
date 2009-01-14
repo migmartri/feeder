@@ -96,6 +96,9 @@ class Utilities {
   function validatesFeed($feed_url, $msg){
     if(!isset($msg)){$msg = "Feed no válido";}
     try{
+      $fp = @fopen($feed_url, "r");
+      if(!$fp)
+        throw new Exception('Error en la lectura del XML',1001);
   		$rawFeed = file_get_contents($feed_url);
       $xml = @simplexml_load_string($rawFeed);
       if (!is_object($xml))
