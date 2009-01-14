@@ -53,7 +53,7 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`posts` (
   `url` VARCHAR(255) NOT NULL ,
   `description` TEXT NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `feed_i`
+  CONSTRAINT `posts_feed_id`
     FOREIGN KEY (`feed_id` )
     REFERENCES `feeder`.`feeds` (`id` )
     ON DELETE NO ACTION
