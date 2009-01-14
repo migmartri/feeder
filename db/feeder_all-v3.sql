@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `feeder`.`feeds` ;
 CREATE  TABLE IF NOT EXISTS `feeder`.`feeds` (
   `id` SMALLINT(11) NOT NULL AUTO_INCREMENT ,
   `url` VARCHAR(255) NOT NULL ,
-  `subcriptions_count` INT(11) NOT NULL DEFAULT 0 ,
+  `subscriptions_count` INT(11) NOT NULL DEFAULT 0 ,
   `name` VARCHAR(255) NOT NULL ,
   `updated_at` TIMESTAMP NULL ,
   PRIMARY KEY (`id`) )
