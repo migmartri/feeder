@@ -1,6 +1,1 @@
-*.swo
-*.swp
-config.inc
-test_*
-xampp
-*.db
+feeder.tar.gz
