@@ -121,11 +121,11 @@ CREATE INDEX `fk_feeds_feeds_planets` ON `feeder`.`feeds` (`feeds_planets_planet
 
 
 -- -----------------------------------------------------
--- Table `feeder`.`Post`
+-- Table `feeder`.`Posts`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `feeder`.`post` ;
+DROP TABLE IF EXISTS `feeder`.`posts` ;
 
-CREATE  TABLE IF NOT EXISTS `feeder`.`post` (
+CREATE  TABLE IF NOT EXISTS `feeder`.`posts` (
   `id` SMALLINT(6) NOT NULL ,
   `feed_id` SMALLINT(6) NULL ,
   `title` VARCHAR(255) NULL ,
@@ -151,9 +151,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-CREATE INDEX `fk_post_feeds` ON `feeder`.`post` (`feeds_id` ASC) ;
+CREATE INDEX `fk_post_feeds` ON `feeder`.`posts` (`feeds_id` ASC) ;
 
-CREATE INDEX `fk_post_favourites` ON `feeder`.`post` (`favourites_id` ASC, `favourites_post_id` ASC) ;
+CREATE INDEX `fk_post_favourites` ON `feeder`.`posts` (`favourites_id` ASC, `favourites_post_id` ASC) ;
 
 
 -- -----------------------------------------------------
