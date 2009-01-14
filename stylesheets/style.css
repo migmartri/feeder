@@ -335,6 +335,10 @@ tr.even {background-color:#ddd; height:65px;}
 	padding-top: 20px;
 }
 
+#content #div_url input[type="text"] {
+	width: 200px;
+} 
+
 /* Posts */
 #content .post {
 	/*-moz-border-radius-topleft:5px;
