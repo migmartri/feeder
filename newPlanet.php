@@ -18,7 +18,7 @@
 				</div>
 				<div id="div_description">
 					<label id="label_description" for="description">Descripción del planeta</label><br/>
-					<textarea id="description" name="description" rows="3" cols="30" tabindex="2" /><?=$util->formValue('description')?></textarea>
+					<textarea id="description" name="description" rows="3" cols="30" tabindex="2" ><?=$util->formValue('description')?></textarea>
 				</div>
 			</div>
 		</fieldset>
