@@ -9,7 +9,7 @@ function validatesRegister(){
   validatesPresenceOf("password", "La contraseña no se puede dejar vacía");
   validatesPresenceOf("email", "La email no se puede dejar vacío");
   validatesEmailFormatOf("email");
-  validatesConfirmationOff("password", "repassword");
+  validatesConfirmationOf("password", "repassword");
   return showErrors();
 }
 

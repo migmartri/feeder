@@ -53,7 +53,7 @@ class Utilities {
    * @field2 Contraseña 2
    * @msg Mensaje de error
    */
-  function validatesConfirmationOff($field1, $field2, $msg){
+  function validatesConfirmationOf($field1, $field2, $msg){
     if(!isset($msg)){$msg = "$field1 no coincide con $field2";}
   
     if($field1 != $field2) {

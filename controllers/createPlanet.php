@@ -22,13 +22,4 @@
     $_SESSION['flash_error'] = implode("<br/>", $errors);
     header("Location: ../newPlanet.php");
   }
-
-
-
-
-
-
-
-
-
 ?>
