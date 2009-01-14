@@ -29,12 +29,11 @@ COLLATE = utf8_spanish_ci;
 DROP TABLE IF EXISTS `feeder`.`favourites` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`favourites` (
-  `id` INT(11) NOT NULL ,
+  `user_id` INT(11) NOT NULL ,
   `post_id` INT(11) NOT NULL ,
-  `created_at` TIMESTAMP NULL ,
-  `user_id` SMALLINT(6) NULL ,
+  `created_at` TIMESTAMP NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `users_id` SMALLINT(6) NULL ,
-  PRIMARY KEY (`id`, `post_id`) ,
+  PRIMARY KEY (`user_id`, `post_id`) ,
   CONSTRAINT `fk_favourites_users`
     FOREIGN KEY (`users_id` )
     REFERENCES `feeder`.`users` (`id` )
@@ -53,12 +52,12 @@ CREATE INDEX `fk_favourites_users` ON `feeder`.`favourites` (`users_id` ASC) ;
 DROP TABLE IF EXISTS `feeder`.`planets` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`planets` (
-  `id` SMALLINT(6) NOT NULL ,
-  `name` VARCHAR(255) NULL ,
-  `user_id` INT(6) NULL ,
+  `id` SMALLINT(6) NOT NULL auto_increment,
+  `name` VARCHAR(255) NULL default NULL,
+  `user_id` INT(6) NULL NOT NULL,
   `description` TEXT NULL ,
-  `created_at` TIMESTAMP NULL ,
-  `feeds_count` INT(11) NULL ,
+  `created_at` TIMESTAMP NULL NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `feeds_count` INT(11) default '0',
   `users_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_planets_users`
@@ -101,11 +100,11 @@ CREATE INDEX `fk_feeds_planets_planets` ON `feeder`.`feeds_planets` (`planets_id
 DROP TABLE IF EXISTS `feeder`.`feeds` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`feeds` (
-  `id` SMALLINT(11) NOT NULL ,
-  `url` VARCHAR(255) NULL ,
-  `subcriptions_count` INT(11) NULL ,
-  `name` VARCHAR(255) NULL ,
-  `updated_at` TIMESTAMP NULL ,
+  `id` SMALLINT(11) NOT NULL auto_increment,
+  `url` VARCHAR(255) NULL default NULL,
+  `subcriptions_count` INT(11) NULL default '0',
+  `name` VARCHAR(255) NULL default NULL,
+  `updated_at` TIMESTAMP NULL default NULL,
   `feeds_planets_planet_id` SMALLINT(6) NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_feeds_feeds_planets`
@@ -126,12 +125,12 @@ CREATE INDEX `fk_feeds_feeds_planets` ON `feeder`.`feeds` (`feeds_planets_planet
 DROP TABLE IF EXISTS `feeder`.`posts` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`posts` (
-  `id` SMALLINT(6) NOT NULL ,
-  `feed_id` SMALLINT(6) NULL ,
-  `title` VARCHAR(255) NULL ,
-  `content` TEXT NULL ,
-  `published_at` DATETIME NULL ,
-  `url` VARCHAR(255) NULL ,
+  `id` SMALLINT(6) NOT NULL auto_increment,
+  `feed_id` SMALLINT(6) NOT NULL,
+  `title` VARCHAR(255) default NULL ,
+  `content` TEXT  ,
+  `published_at` DATETIME default NULL ,
+  `url` VARCHAR(255) default NULL ,
   `description` TEXT NULL ,
   `feeds_id` SMALLINT(11) NULL ,
   `favourites_id` INT(11) NULL ,
@@ -162,16 +161,16 @@ CREATE INDEX `fk_post_favourites` ON `feeder`.`posts` (`favourites_id` ASC, `fav
 DROP TABLE IF EXISTS `feeder`.`profiles` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`profiles` (
-  `id` SMALLINT(6) NOT NULL ,
-  `name` VARCHAR(255) NULL ,
-  `surname` VARCHAR(255) NULL ,
-  `phone` VARCHAR(255) NULL ,
-  `city` VARCHAR(255) NULL ,
-  `flickr` VARCHAR(255) NULL ,
-  `twitter` VARCHAR(255) NULL ,
-  `web` VARCHAR(255) NULL ,
-  `user_id` SMALLINT(6) NULL ,
-  `users_id` SMALLINT(6) NULL ,
+  `id` SMALLINT(6) NOT NULL auto_increment ,
+  `name` VARCHAR(255) default NULL ,
+  `surname` VARCHAR(255) default NULL ,
+  `phone` VARCHAR(255) default NULL ,
+  `city` VARCHAR(255) default NULL ,
+  `flickr` VARCHAR(255) default NULL ,
+  `twitter` VARCHAR(255) default NULL ,
+  `web` VARCHAR(255) default NULL ,
+  `user_id` SMALLINT(6) default NULL ,
+  `users_id` SMALLINT(6) NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_profiles_users`
     FOREIGN KEY (`users_id` )
