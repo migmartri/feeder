@@ -10,7 +10,7 @@ function validatesPresenceOf(field, msg){
 }
 
 //Valida dos campos iguales
-function validatesConfirmationOff(field1, field2, msg){
+function validatesConfirmationOf(field1, field2, msg){
   if(msg == undefined){msg = "Las contraseñas no coinciden";}
 	var p1 = document.getElementById(field1).value;
 	var p2 = document.getElementById(field2).value;

@@ -17,7 +17,7 @@
   $util->validatesPresenceOf($email, "No se puede dejar vacío el email");
   $util->validatesUniquenessOf("users", array("login" => $login), "El usuario ya existe");
   $util->validatesUniquenessOf("users", array("email" => $email), "El email ya existe, elije otro");
-  $util->validatesConfirmationOff($_REQUEST['password'], $_REQUEST['repassword'], "La contraseña no coincide");
+  $util->validatesConfirmationOf($_REQUEST['password'], $_REQUEST['repassword'], "La contraseña no coincide");
   $util->validatesEmailFormatOf($email, "Formato de email incorrecto");
 
   if(count($errors) == 0) {
