@@ -12,7 +12,7 @@ USE `feeder`;
 DROP TABLE IF EXISTS `feeder`.`users` ;
 
 CREATE  TABLE IF NOT EXISTS `feeder`.`users` (
-  `id` SMALLINT(6) NOT NULL auto_incremet,
+  `id` SMALLINT(6) NOT NULL auto_increment,
   `login` VARCHAR(255) NOT NULL ,
   `password` VARCHAR(255) NOT NULL ,
   `email` VARCHAR(255) NOT NULL ,
