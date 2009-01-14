@@ -364,6 +364,10 @@ tr.even {background-color:#ddd; height:65px;}
 	margin-bottom: 0px;
 }
 
+#footer img {
+	margin-top: 5px;
+}
+
 /*Flash Messages*/
 #flash, #validation_errors {
   border: 2px solid #ddd;
