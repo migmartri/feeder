@@ -3,3 +3,4 @@
 config.inc
 test_*
 xampp
+*.db
