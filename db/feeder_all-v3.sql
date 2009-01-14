@@ -56,7 +56,7 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`posts` (
   CONSTRAINT `posts_feed_id`
     FOREIGN KEY (`feed_id` )
     REFERENCES `feeder`.`feeds` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -83,7 +83,7 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`planets` (
   CONSTRAINT `planets_user_id`
     FOREIGN KEY (`user_id` )
     REFERENCES `feeder`.`users` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -104,12 +104,12 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`feeds_planets` (
   CONSTRAINT `feeds_planets_planet_id`
     FOREIGN KEY (`planet_id` )
     REFERENCES `feeder`.`planets` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `feeds_planets_feed_id`
     FOREIGN KEY (`feed_id` )
     REFERENCES `feeder`.`feeds` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -161,12 +161,12 @@ CREATE  TABLE IF NOT EXISTS `feeder`.`favourites` (
   CONSTRAINT `favourites_post_id`
     FOREIGN KEY (`post_id` )
     REFERENCES `feeder`.`posts` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `favourites_user_id`
     FOREIGN KEY (`user_id` )
     REFERENCES `feeder`.`users` (`id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE RESTRICT)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
